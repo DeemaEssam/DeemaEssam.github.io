@@ -78,3 +78,9 @@ button {
     position: relative;
     /* left: 100px; */
 }
+
+.size{
+  width: 105px;
+  height: 155px;
+  padding: 10px 3px;
+}
