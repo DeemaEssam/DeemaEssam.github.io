@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple Maze Game</title>
+	<title>Maze Game</title>
 	<style>
 		#maze {
 			position: relative;
 			width: 500px;
 			height: 500px;
-			background-color: #eee;
+			background-color: #222;
 			margin: 0 auto;
 			overflow: hidden;
 		}
@@ -18,56 +18,107 @@
 			left: 0;
 			width: 50px;
 			height: 50px;
-			background-color: blue;
+			background-color: yellow;
 			border-radius: 50%;
 			transition: all .2s ease;
 		}
 
-		#wall1 {
+		.wall {
 			position: absolute;
+			background-color: white;
+		}
+
+		#wall1 {
 			top: 0;
 			left: 0;
 			width: 50px;
 			height: 500px;
-			background-color: black;
 		}
 
 		#wall2 {
-			position: absolute;
 			top: 0;
 			left: 450px;
 			width: 50px;
 			height: 500px;
-			background-color: black;
 		}
 
 		#wall3 {
-			position: absolute;
 			top: 0;
 			left: 0;
 			width: 500px;
 			height: 50px;
-			background-color: black;
 		}
 
 		#wall4 {
-			position: absolute;
 			top: 450px;
 			left: 0;
 			width: 500px;
 			height: 50px;
-			background-color: black;
 		}
 	</style>
 </head>
 <body>
 	<div id="maze">
 		<div id="player"></div>
-		<div id="wall1"></div>
-		<div id="wall2"></div>
-		<div id="wall3"></div>
-		<div id="wall4"></div>
+		<div class="wall" id="wall1"></div>
+		<div class="wall" id="wall2"></div>
+		<div class="wall" id="wall3"></div>
+		<div class="wall" id="wall4"></div>
 	</div>
-	<script src="maze.js"></script>
+
+	<script>
+		const player = document.getElementById('player');
+		const walls = document.querySelectorAll('.wall');
+		const maze = document.getElementById('maze');
+
+		let x = 0;
+		let y = 0;
+
+		function movePlayer(event) {
+			if (event.keyCode === 37 && x > 0) { // Left Arrow Key
+				x -= 50;
+				player.style.left = x + 'px';
+			} else if (event.keyCode === 38 && y > 0) { // Up Arrow Key
+				y -= 50;
+				player.style.top = y + 'px';
+			} else if (event.keyCode === 39 && x < 450) { // Right Arrow Key
+				x += 50;
+				player.style.left = x + 'px';
+			} else if (event.keyCode === 40 && y < 450) { // Down Arrow Key
+				y += 50;
+				player.style.top = y + 'px';
+			}
+			checkCollision();
+		}
+
+		function checkCollision() {
+			for (let i = 0; i < walls.length; i++) {
+				if (isCollide(player, walls[i])) {
+					alert('Game Over!');
+					x = 0;
+					y = 0;
+					player.style.top = y + 'px';
+					player.style.left = x + 'px';
+				}
+			}
+			if (x === 450 && y === 450) {
+				alert('You Win!');
+				x = 0;
+				y = 0;
+				player.style.top = y + 'px';
+				player.style.left = x + 'px';
+			}
+		}
+
+		function isCollide(a, b) {
+			let aRect = a.getBoundingClientRect();
+			let bRect = b.getBoundingClientRect();
+			return !(
+				(aRect.bottom < bRect.top) || (aRect.top > bRect.bottom) || (aRect.right < bRect.left) || (aRect.left > bRect.right)
+			);
+		}
+
+		document.addEventListener('keydown', movePlayer);
+	</script>
 </body>
 </html>
