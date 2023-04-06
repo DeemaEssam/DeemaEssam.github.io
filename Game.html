@@ -113,98 +113,16 @@
 		function isCollide(a, b) {
 			let aRect = a.getBoundingClientRect();
 			let bRect = b.getBoundingClientRect();
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Maze Game</title>
-	<link rel="stylesheet" type="text/css" href="maze.css">
-</head>
-<body>
+		return !(
+			(aRect.bottom < bRect.top) ||
+			(aRect.top > bRect.bottom) ||
+			(aRect.right < bRect.left) ||
+			(aRect.left > bRect.right)
+		);
+	}
 
-	<div class="row">
-		<div class="col-sm-6">
-			<div id="mazeFrame" class="row">
-				<div id="container">
-					<div class="mbox">
-						<div id="maze">
-							<div id="thingie"></div>
-							<div id="home"></div>
-							<div class="barrier" id="top"></div>
-							<div class="barrier" id="bottom"></div>
-							<div class="barrier" id="left"></div>
-							<div class="barrier" id="right"></div>
-						</div>
-					</div>
-					<div id="controls" class="controls">
-						<div class="buttons">
-							<button class="btn" id="bu"><div class="chevron">↑</div></button>
-							<button class="btn" id="bd"><div class="chevron">↓</div></button>
-							<button class="btn" id="bl"><div class="chevron">←</div></button>
-							<button class="btn" id="br"><div class="chevron">→</div></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	document.addEventListener('keydown', movePlayer);
 
-		<div class="col-sm-6">
-			<section id="questions">
-				<div id="q1" class="question">
-					<h2>Question 1</h2>
-					<p>What is the capital city of France?</p>
-					<ul>
-						<li><input type="radio" name="q1" value="London">London</li>
-						<li><input type="radio" name="q1" value="Paris">Paris</li>
-						<li><input type="radio" name="q1" value="Berlin">Berlin</li>
-					</ul>
-				</div>
-				<div id="q2" class="question">
-					<h2>Question 2</h2>
-					<p>What is the highest mountain in the world?</p>
-					<ul>
-						<li><input type="radio" name="q2" value="Mount Everest">Mount Everest</li>
-						<li><input type="radio" name="q2" value="Kilimanjaro">Kilimanjaro</li>
-						<li><input type="radio" name="q2" value="Rocky Mountains">Rocky Mountains</li>
-					</ul>
-				</div>
-				<div id="q3" class="question">
-					<h2>Question 3</h2>
-					<p>What is the capital city of Japan?</p>
-					<ul>
-						<li><input type="radio" name="q3" value="Beijing">Beijing</li>
-						<li><input type="radio" name="q3" value="Tokyo">Tokyo</li>
-						<li><input type="radio" name="q3" value="Seoul">Seoul</li>
-					</ul>
-				</div>
-				<div id="q4" class="question">
-					<h2>Question 4</h2>
-					<p>What is the smallest country in the world?</p>
-					<ul>
-						<li><input type="radio
-    <div id="controls" class="controls">
-      <div class="buttons">
-        <button class="btn" id="bu"><div class="chevron">↑</div></button>
-        <button class="btn" id="bd"><div class="chevron">↓</div></button>
-        <button class="btn" id="bl"><div class="chevron">←</div></button>
-        <button class="btn" id="br"><div class="chevron">→</div></button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="questions">
-  <section id="question1" style="display:none;">
-    <form>
-      <p>What is the capital of France?</p>
-      <label><input type="radio" name="q1" value="paris">Paris</label><br>
-      <label><input type="radio" name="q1" value="london">London</label><br>
-      <label><input type="radio" name="q1" value="tokyo">Tokyo</label><br>
-      <button type="button" onclick="checkAnswer()">Submit</button>
-    </form>
-  </section>
-</div>
-
-<script src="maze.js"></script>
-
+</script>
 </body>
-</html>
+</html> 
