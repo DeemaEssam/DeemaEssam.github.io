@@ -26,7 +26,7 @@
 			flex-direction:column;
 			align-items:center;
 			padding-top:15vh;
-			background-image: url(background.gif);
+			background-image: url(pics/background.gif);
 		}
 
 		#puzzle_container{
@@ -650,7 +650,7 @@
 			onClickOnBlock(blockIdx){//try move block and check if puzzle was solved
 				if(this.moveBlock(blockIdx)){
 					if(this.checkPuzzleSolved()){
-						document.body.style.backgroundImage = "url('man.gif')";
+						document.body.style.backgroundImage = "url('pics/man.gif')";
 					}
 				}
 			}
@@ -687,4 +687,3 @@
 
 </body>
 </html>
-
