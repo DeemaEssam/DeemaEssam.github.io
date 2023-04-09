@@ -1,25 +1,690 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>js-maze</title>
-    <link href="src/main.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDE PUZZLE</title>
+
+	<style>
+		*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+		:root{
+			--bgcol:#37474F;
+			--mcol0:#f629e2;
+			--mcol1:#2196F3;
+			--mcol2:#1976D2;
+			--txtcol0:#90A4AE;
+			--txtcol1:#607D8B;
+			--whitecol:#ECEFF1;
+			--darkcol:#263238;
+		}
+
+
+		body{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			padding-top:15vh;
+			background-image: url(background.gif);
+		}
+
+		#puzzle_container{
+			position: relative;
+			width: 50vh;
+			height:50vh;
+			background-color:var(--darkcol);
+			border-radius:8px;
+			border:1px solid var(--mcol0);
+			box-shadow:0px 8px 0px var(--mcol0);
+		}
+
+		.puzzle_block{
+			position:absolute;
+			left:0;
+			top:0;
+			width:33.4%;
+			height:33.4%;
+			background-color:var(--txtcol1);
+			color:var(--whitecol);
+			font-size:5vh;
+			font-weight:bold;
+			text-align:center;
+			padding-top:3%;
+			cursor: pointer;
+			user-select:none;
+			transition:left 0.3s,top 0.3s;
+		}
+
+		/*difficulty container*/
+		#difficulty_container{
+			display:flex;
+			flex-direction:row;
+			width:50vh;
+			height:10vh;
+			background-color:var(--darkcol);
+			border-radius:8px;
+			margin-top:22px;
+		}
+		.difficulty_button{
+			flex-grow:1;
+			background-color:inherit;
+			color:var(--mcol2);
+			text-align:center;
+			font-size:3vh;
+			font-weight:bold;
+			padding-top:5%;
+			margin:4px;
+			cursor: pointer;
+			transition:font-size 0.3s;
+		}
+
+		#timer{
+			flex-grow:1;
+			background-color:inherit;
+			color:var(--mcol2);
+			text-align:center;
+			font-size:3vh;
+			font-weight:bold;
+			padding-top:5%;
+			margin:4px;
+			cursor: pointer;
+			transition:font-size 0.3s;
+		}
+
+		.difficulty_button:hover{
+			opacity:0.8;
+			font-size:3.5vh;
+		}
+		.difficulty_button.active{
+			background-color:inherit;
+			color:var(--mcol0);
+		}
+
+		#question1,
+		#question2,
+		#question3,
+		#question4,
+		#question5,
+		#question6,
+		#question7,
+		#question8,
+		#question9,
+		#question10 {
+			position:fixed;
+			width: 51vh;
+			height:64vh;
+			font-size:5vh;
+			font-weight:bold;
+			color:var(--whitecol);
+			text-align:center;
+			padding-top:1%;
+			cursor: pointer;
+			background-color: rgba(0, 0, 0, 0.895);
+			z-index: 2;
+		}
+	</style>
 </head>
 <body>
-<canvas height="600" id="mazeCanvas" width="600"></canvas>
-<script src="src/js/cell.js"></script>
-<script src="src/js/clock.js"></script>
-<script src="src/js/maze.js"></script>
-<script src="src/js/main.js"></script>
+    <div id="game">
+		<div id="puzzle_container">
+			<div class="puzzle_block">eins</div>
+			<div class="puzzle_block">zwei</div>
+			<div class="puzzle_block">drei</div>
+			<div class="puzzle_block">vier</div>
+			<div class="puzzle_block">fünf</div>
+			<div class="puzzle_block">sechs</div>
+			<div class="puzzle_block">sieben</div>
+			<div class="puzzle_block">acht</div>
+		</div>
+	</div>
+    <div id="difficulty_container">
+        <div class="difficulty_button active">Restart</div>
+    </div>
 
-<!-- https://tholman.com/github-corners/ -->
-<a href="https://github.com/pickdani/js-maze" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<div id="difficulty_container">
+        <div id="timer">0 seconds</div>
+    </div>
 
-<p id="timer">00:00.00</p>
+	<div id="question1">
+		<form>
+		<label style="font-size: 30px;"  for="1st">zwei - null = ?</label><br><br>
+		<input type="radio" id="sechs" name="1st" value="sechs">
+		<label style="font-size: 30px;"  for="sechs">sechs</label><br>
 
-<div class='container'>
-    <button id="btn1" class="button" onClick="window.location.reload()">new maze</button>
-    <button id="btn2" class="button" onClick="solve()">solve</button>
-</div>
+		<input type="radio" id="zwei" name="1st" value="zwei">
+		<label style="font-size: 30px;"  for="zwei">zwei</label><br>
+
+		<input type="radio" id="drei" name="1st" value="drei">
+		<label style="font-size: 30px;" for="drei">drei</label><br><br>
+		<input style="font-size: 25px;" id="submit" type="submit" value="Submit">
+		</form>
+	</div>
+	
+	<div id="question2">
+		<form>
+		<label style="font-size: 25px;"  for="2nd">drei + zehn = ?</label><br><br><br>
+		<input type="radio" id="vierzehn" name="2nd" value="vierzehn">
+		<label style="font-size: 25px;" for="vierzehn">vierzehn</label><br>
+
+		<input type="radio" id="dreißig" name="2nd" value="dreißig">
+		<label style="font-size: 25px;" for="dreißig">dreißig</label><br>
+
+		<input type="radio" id="dreizehn" name="2nd" value="dreizehn"><!--1111111-->
+		<label style="font-size: 25px;" for="dreizehn">dreizehn</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit" >
+		</form>
+	</div>
+	
+	<div id="question3">
+		<form>
+		<label style="font-size: 30px;"  for="3rd">dreißig + zehn = ?</label><br><br><br>
+		<input type="radio" id="vierzig" name="3rd" value="vierzig">
+		<label style="font-size: 25px;" for="vierzig">vierzig</label><br><!--1111-->
+
+		<input type="radio" id="vierzig" name="3rd" value="dreißig">
+		<label style="font-size: 25px;" for="dreißig">dreißig</label><br>
+
+		<input type="radio" id="funfzig" name="3rd" value="funfzig">
+		<label style="font-size: 25px;" for="funfzig">funfzig</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit" >
+		</form>
+	</div>
+
+	<div id="question4">
+		<form>
+		<label style="font-size: 30px;"  for="4th">achtzehn + acht = ?</label><br><br><br>
+		<input type="radio" id="neunundachtzig" name="4th" value="neunundachtzig">
+		<label style="font-size: 25px;"  for="neunundachtzig">neunundachtzig</label><br>
+
+		<input type="radio" id="siebenundneunzig" name="4th" value="siebenundneunzig">
+		<label style="font-size: 25px;"  for="siebenundneunzig">siebenundneunzig</label><br>
+
+		<input type="radio" id="sechsundzwanzig" name="4th" value="sechsundzwanzig">
+		<label style="font-size: 25px;"  for="sechsundzwanzig">sechsundzwanzig</label><br><br><br><!--llllll -->
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+	
+	<div id="question5">
+		<form>
+		<label style="font-size: 25px;"  for="5th">ein­hundert + eins = ?</label><br><br><br>
+		<input type="radio" id="einhundertundeins" name="5th" value="einhundertundeins"><!--1111-->
+		<label style="font-size: 25px;"  for="einhundertundeins">einhundertundeins</label><br>
+
+		<input type="radio" id="neunhundertneun" name="5th" value="neunhundertneun">
+		<label style="font-size: 25px;"  for="neunhundertneun">neunhundertneun</label><br>
+
+		<input type="radio" id="neununddreißig" name="5th" value="neununddreißig">
+		<label style="font-size: 25px;"  for="neununddreißig">neununddreißig</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+
+	<div id="question6">
+		<form>
+		<label style="font-size: 18px;"  for="6th">drei­hundert­vier­und­zwanzig <br>+ drei­hundert­vier­und­zwanzig = ?</label><br><br>
+		<input type="radio" id="siebenhundert­acht­und­vierzig" name="6th" value="siebenhundert­acht­und­vierzig"><!--11111-->
+		<label style="font-size: 17px;" for="siebenhundert­acht­und­vierzig">siebenhundert­acht­und­vierzig</label><br>
+
+		<input type="radio" id="vierhundertsechsundachtzig" name="6th" value="vierhundertsechsundachtzig">
+		<label style="font-size: 17px;" for="vierhundertsechsundachtzig">vierhundertsechs und achtzig</label><br>
+
+		<input type="radio" id="achthundertsechsundvierzig" name="6th" value="achthundertsechsundvierzig">
+		<label style="font-size: 17px;" for="achthundertsechsundvierzig">achthundertsechs und vierzig</label><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit" >
+		</form>
+	</div>
+	
+	<div id="question7">
+		<form>
+		<label style="font-size: 20px;"  for="7th">ein­hundert­fünfzig <br> + drei­hundert­fünfzig = ?</label><br><br>
+		<input type="radio" id="vierhundert" name="7th" value="vierhundert">
+		<label style="font-size: 20px;"  for="vierhundert">vierhundert</label><br>
+
+		<input type="radio" id="fünfhundert" name="7th" value="fünfhundert"><!--1111111111-->
+		<label style="font-size: 20px;"  for="fünfhundert">fünfhundert</label><br>
+
+		<input type="radio" id="dreihunderts" name="7th" value="dreihunderts">
+		<label style="font-size: 20px;"  for="dreihunderts">dreihunderts</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+
+	<div id="question8">
+		<form>
+		<label style="font-size: 23px;"  for="8th">sieben­hundert <br>+ acht­und­siebzig = ?</label><br><br>
+		<input type="radio" id="siebenhundertsiebenundsiebzig" name="8th" value="siebenhundertsiebenundsiebzig">
+		<label style="font-size: 16px;"  for="siebenhundertsiebenundsiebzig">siebenhundertsieben und siebzig</label><br>
+
+		<input type="radio" id="siebenhundertachtundsiebzig" name="8th" value="siebenhundertachtundsiebzig">
+		<label style="font-size: 16px;"  for="siebenhundertachtundsiebzig">siebenhundertacht und siebzig</label><br><!--11111111-->
+
+		<input type="radio" id="siebenhundertsiebenundachtzig" name="8th" value="siebenhundertsiebenundachtzig">
+		<label style="font-size: 16px;"  for="siebenhundertsiebenundachtzig">siebenhundertsieben und achtzig</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+	
+	<div id="question9">
+		<form>
+		<label style="font-size: 23px;"  for="9th">fünf­tausend <br>+ ein­tausend = ?</label><br><br>
+		<input type="radio" id="sechstausend" name="9th" value="sechstausend">
+		<label style="font-size: 25px;"  for="sechstausend">sechstausend</label><br><!--1111111-->
+
+		<input type="radio" id="sechstausendsechs" name="9th" value="sechstausendsechs">
+		<label style="font-size: 25px;"  for="sechstausendsechs">sechstausendsechs</label><br>
+
+		<input type="radio" id="sechstausendsechzig" name="9th" value="sechstausendsechzig">
+		<label style="font-size: 25px;"  for="sechstausendsechzig">sechstausendsechzig</label><br><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+	
+	<div id="question10">
+		<form>
+		<label style="font-size: 19px;"  for="10th">zweihundertneunundneunzig <br> + zweitausend = ?</label><br>
+		<input type="radio" id="neuntausendneunhundertzweiundzwanzig" name="10th" value="neuntausendneunhundertzweiundzwanzig">
+		<label style="font-size: 14px;"  for="neuntausendneunhundertzweiundzwanzig">neuntausendneunh und ertzwei und zwanzig</label><br>
+
+		<input type="radio" id="zweitausend­zweihundert­neunundneunzig" name="10th" value="zweitausend­zweihundert­neunundneunzig"><!--1111111-->
+		<label style="font-size: 14px;"  for="zweitausend­zweihundert­neunundneunzig">zweitausend­zweih und ert­neun und neunzig</label><br>
+
+		<input type="radio" id="achtundneunzig" name="10th" value="achtundneunzig">
+		<label style="font-size: 14px;"  for="achtundneunzig">achtundneunzig</label><br><br>
+		<input style="font-size: 20px;"  type="submit" value="Submit">
+		</form>
+	</div>
+
+    <script>
+		let timeElapsed = 0; // define a global variable to store the time elapsed value
+		const timer = document.getElementById('timer'); // get the timer element
+
+		setInterval(() => {
+			timeElapsed++; // increment the time elapsed value every second
+			timer.innerText = `${timeElapsed} seconds`; // update the timer element with the new time elapsed value
+		}, 1000);
+
+//--------------------------------------------------------------------------------------------------------------------
+      // get the div elements
+      var div1 = document.getElementById("game");
+      var div2 = document.getElementById("question1");
+      var div3 = document.getElementById("question2");
+      var div4 = document.getElementById("question3");
+      var div5 = document.getElementById("question4");
+      var div6 = document.getElementById("question5");
+      var div7 = document.getElementById("question6");
+      var div8 = document.getElementById("question7");
+      var div9 = document.getElementById("question8");
+      var div10 = document.getElementById("question9");
+      var div11 = document.getElementById("question10");
+
+        // set the initial state of the div elements
+      div1.style.display = "block";
+      div2.style.display = "none";
+      div3.style.display = "none";
+      div4.style.display = "none";
+      div5.style.display = "none";
+      div6.style.display = "none";
+      div7.style.display = "none";
+      div8.style.display = "none";
+      div9.style.display = "none";
+      div10.style.display = "none";
+      div11.style.display = "none";
+
+      setTimeout(function() {
+        div1.style.display = "block";
+        div2.style.display = "block";
+      }, 100);
+
+      // handle form submission for the first question
+      const form1 = document.querySelector('#question1 form');
+      form1.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const answer1 = document.querySelector('input[name="1st"]:checked');
+        const correctAnswers = {
+          "1st": "zwei"
+        };
+
+        if (answer1 && answer1.value === correctAnswers["1st"]) {
+          div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+          div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+          div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "block";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 6000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the second question
+          const form2 = document.querySelector('#question2 form');
+          form2.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer2 = document.querySelector('input[name="2nd"]:checked');
+          const correctAnswers = {
+          "2nd": "dreizehn"
+          };
+
+          if (answer2 && answer2.value === correctAnswers["2nd"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "block";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 6000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the third question
+          const form3 = document.querySelector('#question3 form');
+          form3.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer3 = document.querySelector('input[name="3rd"]:checked');
+          const correctAnswers = {
+          "3rd": "vierzig"
+          };
+
+          if (answer3 && answer3.value === correctAnswers["3rd"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "block"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 6000);
+          } else {
+            return false;
+          }
+          });
+//---------------------------------------------------------------------------------
+          // handle form submission for the second question
+          const form4 = document.querySelector('#question4 form');
+          form4.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer4 = document.querySelector('input[name="4th"]:checked');
+          const correctAnswers = {
+          "4th": "sechsundzwanzig"
+          };
+
+          if (answer4 && answer4.value === correctAnswers["4th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "block"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 5000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the third question
+          const form5 = document.querySelector('#question5 form');
+          form5.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer5 = document.querySelector('input[name="5th"]:checked');
+          const correctAnswers = {
+          "5th": "einhundertundeins"
+          };
+
+          if (answer5 && answer5.value === correctAnswers["5th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+            setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "block"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 5000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the second question
+          const form6 = document.querySelector('#question6 form');
+          form6.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer6 = document.querySelector('input[name="6th"]:checked');
+          const correctAnswers = {
+          "6th": "siebenhundert­acht­und­vierzig"
+          };
+
+          if (answer6 && answer6.value === correctAnswers["6th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "block";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 5000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the third question
+          const form7 = document.querySelector('#question7 form');
+          form7.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer7 = document.querySelector('input[name="7th"]:checked');
+          const correctAnswers = {
+          "7th": "fünfhundert"
+          };
+
+          if (answer7 && answer7.value === correctAnswers["7th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "block"; div10.style.display = "none"; div11.style.display = "none";
+          }, 4000);
+          } else {
+            return false;
+          }
+          });
+//---------------------------------------------------------------------------------
+          // handle form submission for the second question
+          const form8 = document.querySelector('#question8 form');
+          form8.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer8 = document.querySelector('input[name="8th"]:checked');
+          const correctAnswers = {
+          "8th": "siebenhundertachtundsiebzig"
+          };
+
+          if (answer8 && answer8.value === correctAnswers["8th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+          setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "block"; div11.style.display = "none";
+          }, 4000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the third question
+          const form9 = document.querySelector('#question9 form');
+          form9.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer9 = document.querySelector('input[name="9th"]:checked');
+          const correctAnswers = {
+          "9th": "sechstausend"
+          };
+
+          if (answer9 && answer9.value === correctAnswers["9th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+            setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "block";
+          }, 4000);
+          } else {
+            return false;
+          }
+          });
+
+          // handle form submission for the third question
+          const form10 = document.querySelector('#question10 form');
+          form10.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const answer10 = document.querySelector('input[name="10th"]:checked');
+          const correctAnswers = {
+          "10th": "zweitausend­zweihundert­neunundneunzig"
+          };
+
+          if (answer10 && answer10.value === correctAnswers["10th"]) {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+
+            setTimeout(function() {
+            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
+          }, 4000);
+          } else {
+            return false;
+          }
+          });
+// -----------------------------------------------------------------------------------------------
+
+
+		const GameDifficulty=[20,50,70];
+		class Game{
+			difficulty;//difficulty based on GameDifficulty array
+			cols=3;//how many colomns
+			rows=3;//how many rows
+			count;//cols*rows
+			blocks;//the html elements with className="puzzle_block"
+			emptyBlockCoords=[2,2];//the coordinates of the empty block
+			indexes=[];//keeps track of the order of the blocks
+
+			constructor(difficultyLevel=1){
+				this.difficulty=GameDifficulty[difficultyLevel-1];
+				this.count=this.cols*this.rows;
+				this.blocks=document.getElementsByClassName("puzzle_block");//grab the blocks
+				this.init();
+			}
+
+			init(){//position each block in its proper position
+				for(let y=0;y<this.rows;y++){
+					for(let x=0;x<this.cols;x++){
+						let blockIdx=x+y*this.cols;
+						if(blockIdx+1>=this.count)break;
+						let block=this.blocks[blockIdx];
+						this.positionBlockAtCoord(blockIdx,x,y);
+						block.addEventListener('click',(e)=>this.onClickOnBlock(blockIdx));
+						this.indexes.push(blockIdx);
+					}
+				}
+				this.indexes.push(this.count-1);
+				this.randomize(this.difficulty);
+			}
+
+			randomize(iterationCount){//move a random block (x iterationCount)
+				for(let i=0;i<iterationCount;i++){
+					let randomBlockIdx=Math.floor(Math.random()*(this.count-1));
+					let moved=this.moveBlock(randomBlockIdx);
+					if(!moved)i--;
+				}
+			}
+
+			moveBlock(blockIdx){//moves a block and return true if the block has moved
+				let block=this.blocks[blockIdx];
+				let blockCoords=this.canMoveBlock(block);
+				if(blockCoords!=null){
+					this.positionBlockAtCoord(blockIdx,this.emptyBlockCoords[0],this.emptyBlockCoords[1]);
+					this.indexes[this.emptyBlockCoords[0]+this.emptyBlockCoords[1]*this.cols]=this.indexes[blockCoords[0]+blockCoords[1]*this.cols];
+					this.emptyBlockCoords[0]=blockCoords[0];
+					this.emptyBlockCoords[1]=blockCoords[1];
+					return true;
+				}
+				return false;
+			}
+			canMoveBlock(block){//return the block coordinates if he can move else return null
+				let blockPos=[parseInt(block.style.left),parseInt(block.style.top)];
+				let blockWidth=block.clientWidth;
+				let blockCoords=[blockPos[0]/blockWidth,blockPos[1]/blockWidth];
+				let diff=[Math.abs(blockCoords[0]-this.emptyBlockCoords[0]),Math.abs(blockCoords[1]-this.emptyBlockCoords[1])];
+				let canMove=(diff[0]==1&&diff[1]==0)||(diff[0]==0&&diff[1]==1);
+				if(canMove)return blockCoords;
+				else return null;
+			}
+
+			positionBlockAtCoord(blockIdx,x,y){//position the block at a certain coordinates
+				let block=this.blocks[blockIdx];
+				block.style.left=(x*block.clientWidth)+"px";
+				block.style.top=(y*block.clientWidth)+"px";
+			}
+
+			onClickOnBlock(blockIdx){//try move block and check if puzzle was solved
+				if(this.moveBlock(blockIdx)){
+					if(this.checkPuzzleSolved()){
+						document.body.style.backgroundImage = "url('man.gif')";
+					}
+				}
+			}
+
+			checkPuzzleSolved(){//return if puzzle was solved
+				for(let i=0;i<this.indexes.length;i++){
+					//console.log(this.indexes[i],i);
+					if(i==this.emptyBlockCoords[0]+this.emptyBlockCoords[1]*this.cols)continue;
+					if(this.indexes[i]!=i)return false;
+				}
+				return true;
+			}
+
+			setDifficulty(difficultyLevel){//set difficulty
+				this.difficulty=GameDifficulty[difficultyLevel-1];
+				this.randomize(this.difficulty);
+			}
+
+		}
+
+		var game=new Game(1);//instantiate a new Game
+
+
+		//taking care of the difficulty buttons
+		var difficulty_buttons=Array.from(document.getElementsByClassName("difficulty_button"));
+		difficulty_buttons.forEach((elem,idx)=>{
+			elem.addEventListener('click',(e)=>{
+				difficulty_buttons[GameDifficulty.indexOf(game.difficulty)].classList.remove("active");
+				elem.classList.add("active");
+				game.setDifficulty(idx+1);
+			});
+		});
+	</script>
 
 </body>
 </html>
+
