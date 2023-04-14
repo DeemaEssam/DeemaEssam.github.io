@@ -1,3 +1,4 @@
+<!-- يوقف الوقت لما يفوز, فيس معصب اذا جاوب غلط,  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -302,9 +303,12 @@
 
 		setInterval(() => {
 			timeElapsed++; // increment the time elapsed value every second
-			timer.innerText = `${timeElapsed} seconds`; // update the timer element with the new time elapsed value
+			timer.innerText = `${timeElapsed} Sekunden`; // update the timer element with the new time elapsed value
 		}, 1000);
-
+        
+        function stopTimer() {
+  clearInterval(intervalId);
+}
 //--------------------------------------------------------------------------------------------------------------------
       // get the div elements
       var div1 = document.getElementById("game");
@@ -337,6 +341,51 @@
         div2.style.display = "block";
       }, 100);
 
+	  	var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		// create a function to generate a random number between two values
+		function random(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		// create an array to store the images
+		var crys = [];
+
+		// create a function to generate a new cry image and add it to the page
+		function createCry() {
+		// create a new image element
+		var cry = document.createElement('img');
+		cry.src = "cry.png"; // replace with the path to your cry image
+		cry.style.position = 'absolute';
+
+		// set the initial position of the image to a random location on the screen
+		var x = random(0, width);
+		var y = random(0, height);
+		cry.style.left = x + 'px';
+		cry.style.top = y + 'px';
+
+		// set the initial size and rotation of the image
+		var size = random(50, 20);
+		cry.style.width = size + 'px';
+		cry.style.transform = 'rotate(' + random(0, 360) + 'deg)';
+
+		// add the image to the page
+		document.body.appendChild(cry);
+
+		// add the image to the array
+		crys.push(cry);
+
+		// animate the image to move upwards and disappear off the top of the screen
+		var duration = random(5000, 1000);
+		var delay = random(0, 50);
+		setTimeout(function() {
+			cry.style.transition = 'transform ' + duration + 'ms linear, opacity ' + duration + 'ms linear';
+			cry.style.transform = 'translateY(-' + height + 'px) rotate(' + random(0, 360) + 'deg)';
+			cry.style.opacity = '0';
+		}, delay);
+		}
+
       // handle form submission for the first question
       const form1 = document.querySelector('#question1 form');
       form1.addEventListener('submit', (event) => {
@@ -347,17 +396,14 @@
         };
 
         if (answer1 && answer1.value === correctAnswers["1st"]) {
-          div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
+          div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "block"; div4.style.display = "none";
           div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
           div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "block";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 6000);
-          } else {
-            return false;
+		} else {
+			for (var i = 0; i < 50; i++) {
+				createCry();
+			}
+			return false;
           }
           });
 
@@ -371,18 +417,15 @@
           };
 
           if (answer2 && answer2.value === correctAnswers["2nd"]) {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "block";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 6000);
-          } else {
-            return false;
-          }
+		  } else {
+			for (var i = 0; i < 50; i++) {
+				createCry();
+			}
+			return false;
+			}
           });
 
           // handle form submission for the third question
@@ -396,17 +439,14 @@
 
           if (answer3 && answer3.value === correctAnswers["3rd"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
             div5.style.display = "block"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 6000);
-          } else {
-            return false;
-          }
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				return false;
+			}
           });
 //---------------------------------------------------------------------------------
           // handle form submission for the second question
@@ -420,17 +460,14 @@
 
           if (answer4 && answer4.value === correctAnswers["4th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "block"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 5000);
-          } else {
-            return false;
-          }
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				return false;
+			}
           });
 
           // handle form submission for the third question
@@ -444,17 +481,14 @@
 
           if (answer5 && answer5.value === correctAnswers["5th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-            setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "block"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 5000);
-          } else {
-            return false;
-          }
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				return false;
+			}
           });
 
           // handle form submission for the second question
@@ -468,17 +502,14 @@
 
           if (answer6 && answer6.value === correctAnswers["6th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "block";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 5000);
-          } else {
-            return false;
-          }
+		  } else {
+			for (var i = 0; i < 50; i++) {
+				createCry();
+			}
+			return false;
+		}
           });
 
           // handle form submission for the third question
@@ -493,16 +524,13 @@
           if (answer7 && answer7.value === correctAnswers["7th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "block"; div10.style.display = "none"; div11.style.display = "none";
-          }, 4000);
-          } else {
-            return false;
-          }
+			} else {
+					for (var i = 0; i < 50; i++) {
+						createCry();
+					}
+					return false;
+			}
           });
 //---------------------------------------------------------------------------------
           // handle form submission for the second question
@@ -517,15 +545,12 @@
           if (answer8 && answer8.value === correctAnswers["8th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-          setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "block"; div11.style.display = "none";
-          }, 4000);
           } else {
-            return false;
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+            	return false;
           }
           });
 
@@ -541,14 +566,12 @@
           if (answer9 && answer9.value === correctAnswers["9th"]) {
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-            setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "block";
-          }, 4000);
           } else {
+				// call the createFlower function multiple times to generate multiple flowers
+				for (var i = 0; i < 50; i++) {
+				createCry();
+			}
             return false;
           }
           });
@@ -566,19 +589,15 @@
             div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
             div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
             div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-
-            setTimeout(function() {
-            div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none"; div4.style.display = "none";
-            div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
-            div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "none";
-          }, 4000);
           } else {
+				// call the createFlower function multiple times to generate multiple flowers
+				for (var i = 0; i < 50; i++) {
+				createCry();
+			}
             return false;
           }
           });
 // -----------------------------------------------------------------------------------------------
-
-
 		const GameDifficulty=[20,50,70];
 		class Game{
 			difficulty;//difficulty based on GameDifficulty array
@@ -651,6 +670,7 @@
 				if(this.moveBlock(blockIdx)){
 					if(this.checkPuzzleSolved()){
 						document.body.style.backgroundImage = "url('pics/man.gif')";
+                        
 					}
 				}
 			}
