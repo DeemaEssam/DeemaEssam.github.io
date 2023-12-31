@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registerartion Form</title>
-<link rel="shortcut icon" type="image/x-icon" href="https://github.com/Shumokh1/Research-Tracker/blob/main/pictures/MagicEraser_231212_123200.png?raw=true">
-<!-- background-color: rgb(147, 142, 214); -->
-        <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registerartion Form</title>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://github.com/Shumokh1/Research-Tracker/blob/main/pictures/MagicEraser_231212_123200.png?raw=true">
+    <!-- background-color: rgb(147, 142, 214); -->
+    <style>
         body {
             font-family: Arial, sans-serif;
             background-image: url("https://github.com/Shumokh1/Research-Tracker/blob/main/pictures/MagicEraser_231212_123200.png?raw=true");
@@ -17,6 +18,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .form-container {
             background: white;
             padding: 20px;
@@ -24,13 +26,17 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        input[type="username"], input[type="password"], input[type="email"]{
+
+        input[type="username"],
+        input[type="password"],
+        input[type="email"] {
             width: calc(100% - 20px);
             margin-bottom: 15px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
         .btn {
             background-color: #4CAF50;
             color: white;
@@ -40,9 +46,11 @@
             cursor: pointer;
             width: 100%;
         }
+
         .btn:hover {
             opacity: 0.8;
         }
+
         .form-footer {
             margin-top: 10px;
             text-align: center;
@@ -52,15 +60,17 @@
             background-color: rgb(255, 255, 255);
             color: rgb(133, 87, 133);
             background-size: cover;
-            backdrop-filter: blur(5px); /* Apply blur effect */
+            backdrop-filter: blur(5px);
+            /* Apply blur effect */
             background-attachment: fixed;
         }
 
-        nav{
+        nav {
             background-color: rgb(236, 268, 211);
         }
 
-        header, footer {
+        header,
+        footer {
             background-color: rgb(236, 168, 211);
             color: rgb(255, 240, 255);
         }
@@ -84,8 +94,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Full viewport height */
-            
+            min-height: 100vh;
+            /* Full viewport height */
+
         }
 
         /* Existing styles */
@@ -100,50 +111,56 @@
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             padding: 12px;
             border-radius: 5px;
             z-index: 1;
-            bottom: 5%; /* Position the div above the button */
-            left: 50%; /* Start from the middle of the button */
-            transform: translateX(-50%); /* Center the div relative to the button */
-            
+            bottom: 5%;
+            /* Position the div above the button */
+            left: 50%;
+            /* Start from the middle of the button */
+            transform: translateX(-50%);
+            /* Center the div relative to the button */
+
         }
-        </style>
+    </style>
 </head>
+
 <body>
 
-  <div class="row">
-    <div class="col-6">
-      <div class="form-container">
-        <h2>Registration</h2>
-          <form method="post" action="/sw/FlaskApp/templates/registration.php">
-              
-              <input name="email" type="email" placeholder="Enter your email" required>
-              <span style="color: red;"></span>
-              <input name="username" type="username" placeholder="Enter your username" required>
-              <span style="color: red;"></span>
-              <input name="password" type="password" placeholder="Enter your password" required>
-              <button type="submit" class="btn btn-primary" name="register">register</button>
-              <div class="form-footer">
-              Have an exiting account? <a onclick="login()" href="#">SignIn</a>
-                <br><br>
-                <center><a href="#" onmouseover="showHelp()" onmouseout="hideHelp()">Help</a>
-                <div id="helpDiv" class="help-content">
-                    <p>This website assists educators and students in locating studies published by particular researchers.</p>
-                </div></center>
-        </form>
-      </div>
-    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-container">
+                <h2>Registration</h2>
+                <form method="post" action="">
+                    <input name="email" type="email" placeholder="Enter your email" required>
+                    <span style="color: red;">
+                    </span>
+                    <input name="username" type="username" placeholder="Enter your username" required>
+                    <span style="color: red;">
+                    </span>
+                    <input name="password" type="password" placeholder="Enter your password" required>
+                    <button type="submit" class="btn btn-primary" name="register" onclick="search.html">register</button>
+                    <div class="form-footer">
+                        Have an exiting account? <a onclick="login()" href="#">SignIn</a>
+                        <br><br>
+                        <center><a href="#" onmouseover="showHelp()" onmouseout="hideHelp()">Help</a>
+                            <div id="helpDiv" class="help-content">
+                                <p>This website assists educators and students in locating studies published by
+                                    particular researchers.</p>
+                            </div>
+                        </center>
+                </form>
+            </div>
+        </div>
 
-  </div>
+    </div>
 
 </body>
 
 <script>
-    function login()
-    {
-        window.location.href = 'login.php';
+    function login() {
+        window.location.href = 'login.html';
         return false;
     }
 
@@ -155,4 +172,5 @@
         document.getElementById('helpDiv').style.display = 'none';
     }
 </script>
+
 </html>
