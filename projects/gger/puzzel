@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bgcol: #37474F;
+            --mcol0: #f629ca;
+            --mcol1: #2196F3;
+            --mcol2: #1976D2;
+            --txtcol0: #90A4AE;
+            --txtcol1: #607D8B;
+            --whitecol: #ECEFF1;
+            --darkcol: #263238;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15vh;
+            background-image: url(pics/background.gif);
+        }
+
+        #puzzle_container {
+            position: relative;
+            width: 50vh;
+            height: 50vh;
+            background-color: var(--darkcol);
+            border-radius: 8px;
+            border: 1px solid var(--mcol0);
+            box-shadow: 0px 8px 0px var(--mcol0);
+        }
+
+        .puzzle_block {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 33.4%;
+            height: 33.4%;
+            background-color: var(--txtcol1);
+            color: var(--whitecol);
+            font-size: 5vh;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 3%;
+            cursor: pointer;
+            user-select: none;
+            transition: left 0.3s, top 0.3s;
+            border-radius: 8px;
+        }
+
+        #difficulty_container {
+            display: flex;
+            flex-direction: row;
+            width: 50vh;
+            height: 10vh;
+            background-color: var(--darkcol);
+            border-radius: 8px;
+            margin-top: 22px;
+        }
+
+        .difficulty_button {
+            flex-grow: 1;
+            background-color: inherit;
+            text-align: center;
+            font-size: 3vh;
+            font-weight: bold;
+            padding-top: 5%;
+            margin: 4px;
+            cursor: pointer;
+            transition: font-size 0.3s;
+            color: rgb(189, 54, 178);
+        }
+
+        #timer {
+            flex-grow: 1;
+            background-color: inherit;
+            color: var(--mcol2);
+            text-align: center;
+            font-size: 3vh;
+            font-weight: bold;
+            padding-top: 5%;
+            margin: 4px;
+            cursor: pointer;
+            transition: font-size 0.3s;
+        }
+
+        .difficulty_button:hover {
+            opacity: 0.8;
+            font-size: 3.5vh;
+        }
+
+        .difficulty_button.active {
+            background-color: inherit;
+            color: var(--mcol0);
+        }
+
+        #question1,
+        #question2,
+        #question3,
+        #question4,
+        #question5,
+        #question6,
+        #question7,
+        #question8,
+        #question9,
+        #question10 {
+            position: fixed;
+            width: 51vh;
+            height: 64vh;
+            font-size: 5vh;
+            font-weight: bold;
+            color: var(--whitecol);
+            text-align: center;
+            padding-top: 1%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.895);
+            z-index: 2;
+            border-radius: 8px;
+        }
+
+        .congrats-message {
+            position: absolute;
+            top: 37%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.895);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #000000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 999;
+            animation: showCongratsMsg 1s ease-in-out;
+        }
+
+        @keyframes showCongratsMsg {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+	</head>
+
+	<body>
+		<div id="game">
+			<div id="puzzle_container">
+				<div class="puzzle_block">eins</div>
+				<div class="puzzle_block">zwei</div>
+				<div class="puzzle_block">drei</div>
+				<div class="puzzle_block">vier</div>
+				<div class="puzzle_block">fünf</div>
+				<div class="puzzle_block">sechs</div>
+				<div class="puzzle_block">sieben</div>
+				<div class="puzzle_block">acht</div>
+			</div>
+		</div>
+
+		<div id="difficulty_container">
+			<div class="difficulty_button active">
+				<div id="shuffle-button">Shuffle</div>
+			</div>
+		</div>
+
+		<div id="difficulty_container">
+			<div class="difficulty_button active">
+				<div onclick="showHome()">Home page</div>
+			</div>
+		</div>
+		
+	
+		<div id="question1">
+			<form>
+			<label style="font-size: 50px;"  for="1st">2</label><br><br>
+			<input type="radio" id="sechs" name="1st" value="sechs">
+			<label style="font-size: 50px;"  for="sechs">sechs</label><br>
+
+			<input type="radio" id="zwei" name="1st" value="zwei">
+			<label style="font-size: 50px;"  for="zwei">zwei</label><br>
+
+			<input type="radio" id="drei" name="1st" value="drei">
+			<label style="font-size: 50px;" for="drei">drei</label><br><br>
+			<input style="font-size: 35px;" id="submit" type="submit" value="Submit">
+			</form>
+		</div>
+		
+		<div id="question2">
+			<form>
+			<label style="font-size: 50px;"  for="2nd">13</label><br><br>
+			<input type="radio" id="vierzehn" name="2nd" value="vierzehn">
+			<label style="font-size: 50px;" for="vierzehn">vierzehn</label><br>
+
+			<input type="radio" id="dreißig" name="2nd" value="dreißig">
+			<label style="font-size: 50px;" for="dreißig">dreißig</label><br>
+
+			<input type="radio" id="dreizehn" name="2nd" value="dreizehn">
+			<label style="font-size: 50px;" for="dreizehn">dreizehn</label><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit" >
+			</form>
+		</div>
+		
+		<div id="question3">
+			<form>
+			<label style="font-size: 50px;"  for="3rd">40</label><br><br>
+			<input type="radio" id="vierzig" name="3rd" value="vierzig">
+			<label style="font-size: 50px;" for="vierzig">vierzig</label><br>
+
+			<input type="radio" id="vierzig" name="3rd" value="dreißig">
+			<label style="font-size: 50px;" for="dreißig">dreißig</label><br>
+
+			<input type="radio" id="funfzig" name="3rd" value="funfzig">
+			<label style="font-size: 50px;" for="funfzig">funfzig</label><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit" >
+			</form>
+		</div>
+
+		<div id="question4">
+			<form>
+			<label style="font-size: 50px;"  for="4th">26</label><br><br>
+			<input type="radio" id="neunundachtzig" name="4th" value="neunundachtzig">
+			<label style="font-size: 35px;"  for="neunundachtzig">neun und achtzig</label><br>
+
+			<input type="radio" id="siebenundneunzig" name="4th" value="siebenundneunzig">
+			<label style="font-size: 30px;"  for="siebenundneunzig">sieben und neunzig</label><br>
+
+			<input type="radio" id="sechsundzwanzig" name="4th" value="sechsundzwanzig">
+			<label style="font-size: 35px;"  for="sechsundzwanzig">sechs und zwanzig</label><br><br><br><!--llllll -->
+			<input style="font-size: 35px;"  type="submit" value="Submit">
+			</form>
+		</div>
+		
+		<div id="question5">
+			<form>
+			<label style="font-size: 50px;"  for="5th">101</label><br><br>
+			<input type="radio" id="einhundertundeins" name="5th" value="einhundertundeins">
+			<label style="font-size: 34px;"  for="einhundertundeins">einhundert und eins</label><br>
+
+			<input type="radio" id="neunhundertneun" name="5th" value="neunhundertneun">
+			<label style="font-size: 34px;"  for="neunhundertneun">neunhundertneun</label><br>
+
+			<input type="radio" id="neununddreißig" name="5th" value="neununddreißig">
+			<label style="font-size: 34px;"  for="neununddreißig">neun und dreißig</label><br><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit">
+			</form>
+		</div>
+
+
+		<div id="question6">
+			<form>
+			<label style="font-size: 50px;"  for="6th">648</label><br><br>
+			<input type="radio" id="sechshundertachtundvierzig" name="6th" value="sechshundertachtundvierzig">
+			<label style="font-size: 22px;"  for="sechshundertachtundvierzig">sechshundert acht und vierzig</label><br>
+
+			<input type="radio" id="vierhundertsechsundachtzig" name="6th" value="vierhundertsechsundachtzig">
+			<label style="font-size: 22px;" for="vierhundertsechsundachtzig">vierhundert sechs und achtzig</label><br>
+
+			<input type="radio" id="achthundertsechsundvierzig" name="6th" value="achthundertsechsundvierzig">
+			<label style="font-size: 22px;" for="achthundertsechsundvierzig">achthundert sechs und vierzig</label><br><br><br>
+			<input style="font-size: 32px;"  type="submit" value="Submit" >
+			</form>
+		</div>
+
+		<div id="question7">
+			<form>
+			<label style="font-size: 50px;"  for="7th">500</label><br><br>
+			<input type="radio" id="vierhundert" name="7th" value="vierhundert">
+			<label style="font-size: 25px;"  for="vierhundert">vierhundert</label><br>
+
+			<input type="radio" id="fünfhundert" name="7th" value="fünfhundert">
+			<label style="font-size: 25px;"  for="fünfhundert">fünfhundert</label><br>
+
+			<input type="radio" id="dreihunderts" name="7th" value="dreihunderts">
+			<label style="font-size: 25px;"  for="dreihunderts">dreihunderts</label><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit">
+			</form>
+		</div>
+
+		<div id="question8">
+			<form>
+			<label style="font-size: 50px;"  for="8th">787</label><br><br>
+			<input type="radio" id="siebenhundertsiebenundsiebzig" name="8th" value="siebenhundertsiebenundsiebzig">
+			<label style="font-size: 20px;"  for="siebenhundertsiebenundsiebzig">siebenhundertsieben und siebzig</label><br>
+
+			<input type="radio" id="siebenhundertachtundsiebzig" name="8th" value="siebenhundertachtundsiebzig">
+			<label style="font-size: 20px;"  for="siebenhundertachtundsiebzig">siebenhundertacht und siebzig</label><br>
+
+			<input type="radio" id="siebenhundertsiebenundachtzig" name="8th" value="siebenhundertsiebenundachtzig"><!--11111111 -->
+			<label style="font-size: 20px;"  for="siebenhundertsiebenundachtzig">siebenhundertsieben und achtzig</label><br><br><br>
+			<input style="font-size: 33px;"  type="submit" value="Submit">
+			</form>
+		</div>
+		
+		<div id="question9">
+			<form>
+			<label style="font-size: 50px;"  for="9th">6000</label><br><br><br>
+			<input type="radio" id="sechstausend" name="9th" value="sechstausend">
+			 <label style="font-size: 33px;"  for="sechstausend">sechstausend</label><br><!--1111111 -->
+
+			<input type="radio" id="sechstausendsechs" name="9th" value="sechstausendsechs">
+			<label style="font-size: 33px;"  for="sechstausendsechs">sechstausendsechs</label><br>
+
+			<input type="radio" id="sechstausendsechzig" name="9th" value="sechstausendsechzig">
+			<label style="font-size: 33px;"  for="sechstausendsechzig">sechstausendsechzig</label><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit">
+			</form>
+		</div>
+		
+		<div id="question10">
+			<form>
+			<label style="font-size: 50px;"  for="10th">2299</label><br>
+			<input type="radio" id="neuntausendneunhundertzweiundzwanzig" name="10th" value="neuntausendneunhundertzweiundzwanzig">
+			<label style="font-size: 20px;"  for="neuntausendneunhundertzweiundzwanzig">neuntausendneunhundertzwei und zwanzig</label><br>
+
+			<input type="radio" id="zweitausend­zweihundert­neunundneunzig" name="10th" value="zweitausend­zweihundert­neunundneunzig"><!--1111111-->
+			<label style="font-size: 20px;"  for="zweitausend­zweihundert­neunundneunzig">zweitausendzweihundertneun und neunzig</label><br>
+
+			<input type="radio" id="achtundneunzig" name="10th" value="achtundneunzig">
+			<label style="font-size: 20px;"  for="achtundneunzig">achtundneunzig</label><br><br>
+			<input style="font-size: 35px;"  type="submit" value="Submit">
+			</form>
+		</div>
+	</body>
+<!-------------------------------------------------------------------------------------------------------------------->
+    <script>
+		function showHome(){
+			window.location.href = 'index.html';
+			return false;
+		}
+
+		// get the div elements
+		var div1 = document.getElementById("game");
+		var div2 = document.getElementById("question1");
+		var div3 = document.getElementById("question2");
+		var div4 = document.getElementById("question3");
+		var div5 = document.getElementById("question4");
+		var div6 = document.getElementById("question5");
+		var div7 = document.getElementById("question6");
+		var div8 = document.getElementById("question7");
+		var div9 = document.getElementById("question8");
+		var div10 = document.getElementById("question9");
+		var div11 = document.getElementById("question10");
+
+			// set the initial state of the div elements
+		div1.style.display = "block";
+		div2.style.display = "none";
+		div3.style.display = "none";
+		div4.style.display = "none";
+		div5.style.display = "none";
+		div6.style.display = "none";
+		div7.style.display = "none";
+		div8.style.display = "none";
+		div9.style.display = "none";
+		div10.style.display = "none";
+		div11.style.display = "none";
+
+		setTimeout(function() {
+			div1.style.display = "block";
+			div2.style.display = "block";
+		}, 100);
+
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		// create a function to generate a random number between two values
+		function random(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		// create an array to store the images
+		var crys = [];
+
+		// create a function to generate a new cry image and add it to the page
+		function createCry() {
+		// create a new image element
+		var cry = document.createElement('img');
+		cry.src = "pics/cry.png"; // replace with the path to your cry image
+		cry.style.position = 'absolute';
+
+		// set the initial position of the image to a random location on the screen
+		var x = random(0, width);
+		var y = random(0, height);
+		cry.style.left = x + 'px';
+		cry.style.top = y + 'px';
+
+		// set the initial size and rotation of the image
+		var size = random(100, 20);
+		cry.style.width = size + 'px';
+		cry.style.transform = 'rotate(' + random(0, 360) + 'deg)';
+
+		// add the image to the page
+		document.body.appendChild(cry);
+
+		// add the image to the array
+		crys.push(cry);
+
+		// animate the image to move upwards and disappear off the top of the screen
+		var duration = random(5000, 1000);
+		var delay = random(0, 50);
+		setTimeout(function() {
+			cry.style.transition = 'transform ' + duration + 'ms linear, opacity ' + duration + 'ms linear';
+			cry.style.transform = 'translateY(-' + height + 'px) rotate(' + random(0, 360) + 'deg)';
+			cry.style.opacity = '0';
+		}, delay);
+		}
+
+      // handle form submission for the first question
+      	const form1 = document.querySelector('#question1 form');
+      	form1.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer1 = document.querySelector('input[name="1st"]:checked');
+			const correctAnswers = {
+			"1st": "zwei"
+			};
+
+			if (answer1 && answer1.value === correctAnswers["1st"]) {
+			div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "block";
+			div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none";
+			div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none";
+			div10.style.display = "none"; div11.style.display = "none";
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				const audio = new Audio("wrong.mp3");
+				audio.play();
+
+				return false;
+			}
+		});
+
+		// // handle form submission for the second question
+		const form2 = document.querySelector('#question2 form');
+		form2.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer2 = document.querySelector('input[name="2nd"]:checked');
+			const correctAnswers = {
+			"2nd": "dreizehn"
+			};
+
+			if (answer2 && answer2.value === correctAnswers["2nd"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+			div4.style.display = "block"; div5.style.display = "none"; div6.style.display = "none";
+			div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none";
+			div10.style.display = "none"; div11.style.display = "none";
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				const audio = new Audio("wrong.mp3");
+				audio.play();
+
+				return false;
+				}
+			});
+
+		// 	// handle form submission for the third question
+			const form3 = document.querySelector('#question3 form');
+			form3.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer3 = document.querySelector('input[name="3rd"]:checked');
+			const correctAnswers = {
+			"3rd": "vierzig"
+			};
+
+			if (answer3 && answer3.value === correctAnswers["3rd"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+			div4.style.display = "none"; div5.style.display = "block"; div6.style.display = "none";
+			div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none";
+			div10.style.display = "none"; div11.style.display = "none";
+				} else {
+					for (var i = 0; i < 50; i++) {
+						createCry();
+					}
+					const audio = new Audio("wrong.mp3");
+					audio.play();
+
+					return false;
+				}
+			});
+	//---------------------------------------------------------------------------------
+			// handle form submission for the fourth question
+			const form4 = document.querySelector('#question4 form');
+			form4.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer4 = document.querySelector('input[name="4th"]:checked');
+			const correctAnswers = {
+			"4th": "sechsundzwanzig"
+			};
+
+			if (answer4 && answer4.value === correctAnswers["4th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+			div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "block";
+			div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none";
+			div10.style.display = "none"; div11.style.display = "none";
+				} else {
+					for (var i = 0; i < 50; i++) {
+						createCry();
+					}
+					const audio = new Audio("wrong.mp3");
+					audio.play();
+
+					return false;
+				}
+			});
+
+			// handle form submission for the fifth question
+			const form5 = document.querySelector('#question5 form');
+			form5.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer5 = document.querySelector('input[name="5th"]:checked');
+			const correctAnswers = {
+			"5th": "einhundertundeins"
+			};
+
+			if (answer5 && answer5.value === correctAnswers["5th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+				div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none"; 
+				div7.style.display = "block"; div8.style.display = "none"; div9.style.display = "none"; 
+				div10.style.display = "none"; div11.style.display = "none";
+				} else {
+					for (var i = 0; i < 50; i++) {
+						createCry();
+					}
+					const audio = new Audio("wrong.mp3");
+					audio.play();
+
+					return false;
+				}
+			});
+
+			// handle form submission for the sixth question
+			const form6 = document.querySelector('#question6 form');
+			form6.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer6 = document.querySelector('input[name="6th"]:checked');
+			const correctAnswers = {
+			"6th": "sechshundertachtundvierzig"
+			};
+
+			if (answer6 && answer6.value === correctAnswers["6th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+				div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none"; 
+				div7.style.display = "none"; div8.style.display = "block"; div9.style.display = "none"; 
+				div10.style.display = "none"; div11.style.display = "none";
+			} else {
+				for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				const audio = new Audio("wrong.mp3");
+				audio.play();
+				
+				return false;
+			}
+			});
+
+			// handle form submission for the seventh question
+			const form7 = document.querySelector('#question7 form');
+			form7.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer7 = document.querySelector('input[name="7th"]:checked');
+			const correctAnswers = {
+			"7th": "fünfhundert"
+			};
+
+			if (answer7 && answer7.value === correctAnswers["7th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+				div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none"; 
+				div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "block"; 
+				div10.style.display = "none"; div11.style.display = "none";
+				} else {
+						for (var i = 0; i < 50; i++) {
+							createCry();
+						}
+						const audio = new Audio("wrong.mp3");
+						audio.play();
+
+						return false;
+				}
+			});
+	//---------------------------------------------------------------------------------
+			// handle form submission for the eighth question
+			const form8 = document.querySelector('#question8 form');
+			form8.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer8 = document.querySelector('input[name="8th"]:checked');
+			const correctAnswers = {
+			"8th": "siebenhundertsiebenundachtzig"
+			};
+
+			if (answer8 && answer8.value === correctAnswers["8th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+				div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none"; 
+				div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none"; 
+				div10.style.display = "block"; div11.style.display = "none";
+			} else {
+					for (var i = 0; i < 50; i++) {
+						createCry();
+					}
+					const audio = new Audio("wrong.mp3");
+					audio.play();
+
+					return false;
+			}
+			});
+
+			// handle form submission for the ninth question
+			const form9 = document.querySelector('#question9 form');
+			form9.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer9 = document.querySelector('input[name="9th"]:checked');
+			const correctAnswers = {
+			"9th": "sechstausend"
+			};
+
+			if (answer9 && answer9.value === correctAnswers["9th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";div4.style.display = "none";
+				div5.style.display = "none"; div6.style.display = "none"; div7.style.display = "none"; div8.style.display = "none";
+				div9.style.display = "none"; div10.style.display = "none"; div11.style.display = "block";
+			} else {
+					// call the createFlower function multiple times to generate multiple flowers
+					for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				const audio = new Audio("wrong.mp3");
+				audio.play();
+
+				return false;
+			}
+			});
+
+			// handle form submission for the tenth question
+			const form10 = document.querySelector('#question10 form');
+			form10.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const answer10 = document.querySelector('input[name="10th"]:checked');
+			const correctAnswers = {
+			"10th": "zweitausend­zweihundert­neunundneunzig"
+			};
+
+			if (answer10 && answer10.value === correctAnswers["10th"]) {
+				div1.style.display = "block"; div2.style.display = "none"; div3.style.display = "none";
+				div4.style.display = "none"; div5.style.display = "none"; div6.style.display = "none"; 
+				div7.style.display = "none"; div8.style.display = "none"; div9.style.display = "none"; 
+				div10.style.display = "none"; div11.style.display = "none";
+			} else {
+					for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+				const audio = new Audio("wrong.mp3");
+				audio.play();
+				
+				return false;
+			}
+			});
+// -----------------------------------------------------------------------------------------------
+		const GameDifficulty=[20,50,60];
+
+		class Game{
+			difficulty;//difficulty based on GameDifficulty array
+			cols=3;//how many colomns
+			rows=3;//how many rows
+			count;//cols*rows
+			blocks;//the html elements with className="puzzle_block"
+			emptyBlockCoords=[2,2];//the coordinates of the empty block
+			indexes=[];//keeps track of the order of the blocks
+
+			constructor(difficultyLevel=1){
+				this.difficulty=GameDifficulty[difficultyLevel-1];
+				this.count=this.cols*this.rows;
+				this.blocks=document.getElementsByClassName("puzzle_block");//grab the blocks
+				this.init();
+			}
+
+			init(){//position each block in its proper position
+				for(let y=0;y<this.rows;y++){
+					for(let x=0;x<this.cols;x++){
+						let blockIdx=x+y*this.cols;
+						if(blockIdx+1>=this.count)break;
+						let block=this.blocks[blockIdx];
+						this.positionBlockAtCoord(blockIdx,x,y);
+						block.addEventListener('click',(e)=>this.onClickOnBlock(blockIdx));
+						this.indexes.push(blockIdx);
+
+					}
+				}
+				this.indexes.push(this.count-1);
+				this.randomize(this.difficulty);
+
+				// Find the shuffle button element by its id
+				const shuffleButton = document.getElementById('shuffle-button');
+
+				// Capture the Game instance using a variable
+				const game = this;
+
+				// Add a click event listener to the shuffle button
+				shuffleButton.addEventListener('click', () => {
+				// Call the randomize method of the Game class to shuffle the blocks
+				game.randomize(game.difficulty);
+				});
+
+			}
+
+
+			randomize(iterationCount){//move a random block (x iterationCount)
+				for(let i=0;i<iterationCount;i++){
+					let randomBlockIdx=Math.floor(Math.random()*(this.count-1));
+					let moved=this.moveBlock(randomBlockIdx);
+					if(!moved)i--;
+				}
+			}
+
+			moveBlock(blockIdx){//moves a block and return true if the block has moved
+				let block=this.blocks[blockIdx];
+				let blockCoords=this.canMoveBlock(block);
+				if(blockCoords!=null){
+					this.positionBlockAtCoord(blockIdx,this.emptyBlockCoords[0],this.emptyBlockCoords[1]);
+					this.indexes[this.emptyBlockCoords[0]+this.emptyBlockCoords[1]*this.cols]=this.indexes[blockCoords[0]+blockCoords[1]*this.cols];
+					this.emptyBlockCoords[0]=blockCoords[0];
+					this.emptyBlockCoords[1]=blockCoords[1];
+					return true;
+				}
+				return false;
+			}
+			canMoveBlock(block){//return the block coordinates if he can move else return null
+				let blockPos=[parseInt(block.style.left),parseInt(block.style.top)];
+				let blockWidth=block.clientWidth;
+				let blockCoords=[blockPos[0]/blockWidth,blockPos[1]/blockWidth];
+				let diff=[Math.abs(blockCoords[0]-this.emptyBlockCoords[0]),Math.abs(blockCoords[1]-this.emptyBlockCoords[1])];
+				let canMove=(diff[0]==1&&diff[1]==0)||(diff[0]==0&&diff[1]==1);
+				if(canMove)return blockCoords;
+				else return null;
+			}
+
+			positionBlockAtCoord(blockIdx,x,y){//position the block at a certain coordinates
+				let block=this.blocks[blockIdx];
+				block.style.left=(x*block.clientWidth)+"px";
+				block.style.top=(y*block.clientWidth)+"px";
+			}
+
+			onClickOnBlock(blockIdx) {
+			if (this.moveBlock(blockIdx)) {
+				if (this.checkPuzzleSolved()) {
+				document.body.style.backgroundImage = "url('pics/man.gif')";
+				const congratsMsg = document.createElement('div');
+				congratsMsg.textContent = 'Herzlichen Glückwunsch! Du hast gewonnen!';
+				congratsMsg.classList.add('congrats-message');
+				document.body.appendChild(congratsMsg);
+				// Show the message for 1 second (1000 milliseconds)
+				    setTimeout(function () {
+				        // Hide the message
+				        congratsMsg.style.display = 'none';
+				    }, 3000); // 3000 milliseconds = 3 seconds
+				
+				const audioElement = new Audio('horay.mp3');
+				 audioElement.play();
+				}
+			}
+			}
+
+
+
+
+			checkPuzzleSolved(){//return if puzzle was solved
+				for(let i=0;i<this.indexes.length;i++){
+					//console.log(this.indexes[i],i);
+					if(i==this.emptyBlockCoords[0]+this.emptyBlockCoords[1]*this.cols)continue;
+					if(this.indexes[i]!=i)return false;
+				}
+				return true;
+			}
+
+			setDifficulty(difficultyLevel){//set difficulty
+				this.difficulty=GameDifficulty[difficultyLevel-1];
+				this.randomize(this.difficulty);
+			}
+}
+		var game=new Game(1);//instantiate a new Game
+
+
+	</script>
+
+	<audio id="horay-sound">
+		<source src="horay.mp3" type="audio/mpeg">
+	</audio>
+  
+</body>
+</html>
