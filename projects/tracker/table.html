@@ -52,18 +52,56 @@
         </style>
 </head>
 <body>
+
+  <!-- <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" Onclick="home()">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" Onclick="mon()">Monitor</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Logout
+          </span>
+        </div>
+      </div>
+    </nav>
+  </header> -->
+
     <div class="container">
         <div>
             <table class="table table-striped mt-3">
                 <thead>
-                    <tr>                  <thead>
-                    <tr>
-                        <div class="no-results-message">
-                          Access to this page is restricted to privileged users.
-                        </div>                     </tr>
+                    <tr><br>
+                            <div class="no-results-message">
+                                Access to this page is restricted to privileged users.
+                            </div>
+                    </tr>
                 </thead>
+                <tbody>
+                    <tr>        
+                        } else{ ?>
+                            <th>Access to this page is restricted to privileged users.</th>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
+    
     </body>
+
+    <script>
+        function home()
+            {
+                window.location.href = 'search.html';
+                return false;
+            }
+    </script>
 </html>
