@@ -1,15 +1,4 @@
-<?php
-  include_once("session.php");
 
-  ini_set('display_errors', 1);
-
-  $connection = mysqli_connect("localhost","test","test");
-  $db = mysqli_select_db($connection, 'project');
-
-  $sql = "select * from contact";
-  $result = mysqli_query($connection,$sql);
-
-?> 
 <html>
   <head>
       <title>Messages</title>
