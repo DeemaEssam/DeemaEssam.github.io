@@ -1,27 +1,3 @@
-<?php
-    ini_set('display_errors', 1); 
-    session_start();
-    $user_check = $_SESSION['login_username'];
-    
-
-    if(isset($_POST["update"]))
-    {
-        $message = $_POST['message'];
-        $link = mysqli_connect("localhost","test","test") or die(mysqli_error($link));
-        mysqli_select_db($link, "project") or die(mysqli_error($link));
-
-        if (mysqli_query($link, "UPDATE contact SET message='$_POST[message]'WHERE username='$_SESSION[login_username]'"))
-        {
-            header("location: table.php");
-        }else
-        {
-            echo"error";
-            header("location: Edit.php");
-        }
-    }
-?>
-
-
 <html>
     <head>
         <title>Update</title>
