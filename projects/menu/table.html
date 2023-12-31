@@ -45,19 +45,18 @@
                           <th class="table-light text-center" scope="col">DELETE</th>
                           <th class="table-light text-center" scope="col">USERNAME</th>
                           <th class="table-light text-center" scope="col">MESSAGE</th>
-                  <?php }
                 </tr>
               </thead>
               <tbody>
-                  <td class="table-light text-center" scope="col"><a href="/project/delete.php?username=<?php echo $rows['username']; ?>"><button type="submit" class="btn btn-danger" name="delete" id="delete">Delete</button></a></td>     
-                   <td class="table-light text-center" scope="col-6"><?php echo $rows['username']; ?>fffff</td>
-                   <td class="table-light text-justify" scope="col-6"><?php echo $rows['message']; ?>hhhhh</td>
+                  <td class="table-light text-center" scope="col"><a href="#"><button type="submit" class="btn btn-danger" name="delete" id="delete">Delete</button></a></td>     
+                   <td class="table-light text-center" scope="col-6">fffff</td>
+                   <td class="table-light text-justify" scope="col-6">hhhhh</td>
                 </tr>
               </tbody>
             </table>
           </div>
               <div class="form-inner">
-              <form action="edit.php" method="POST">
+              <form action="/projects/menu/Edit" method="POST">
                   <div class="field btn">
                       <div class="btn-layer"></div>
                       <input type="submit" value="Edit your message" name="edit" onclick="showEdit();">
@@ -65,7 +64,7 @@
               </form>
             </div>
               <div class="form-inner">
-              <form action="message.php" method="POST">
+              <form action="/projects/menu/message.html" method="POST">
                   <div class="field btn">
                       <div class="btn-layer"></div>
                       <input type="submit" value="Add a message" name="add" id="add" onclick="showContact();">
@@ -74,7 +73,7 @@
             </div>
 
             <div class="form-inner">
-              <form action="loginForm.php" method="POST">
+              <form action="/projects/menu/login" method="POST">
                   <div class="field btn">
                       <div class="btn-layer"></div>
                       <input type="submit" value="Login to add a message" name="log" id="log" onclick="showLogin();">
