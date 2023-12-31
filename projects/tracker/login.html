@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://localhost/sw/FlaskApp/templates/login.php -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login Form</title>
         <link rel="shortcut icon" type="image/x-icon" href="https://github.com/Shumokh1/Research-Tracker/blob/main/pictures/MagicEraser_231212_123200.png?raw=true">
@@ -109,32 +109,32 @@
         </style>
     </head>
 
-    <body data-new-gr-c-s-check-loaded="14.1146.0" data-gr-ext-installed=""><div class="form-container">
+    <div class="form-container">
         <h2>Login</h2>
-        <form method="post" action="http://localhost/sw/FlaskApp/templates/login.php">
-                        <input type="username" name="username" required="" id="username" placeholder="Enter your username"><br>
+        <form method="post" action="<">
+            <input type="username" name="username" required id="username" placeholder="Enter your username"><br>
             <span style="color: red;"></span>
-            <input type="password" name="password" required="" id="password" placeholder="Enter your password"><br>
+            <input type="password" name="password" required id="password" placeholder="Enter your password"><br>
             <span style="color: red;"></span>
 
             <!-- <a href="#">Forgot password?</a><br> -->
-            <button type="submit" class="btn btn-primary mt-3" name="login">Login</button><br>
-            Don't have an account? <a onclick="reg()" href="http://localhost/sw/FlaskApp/templates/login.php#">SignUp</a>
+            <button type="submit" class="btn btn-primary mt-3" name="login" onclick="search.html">Login</button><br>
+            Don't have an account? <a Onclick="reg()" href="#">SignUp</a>
             <br><br>
-            <center><a href="http://localhost/sw/FlaskApp/templates/login.php#" onmouseover="showHelp()" onmouseout="hideHelp()">Help</a>
+            <center><a href="#" onmouseover="showHelp()" onmouseout="hideHelp()">Help</a>
             <div id="helpDiv" class="help-content">
                 <p>This website assists educators and students in locating studies published by particular researchers.</p>
             </div></center>
         </form>
     </div>
 
-
+</body>
 
 <script>
 
   function reg()
   {
-     window.location.href = 'regitration.php';
+     window.location.href = 'registration.html';
      return false;
   }
 
@@ -147,25 +147,4 @@
     }
 
 </script>
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-      div.grammarly-desktop-integration {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select:none;
-        user-select:none;
-      }
-
-      div.grammarly-desktop-integration:before {
-        content: attr(data-content);
-      }
-    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+</html>
