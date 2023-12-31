@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="Style/Deema.css"> -->
+    <title>Hangman Game</title>
+    
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+        body {
+        font-family: Tahoma, Arial;
+        background-image: url(pics/background.gif);
+        }
+        .container {
+        margin: 20px auto;
+        width: 330px;
+        background-color: #263238bb;
+        border-radius:8px;
+        }
+        .row {
+        display: flex;
+        }
+        hr {
+        border: 1px solid #EEE;
+        }
+        .game-info {
+        display: flex;
+        }
+        .game-info .game-name {
+        flex: 1;
+        }
+        .game-info .category {
+        flex: 1;
+        text-align: right;
+        }
+        .game-info .category span {
+        text-transform: capitalize;
+        color: #ff00d9;
+        font-weight: bold;
+        text-align: center;
+        }
+        .hangman-draw {
+        flex: 1;
+        background-color: #f6b1ffd1;
+        padding: 20px;
+        height: 270px;
+        width: 290px;
+        left: 100px;
+        border-radius:8px;
+        }
+        .hangman-draw .the-draw {
+        width: 60px;
+        height: 250px;
+        border-bottom: 4px solid #222;
+        position: relative;
+        margin: auto;
+        left: -60px;
+        top: -20px;
+        display: none;
+        }
+        .hangman-draw .the-stand {
+        position: absolute;
+        width: 4px;
+        background-color: #222;
+        height: 95%;
+        left: 50%;
+        margin-left: -2px;
+        display: none;
+        }
+        .hangman-draw .the-hang {
+        display: none;
+        }
+        .hangman-draw .the-hang:before {
+        content: '';
+        position: absolute;
+        height: 4px;
+        background-color: #222;
+        width: 100px;
+        left: 30px;
+        top: 15px;
+        }
+        .hangman-draw .the-hang:after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 30px;
+        background-color: #222;
+        left: 130px;
+        top: 15px;
+        }
+        .hangman-draw .the-rope {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        position: absolute;
+        left: 95px;
+        top: 45px;
+        border: 4px dashed #222;
+        display: none;
+        }
+        .hangman-draw .the-man .head {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 4px solid #222;
+        position: absolute;
+        left: 105px;
+        top: 55px;
+        display: none;
+        }
+        .hangman-draw .the-man .body {
+        position: absolute;
+        background-color: #222;
+        width: 4px;
+        height: 100px;
+        top: 102px;
+        left: 130px;
+        display: none;
+        }
+        .hangman-draw .the-man .hands {
+        display: none;
+        }
+        .hangman-draw .the-man .hands:before {
+        left: 85px;
+        transform: rotate(30deg);
+        }
+        .hangman-draw .the-man .hands:after {
+        left: 130px;
+        transform: rotate(-30deg);
+        }
+        .hangman-draw .the-man .hands:before,
+        .hangman-draw .the-man .hands:after {
+        content: '';
+        width: 50px;
+        position: absolute;
+        height: 4px;
+        background-color: #222;
+        top: 140px;
+        }
+        .hangman-draw .the-man .legs {
+        display: none;
+        }
+        .hangman-draw .the-man .legs:before {
+        left: 85px;
+        transform: rotate(-30deg);
+        }
+        .hangman-draw .the-man .legs:after {
+        left: 130px;
+        transform: rotate(30deg);
+        }
+        .hangman-draw .the-man .legs:before,
+        .hangman-draw .the-man .legs:after {
+        content: '';
+        width: 50px;
+        position: absolute;
+        height: 4px;
+        background-color: #222;
+        top: 220px;
+        }
+        .hangman-draw.wrong-1 .the-draw {
+        display: block;
+        }
+        .hangman-draw.wrong-2 .the-stand {
+        display: block;
+        }
+        .hangman-draw.wrong-3 .the-hang {
+        display: block;
+        }
+        .hangman-draw.wrong-4 .the-rope {
+        display: block;
+        }
+        .hangman-draw.wrong-5 .head {
+        display: block;
+        }
+        .hangman-draw.wrong-6 .body {
+        display: block;
+        }
+        .hangman-draw.wrong-7 .hands {
+        display: block;
+        }
+        .hangman-draw.wrong-8 .legs {
+        display: block;
+        }
+        .letters {
+          flex: 1;
+          padding: 15px;
+          text-align: center;
+        }
+        .letters.finished {
+          pointer-events: none;
+        }
+        .letters .letter-box {
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          background-color: #ff6eecb1;
+          color: #FFF;
+          font-size: 20px;
+          margin-right: 10px;
+          line-height: 55px;
+          text-transform: uppercase;
+          font-weight: bold;
+          cursor: pointer;
+          margin-bottom: 10px;
+          left: 100px;
+          border-radius:8px;
+        }
+        .letters .letter-box.clicked {
+          background-color: #263238ab;
+          opacity: .2;
+          pointer-events: none;
+        }
+        .letters-guess {
+          margin: 10px auto;
+          background-color: #263238ab;
+          color: #ff00d9;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          min-height: 104px;
+          border-radius:8px;
+        }
+        .letters-guess span {
+          width: 50px;
+          height: 60px;
+          font-size: 24px;
+          margin-right: 10px;
+          text-align: center;
+          line-height: 60px;
+          text-transform: uppercase;
+          font-weight: bold;
+          background-color: #263238ab;
+          border-bottom: 3px solid #222;
+          transition: .3s;
+          border-radius:8px;
+        }
+        .letters-guess span.with-space {
+          background: none;
+          border-bottom: none;
+          position: relative;
+        }
+        .letters-guess span.with-space:before {
+          content: '';
+          width: 20px;
+          height: 4px;
+          background-color: #263238ab;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius:8px;
+        }
+        .popup {
+          position: absolute;
+          top: 57%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          /* background-color:rgba(0, 0, 0, 0.895); */
+          background-color:rgba(255, 255, 255, 0.895);
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          color: #000000;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          z-index: 999;
+          animation: showCongratsMsg 1s ease-in-out;
+        }
+
+        @keyframes showCongratsMsg {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        *{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+        :root{
+          --bgcol:#37474F;
+          --mcol0:#f629e2;
+          --mcol1:#2196F3;
+          --mcol2:#1976D2;
+          --txtcol0:#90A4AE;
+          --txtcol1:#607D8B;
+          --whitecol:#ECEFF1;
+          --darkcol:#263238;
+        }
+
+        body{
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          padding-top:1vh;
+        }
+
+        #puzzle_container{
+          position: relative;
+          width: 50vh;
+          height:50vh;
+          background-color:var(--darkcol);
+          border-radius:8px;
+          border:1px solid var(--mcol0);
+          box-shadow:0px 8px 0px var(--mcol0);
+        }
+
+        /*difficulty container*/
+        #difficulty_container{
+          display:flex;
+          flex-direction:row;
+          width:50vh;
+          height:10vh;
+          background-color:var(--darkcol);
+          border-radius:8px;
+          margin-top:22px;
+          width: 330px;
+        }
+        .difficulty_button{
+          flex-grow:1;
+          background-color:inherit;
+          color:var(--mcol2);
+          text-align:center;
+          font-size:3vh;
+          font-weight:bold;
+          padding-top:5%;
+          margin:4px;
+          cursor: pointer;
+          transition:font-size 0.3s;
+          width: 330px;
+        }
+
+        /* #timer{
+          flex-grow:1;
+          background-color:inherit;
+          color:var(--mcol2);
+          text-align:center;
+          font-size:3vh;
+          font-weight:bold;
+          padding-top:5%;
+          margin:4px;
+          cursor: pointer;
+          transition:font-size 0.3s;
+        } */
+
+        .difficulty_button:hover{
+          opacity:0.8;
+          font-size:3.5vh;
+        }
+        .difficulty_button.active{
+          background-color:inherit;
+          color:var(--mcol0);
+        }
+        .link {
+          color:rgb(148, 148, 148);
+          text-decoration: none;
+          border-bottom: 0.5px solid rgb(148, 148, 148);
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container"><br>
+        <center>
+          <div class="hangman-draw">
+            <div class="the-draw">
+                <div class="the-stand"></div>
+                <div class="the-hang"></div>
+                <div class="the-rope"></div>
+                <div class="the-man">
+                <div class="head"></div>
+                <div class="body"></div>
+                <div class="hands"></div>
+                <div class="legs"></div>
+              </div>
+            </div>
+          </div>
+          <div class="letters"></div>
+          <div class="game-info">
+            <div class="category">
+              <center><span></span></center>
+            </div>
+          </div>
+          <div class="letters-guess"></div>
+        </center>
+      </div>
+      <center>
+        <div id="difficulty_container">
+          <div class="difficulty_button active">
+            <div onclick="showHome()">Home page</div>
+          </div>
+        </div>
+      
+      </center><br>
+    </section>
+    <audio id="success" src="audio/success.mp4" preload="auto"></audio>
+    <audio id="fail" src="audio/fail.mp4" preload="auto"></audio>
+    
+    <script>
+
+function showHome()
+      {
+          window.location.href = 'index.html';
+          return false;
+      }
+
+      var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		// create a function to generate a random number between two values
+		function random(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		// create an array to store the images
+		var crys = [];
+
+		// create a function to generate a new cry image and add it to the page
+		function createCry() {
+		// create a new image element
+		var cry = document.createElement('img');
+		cry.src = "pics/cry.png"; // replace with the path to your cry image
+		cry.style.position = 'absolute';
+
+		// set the initial position of the image to a random location on the screen
+		var x = random(0, width);
+		var y = random(0, height);
+		cry.style.left = x + 'px';
+		cry.style.top = y + 'px';
+
+		// set the initial size and rotation of the image
+		var size = random(100, 20);
+		cry.style.width = size + 'px';
+		cry.style.transform = 'rotate(' + random(0, 360) + 'deg)';
+
+		// add the image to the page
+		document.body.appendChild(cry);
+
+		// add the image to the array
+		crys.push(cry);
+
+		// animate the image to move upwards and disappear off the top of the screen
+		var duration = random(5000, 1000);
+		var delay = random(0, 50);
+		setTimeout(function() {
+			cry.style.transition = 'transform ' + duration + 'ms linear, opacity ' + duration + 'ms linear';
+			cry.style.transform = 'translateY(-' + height + 'px) rotate(' + random(0, 360) + 'deg)';
+			cry.style.opacity = '0';
+		}, delay);
+		}
+
+      // Letters
+      const letters = "abcdefghijklmnopqrstuvwxyzßäÖü";
+
+      // Get Array From Letters
+      let lettersArray = Array.from(letters);
+
+      // Select Letters Container
+      let lettersContainer = document.querySelector(".letters");
+
+      // Generate Letters
+      lettersArray.forEach(letter => {
+
+      // Create Span
+      let span = document.createElement("span");
+
+      // Create Letter Text Node
+      let theLetter = document.createTextNode(letter);
+
+      // Append The Letter To Span
+      span.appendChild(theLetter);
+
+      // Add Class On Span
+      span.className = 'letter-box';
+
+      // Append Span To The Letters Container
+      lettersContainer.appendChild(span);
+
+      });
+
+      // Object Of Words + Categories
+      const words = {
+      von_1_bis_10: ["eins","zwei","drei","vier","fünf","sechs","sieben","acht","neun","zehn",],
+      von_11_bis_20: ["elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn", "zwanzig",]
+      }
+
+      // Get Random Property
+
+      let allKeys = Object.keys(words);
+
+      // Random Number Depend On Keys Length
+      let randomPropNumber = Math.floor(Math.random() * allKeys.length);
+
+      // Category
+      let randomPropName = allKeys[randomPropNumber];
+
+      // Category Words
+      let randomPropValue = words[randomPropName];
+
+      // Random Number Depend On Words
+      let randomValueNumber = Math.floor(Math.random() * randomPropValue.length);
+
+      // The Chosen Word
+      let randomValueValue = randomPropValue[randomValueNumber];
+
+      // Set Category Info
+      document.querySelector(".game-info .category span").innerHTML = randomPropName;
+
+      // Select Letters Guess Element
+      let lettersGuessContainer = document.querySelector(".letters-guess");
+
+      // Convert Chosen Word To Array
+      let lettersAndSpace = Array.from(randomValueValue);
+
+      // Create Spans Depened On Word
+      lettersAndSpace.forEach(letter => {
+
+      // Create Empty Span
+      let emptySpan = document.createElement("span");
+
+      // If Letter Is Space
+      if (letter === ' ') {
+
+          // Add Class To The Span
+          emptySpan.className = 'with-space';
+
+      }
+
+      // Append Span To The Letters Guess Container
+      lettersGuessContainer.appendChild(emptySpan);
+
+      });
+
+      // Select Guess Spans
+      let guessSpans = document.querySelectorAll(".letters-guess span");
+
+      // Set Wrong Attempts
+      let wrongAttempts = 0;
+      let correctGuesses = 0;
+
+
+      // Select The Draw Element
+      let theDraw = document.querySelector(".hangman-draw");
+
+      // Handle Clicking On Letters
+      document.addEventListener("click", (e) => {
+
+      // Set The Choose Status
+      let theStatus = false;
+
+      if (e.target.className === 'letter-box') {
+          e.target.classList.add("clicked");
+          // Get Clicked Letter
+          let theClickedLetter = e.target.innerHTML.toLowerCase();
+          // The Chosen Word
+          let theChosenWord = Array.from(randomValueValue.toLowerCase());
+          theChosenWord.forEach((wordLetter, WordIndex) => {
+          // If The Clicked Letter Equal To One Of The Chosen Word Letter
+          if (theClickedLetter == wordLetter) {
+                  // Set Status To Correct
+                  correctGuesses++;
+
+                  theStatus = true;
+                  // Loop On All Guess Spans
+                  guessSpans.forEach((span, spanIndex) => {
+                  if (WordIndex === spanIndex) {
+                      span.innerHTML = theClickedLetter;
+                  }
+              });
+          }
+          });
+
+          if (theStatus !== true) {
+
+            // Increase The Wrong Attempts
+            wrongAttempts++;
+
+            // Add Class Wrong On The Draw Element
+            theDraw.classList.add(`wrong-${wrongAttempts}`);
+
+            // Play Fail Sound
+            document.getElementById("fail").play();
+
+            if (wrongAttempts === 8) {
+                endGameLose();
+                lettersContainer.classList.add("finished");
+
+                for (var i = 0; i < 50; i++) {
+                createCry();
+              }
+              const audio = new Audio("wrong.mp3");
+              audio.play();
+
+              return false;
+            }
+          } else {
+          // Play Success Sound
+              document.getElementById("success").play();
+          }
+
+          if (correctGuesses === randomValueValue.length) {
+            endGameWin(true);
+            lettersContainer.classList.add("finished");
+          }
+
+      }
+      }
+      
+      );
+
+      function endGameWin(hasWon) {
+        // Create Popup Div
+        document.body.style.backgroundImage = "url('pics/man.gif')";
+        let div = document.createElement("div");
+        // Create Text
+        // let lineBreak = document.createElement("br");
+        let divText;
+        if (hasWon) {
+          divText = document.createTextNode(`Herzlichen Glückwunsch! Du hast gewonnen. Die Nummer war ${randomValueValue}.`);
+        } else {
+          divText = document.createTextNode(`Spiel vorbei. Du hast verloren. Die Nummer war ${randomValueValue}.`);
+        }
+        // Append Text To Div
+        div.appendChild(divText);
+        // Add Class On Div
+        div.className = 'popup';
+        // Append To The Body
+        document.body.appendChild(div);
+        const audio = new Audio("horay.mp3");
+				audio.play();
+      }
+
+
+      // End Game Function
+      function endGameLose() {
+        for (var i = 0; i < 50; i++) {
+					createCry();
+				}
+        // Create Popup Div
+        let div = document.createElement("div");
+        // Create Text
+        let lineBreak = document.createElement("br");
+        let divText = document.createTextNode(`Spiel vorbei, die Nummer war ${randomValueValue}`);
+        // Append Text To Div
+        div.appendChild(divText);
+        // Add Class On Div
+        div.className = 'popup';
+        // Append To The Body
+        document.body.appendChild(div);
+        const audio = new Audio("wrong.mp3");
+				audio.play();
+      }
+    </script>
+  </body>
+</html>
