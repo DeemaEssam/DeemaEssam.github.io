@@ -53,69 +53,16 @@
                           <th class="table-light text-center" scope="col">DELETE</th>
                           <th class="table-light text-center" scope="col">USERNAME</th>
                           <th class="table-light text-center" scope="col">MESSAGE</th>
-                  <?php }else
-                        { ?>
-                          <th class="table-light text-center" scope="col">USERNAME</th>
-                          <th class="table-light text-center" scope="col">MESSAGE</th>
-                  <?php } ?>
-                  <?php
-                } else
-                      { ?>
-                        <th class="table-light text-center" scope="col">USERNAME</th>
-                        <th class="table-light text-center" scope="col">MESSAGE</th>
-                <?php } ?>
+                  <?php }
                 </tr>
               </thead>
               <tbody>
-                <?php 
-                  $i = 0;
-                  while($rows = mysqli_fetch_assoc($result)){
-                  $i++;
-                ?>
-                <tr>
-                <?php
-                if (isset($_SESSION['login_username']))
-                {
-                    $mysqli = new mysqli("localhost", "test", "test", "project");
-                    $result2 = $mysqli->query("SELECT userType FROM register WHERE userType=1 AND username='$_SESSION[login_username]'");
-                    if ($result2->num_rows == 1) 
-                      {?>
-                        <td class="table-light text-center" scope="col"><a href="/project/delete.php?username=<?php echo $rows['username']; ?>"><button type="submit" class="btn btn-danger" name="delete" id="delete">Delete</button></a></td>
-                        <td class="table-light text-center" scope="col-6"><?php echo $rows['username']; ?></td>
-                        <td class="table-light text-justify" scope="col-6"><?php echo $rows['message']; ?></td>
-                        <?php 
-                      } else 
-                      {?>
-                        <td class="table-light text-center" scope="col-6"><?php echo $rows['username']; ?></td>
-                        <td class="table-light text-justify" scope="col-6"><?php echo $rows['message']; ?></td>
-                    <?php } ?>
-                  <?php 
-                }else
-                    { ?>
                       <td class="table-light text-center" scope="col-6"><?php echo $rows['username']; ?></td>
                       <td class="table-light text-justify" scope="col-6"><?php echo $rows['message']; 
-                    }?></td>
-
-
-                  <?php } ?>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <?php
-          if (isset($_SESSION['login_username']))
-          {
-              $mysqli = new mysqli("localhost", "test", "test", "project");
-
-              $result3 = $mysqli->query(" SELECT message, username
-                                          FROM contact
-                                          WHERE username IN (
-                                          SELECT username
-                                          FROM register
-                                          WHERE username = '$_SESSION[login_username]')");
-              if ($result3->num_rows == 1) {
-            ?>
               <div class="form-inner">
               <form action="edit.php" method="POST">
                   <div class="field btn">
