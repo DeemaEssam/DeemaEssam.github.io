@@ -283,6 +283,103 @@
             </div>
         </section>
       </section>
+      
+      <br>
+
+      <section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <div class="arabic-text" style="font-size: 35px;">
+          <center>
+            <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/projects/adheed/imgs/icon.png?raw=true" width="45px">
+            <strong>
+              رحلة عضيد المستقبلية:
+            </strong>
+          </center>
+        </div>
+        <hr>
+        <figure class="tabBlock" id="tripandgoals">
+          <ul class="tabBlock-tabs ">
+            <li class="tabBlock-tab is-active" style="font-family: 'Amiri', serif;">خططنا المستقبلية</li>
+            <li class="tabBlock-tab" style="font-family: 'Amiri', serif;">تحقيق الأهداف</li>
+          </ul>
+          <div class="tabBlock-content">
+            <div class="tabBlock-pane">
+              <div class="stepper-wrapper">
+                <div class="stepper-item">
+                  <div class="step-counter hovr">7</div>
+                  <div class="step-name hovr"  style="font-family: 'Amiri', serif;">
+                    <h5>تصديره على الموقع</h5>
+                    بيع الخدمة أو المنتج 
+                    <br>
+                    -
+                    <br>
+                     تكريم المشارك
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">6</div>
+                  <div class="step-name hovr"  style="font-family: 'Amiri', serif;">
+                    <h5>المنتج او الخدمة</h5>النتيجة النهائية
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">5</div>
+                  <div class="step-name  hovr"  style="font-family: 'Amiri', serif;"">
+                    <h5>تقييم الأفكار</h5>
+                     لقاءات دورية
+                     <br>
+                      للخدمة وتقييمها
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">4</div>
+                  <div class="step-name hovr"  style="font-family: 'Amiri', serif;">
+                    <h5>لقاءات افتراضية</h5> 
+                    مقابلة أولية 
+                    <br>
+                     مناقشة الخدمة المختارة
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">3</div>
+                  <div class="step-name hovr" style="font-family: 'Amiri', serif;">
+                    <h5>دليل المشاركة</h5> الإلتزام والشروط
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">2</div>
+                  <div class="step-name hovr" style="font-family: 'Amiri', serif;">
+                    <h5>خدماتنا</h5> دراسات 
+                    <br>
+                    -
+                    <br>
+                     تحديات 
+                     <br>
+                     -
+                     <br>
+                      تقديم فكرة جديدة
+                  </div>
+                </div>
+                <div class="stepper-item">
+                  <div class="step-counter hovr">1</div>
+                  <div class="step-name hovr" style="font-family: 'Amiri', serif;">
+                    <h5>عن عضيد</h5> واجهة الموقع
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tabBlock-pane arabic-text">
+              <ul>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Minima mollitia tenetur nesciunt modi?</li>
+                <li>Id sint fugit et sapiente.</li>
+                <li>Nam deleniti libero obcaecati pariatur.</li>
+                <li>Nemo optio iste labore similique?</li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+      </section>
     </center><br>
   </section>
 
@@ -334,6 +431,60 @@
       window.location.href = 'index.html';
       return false;
     }
+
+    var TabBlock = {
+      s: {
+        animLen: 200
+      },
+
+      init: function () {
+        TabBlock.bindUIActions();
+        TabBlock.hideInactive();
+      },
+
+      bindUIActions: function () {
+        $('.tabBlock-tabs').on('click', '.tabBlock-tab', function () {
+          TabBlock.switchTab($(this));
+        });
+      },
+
+      hideInactive: function () {
+        var $tabBlocks = $('.tabBlock');
+
+        $tabBlocks.each(function (i) {
+          var
+            $tabBlock = $($tabBlocks[i]),
+            $panes = $tabBlock.find('.tabBlock-pane'),
+            $activeTab = $tabBlock.find('.tabBlock-tab.is-active');
+
+          $panes.hide();
+          $($panes[$activeTab.index()]).show();
+        });
+      },
+
+      switchTab: function ($tab) {
+        var $context = $tab.closest('.tabBlock');
+
+        if (!$tab.hasClass('is-active')) {
+          $tab.siblings().removeClass('is-active');
+          $tab.addClass('is-active');
+
+          TabBlock.showPane($tab.index(), $context);
+        }
+      },
+
+      showPane: function (i, $context) {
+        var $panes = $context.find('.tabBlock-pane');
+
+        // Normally I'd frown at using jQuery over CSS animations, but we can't transition between unspecified variable heights, right? If you know a better way, I'd love a read it in the comments or on Twitter @johndjameson
+        $panes.slideUp(TabBlock.s.animLen);
+        $($panes[i]).slideDown(TabBlock.s.animLen);
+      }
+    };
+
+    $(function () {
+      TabBlock.init();
+    });
   </script>
 </body>
 
