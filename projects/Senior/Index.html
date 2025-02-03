@@ -207,9 +207,12 @@
                 display: flex;
                 flex-direction: column;
                 padding: 20px;
-                /*background: var(--white);*/
-                background-image: url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');
+                /*background: var(--white);
+                background-image: url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');*/
                 
+
+                background-size: cover;
+                background-repeat: no-repeat;
                 border-radius: 12px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
                 scroll-snap-align: start;
@@ -217,7 +220,8 @@
             }
 
             .card:hover {
-                background: #ff56223f;
+                /*background: #ff56223f;*/
+                transform: scale(0.98);
             }
 
             .card .card-title {
@@ -304,8 +308,8 @@
 
             /* Bottom Navigation Bar */
             .bottom-nav {
-                position: fixed;
-                bottom: 0;
+                position:fixed;
+                bottom: 15;
                 left: 0;
                 width: 70%;
                 background-color: #b7a8a3bf; /* Vibrant orange */
@@ -356,122 +360,56 @@
             <div class="container">
                 <h1 class="display-4 font-weight-bolder">Most Popular</h1>
                 <ul class="cards">
-                    <li class="card">
+                    <li class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/a8/5e/e4/masjid-al-nabvi.jpg?w=900&h=-1&s=1');">
                         <div>
-                            <h3 class="card-title">Name</h3>
+                            <h3 class="card-title">Al Masjid an Nabawi</h3>
                         </div>
                         <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
+                            <p>⭕Sacred & Religious Sites</p>
+                            <p>📍Madinah</p>
+                            <p>⭐5.0</p>
                         </div>
                     </li>
-                    <li class="card">
+                    <li class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kingdom_Tower_at_night.JPG/420px-Kingdom_Tower_at_night.JPG');">
                         <div>
-                            <h3 class="card-title">Name</h3>
+                            <h3 class="card-title">Kingdom Centre Tower</h3>
                         </div>
                         <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
+                            <p>⭕Points of Interest & Landmarks</p>
+                            <p>📍Riyadh</p>
+                            <p>⭐5.0</p>
                         </div>
                     </li>
-                    <li class="card">
+                    <li class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/d3/4e/25/illuminate-the-fountain.jpg?w=800&h=-1&s=1&cx=337&cy=320&chk=v1_012cd5d51096d2b363aa');">
                         <div>
-                            <h3 class="card-title">Name</h3>
+                            <h3 class="card-title">King Fahd's Fountain</h3>
                         </div>
                         <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
+                            <p>⭕Sacred & Religious Sites</p>
+                            <p>📍Jeddah</p>
+                            <p>⭐5.0</p>
                         </div>
                     </li>
-                    <li class="card">
+                    <li class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/bb/25/ca/caption.jpg?w=1000&h=-1&s=1')">
                         <div>
-                            <h3 class="card-title">Name</h3>
+                            <h3 class="card-title">Al-Balad</h3>
                         </div>
+                        <!--  -->
                         <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
+                            <p>⭕Historical Sites</p>
+                            <p>📍Jeddah</p>
+                            <p>⭐5.0</p>
                         </div>
                     </li>
-                    <li class="card">
+                    <li class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/fd/2c/a2/nice-place.jpg?w=800&h=400&s=1')">
                         <div>
-                            <h3 class="card-title">Name</h3>
+                            <h3 class="card-title">Abraj Al-Bait Towers</h3>
                         </div>
+
                         <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
-                        </div>
-                    <li class="card">
-                        <div>
-                            <h3 class="card-title">Name</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>Theme</p>
-                            <p>Location</p>
-                            <p>Rating</p>
+                            <p>⭕Sacred & Religious Sites</p>
+                            <p>📍Makkah</p>
+                            <p>⭐5.0</p>
                         </div>
                     </li>
                 </ul>
@@ -489,20 +427,20 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                             <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
+                                style="background-image:url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/b9/bf/b4.jpg');">
                                 <img class="card-img d-none" src="">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
                                         <div class="row">
-                                                <small><i class="far fa-clock"></i>📍location</small>
-                                                <small><i class="far fa-clock"></i>⭐ Rating</small>
+                                                <small><i class="far fa-clock"></i>📍Riyadh</small>
+                                                <small><i class="far fa-clock"></i>⭐ 4.5</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
                                             <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Name</h4>
-                                                <small>⭕Theme</small>
+                                                <h4 class="my-0 text-light d-block">Al Masmak Palace Museum</h4>
+                                                <small>⭕History Museums</small>
                                             </div>
                                         </div>
                                     </div>
@@ -511,20 +449,20 @@
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                             <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
+                                style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/e7/6a/b0/caption.jpg?w=700&h=400&s=1');">
                                 <img class="card-img d-none" src="">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
                                         <div class="row">
-                                            <small><i class="far fa-clock"></i>📍Riyadh</small>
-                                            <small><i class="far fa-clock"></i>⭐ 5.00</small>
+                                            <small><i class="far fa-clock"></i>📍Jeddah</small>
+                                            <small><i class="far fa-clock"></i>⭐ 4.5</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
                                             <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Diriyah</h4>
-                                                <small>⭕Historican</small>
+                                                <h4 class="my-0 text-light d-block">Bab Makkah</h4>
+                                                <small>⭕Points of Interest & Landmarks</small>
                                             </div>
                                         </div>
                                     </div>
@@ -533,43 +471,20 @@
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                             <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
+                                style="background-image:url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/df/05/6a.jpg');">
                                 <img class="card-img d-none" src="">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
                                         <div class="row">
-                                            <small><i class="far fa-clock"></i>📍Riyadh</small>
-                                            <small><i class="far fa-clock"></i>⭐ 5.00</small>
+                                            <small><i class="far fa-clock"></i>📍Jeddah</small>
+                                            <small><i class="far fa-clock"></i>⭐ 4.5</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
                                             <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Diriyah</h4>
-                                                <small>⭕Historican</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                            <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
-                                <img class="card-img d-none" src="">
-                                <div class="card-img-overlay d-flex flex-column">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <small><i class="far fa-clock"></i>📍Riyadh</small>
-                                            <small><i class="far fa-clock"></i>⭐ 5.00</small>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Diriyah</h4>
-                                                <small>⭕Historican</small>
+                                                <h4 class="my-0 text-light d-block">17Sixty</h4>
+                                                <small>⭕Parasailing & Paragliding</small>
                                             </div>
                                         </div>
                                     </div>
@@ -578,20 +493,21 @@
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                             <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
+                                style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/20/a7/1b/96/caption.jpg?w=900&h=500&s=1');">
                                 <img class="card-img d-none" src="">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
                                         <div class="row">
-                                            <small><i class="far fa-clock"></i>📍Riyadh</small>
-                                            <small><i class="far fa-clock"></i>⭐ 5.00</small>
+                                            <small><i class="far fa-clock"></i>📍Jeddah</small>
+                                            <small><i class="far fa-clock"></i>⭐ 5.0</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
                                             <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Diriyah</h4>
-                                                <small>⭕Historican</small>
+                                                <h4 class="my-0 text-light d-block">Fakieh Planetarium
+</h4>
+                                                <small>⭕Science Museums</small>
                                             </div>
                                         </div>
                                     </div>
@@ -600,20 +516,42 @@
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                             <div class="card text-light card-has-bg click-col"
-                                style="background-image:url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');">
+                                style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/b1/d6/c1/al-dwaihra-mosque-al.jpg?w=900&h=-1&s=1');">
                                 <img class="card-img d-none" src="">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
                                         <div class="row">
-                                            <small><i class="far fa-clock"></i>📍Riyadh</small>
-                                            <small><i class="far fa-clock"></i>⭐ 5.00</small>
+                                            <small><i class="far fa-clock"></i>📍Diryiah</small>
+                                            <small><i class="far fa-clock"></i>⭐ 5.0</small>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
                                             <div class="media-body">
-                                                <h4 class="my-0 text-light d-block">Diriyah</h4>
-                                                <small>⭕Historican</small>
+                                                <h4 class="my-0 text-light d-block">Al-Dwaihra Mosque</h4>
+                                                <small>⭕Sacred & Religious Sites</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-light card-has-bg click-col"
+                                style="background-image:url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/f4/2f/f4.jpg');">
+                                <img class="card-img d-none" src="">
+                                <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <small><i class="far fa-clock"></i>📍Ras Tanomah</small>
+                                            <small><i class="far fa-clock"></i>⭐ 5.0</small>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h4 class="my-0 text-light d-block">Husaak Adventures</h4>
+                                                <small>⭕Canyoning & Rappelling Tours</small>
                                             </div>
                                         </div>
                                     </div>
