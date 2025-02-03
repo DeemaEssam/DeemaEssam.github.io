@@ -10,11 +10,11 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: #f4f4f4;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 660px;
             margin: 20px auto;
             background: white;
             border-radius: 8px;
@@ -23,21 +23,39 @@
         }
 
         .header {
-            background-image: url('https://lh5.googleusercontent.com/p/AF1QipO0n4eELbADNJmapmsNcX2SZxw_D3DgHb5u1y9T=w141-h118-n-k-no-nu');
-            background-size: cover;
-            background-repeat: no-repeat;
-            padding: 20px;
+            position: relative;
             text-align: center;
         }
 
-        .header h1 {
-            margin: 0;
-            color: #333;
-            
+        .header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         .rating {
+            position: absolute;
+            top: 10px;
+            left: 10px;
             color: #f39c12;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .distance {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .header h1 {
+            margin: 10px 0 0;
+            color: #333;
+            
         }
 
         .content {
@@ -76,20 +94,52 @@
                 font-size: 24px;
             }
         }
+
+
+        /* Bottom Navigation Bar */
+            .bottom-nav {
+                position: fixed;
+                bottom: 15px;
+                left: 50%; /* Position it from the left side to the middle */
+                transform: translateX(-50%); /* Offset it by 50% of its width to truly center it */
+                width: 70%;
+                background-color: #b7a8a3bf; /* Vibrant color */
+                display: flex;
+                justify-content: space-around;
+                padding: 12px 0;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+                border-radius: 15px;
+            }
+
+
+            /* Navbar buttons */
+            .nav-item {
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 15px;
+                transition: background 0.3s ease;
+            }
+
+            /* Hover effect */
+            .nav-item:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
     </style>
 </head>
 
 <body>
-<!-- style="
-                background-image: url('https://lh5.googleusercontent.com/p/AF1QipO0n4eELbADNJmapmsNcX2SZxw_D3DgHb5u1y9T=w141-h118-n-k-no-nu') 
-                background-size: cover;
-                background-repeat: no-repeat;" alt="" -->
-                
-    <!-- <div class="container"> -->
+
+    <div class="container">
         <div class="header">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPjhpRODH_--yU0kw6fx1RIM1JOLlnRSiAlfV8d=s680-w680-h510" width="800px">
+            <div class="rating">⭐ 4.7</div>
+            <div class="distance">Dammam</div>
             <h1>Ithraa</h1>
             <div class="rating">⭐ 4.7</div>
-            <div class="distance">3 km</div>
+            <div class="distance">Dammam</div>
         </div>
         <div class="content">
             <div class="location"><strong>Location:</strong> Science Museums</div>
@@ -102,7 +152,17 @@
             </div>
             <a href="#" class="button">Visit Website</a>
         </div>
-    <!-- </div> -->
+    </div>
+
+    <br><br><br><br><br>
+
+    <!-- Navbar at Bottom -->
+    <div class="bottom-nav">
+        <a href="" class="nav-item">🏠 Home</a>
+        <a href="" class="nav-item">📍 Destinations</a>
+        <a href="" class="nav-item">⭐ Favorites</a>
+        <a href="" class="nav-item">🔍 Search</a>
+    </div>
 
 </body>
 
