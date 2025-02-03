@@ -308,17 +308,19 @@
 
             /* Bottom Navigation Bar */
             .bottom-nav {
-                position:fixed;
-                bottom: 15;
-                left: 0;
+                position: fixed;
+                bottom: 15px;
+                left: 50%; /* Position it from the left side to the middle */
+                transform: translateX(-50%); /* Offset it by 50% of its width to truly center it */
                 width: 70%;
-                background-color: #b7a8a3bf; /* Vibrant orange */
+                background-color: #b7a8a3bf; /* Vibrant color */
                 display: flex;
                 justify-content: space-around;
                 padding: 12px 0;
                 box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
                 border-radius: 15px;
             }
+
 
             /* Navbar buttons */
             .nav-item {
