@@ -156,14 +156,14 @@
                     const container = document.getElementById('destination-container');
                     container.innerHTML = `
                         <div class="header">
-                            <img src="${destination.image}" width="800px">
+                            <img src="${destination.imageUrl}" width="800px">
                             <div class="rating">⭐ ${destination.placeRating}</div>
                             <div class="distance">${destination.city}</div>
                             <h1>${destination.name}</h1>
                         </div>
                         <div class="content">
                             <div class="location"><strong>Location:</strong> ${destination.theme}</div>
-                            <div class="contact"><strong>Contact:</strong> ${destination.contact || 'N/A'}</div>
+                            // <div class="contact"><strong>Contact:</strong> ${destination.contact || 'N/A'}</div>
                             <div class="working-hours"><strong>Working Hours:</strong> ${destination.workingHours || 'N/A'}</div>
                             <div class="description">
                                 <strong>Description:</strong>
