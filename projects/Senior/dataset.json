@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Al Masmak Palace Museum",
+    "placeRating": 4.5,
+    "city": "Riyadh",
+    "theme": "History Museums",
+    "image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/b9/bf/b4.jpg"
+  },
+  {
+    "name": "National Museum",
+    "placeRating": 4.7,
+    "city": "Riyadh",
+    "theme": "History Museums",
+    "image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/1d/c5/1d-c7.jpg"
+  }
+  // more rows...
+]
