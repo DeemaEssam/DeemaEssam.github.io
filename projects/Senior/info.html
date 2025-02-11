@@ -132,37 +132,56 @@
 
 <body>
 
-    <div class="container">
-        <div class="header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPjhpRODH_--yU0kw6fx1RIM1JOLlnRSiAlfV8d=s680-w680-h510" width="800px">
-            <div class="rating">⭐ 4.7</div>
-            <div class="distance">Dammam</div>
-            <h1>Ithraa</h1>
-            <div class="rating">⭐ 4.7</div>
-            <div class="distance">Dammam</div>
-        </div>
-        <div class="content">
-            <div class="location"><strong>Location:</strong> Science Museums</div>
-            <div class="contact"><strong>Contact:</strong> 800 122 1224</div>
-            <div class="working-hours"><strong>Working Hours:</strong> 9:00 am - 11:00 pm</div>
-            <div class="description">
-                <strong>Description:</strong>
-                <p>Ithraa hosts exhibitions, workshops, and events that celebrate Saudi culture and connect it to the
-                    world. It's a must-visit destination for art and culture enthusiasts.</p>
-            </div>
-            <a href="https://www.ithra.com/en" class="button">Visit Website</a>
-        </div>
+    <div class="container" id="destination-container">
+        <!-- Destination info will be inserted here dynamically -->
     </div>
 
-    <br><br><br><br><br>
+    <script>
+        // URL to the raw JSON file on GitHub
+        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/dataset.json';
 
-    <!-- Navbar at Bottom -->
-    <div class="bottom-nav">
-        <a href="" class="nav-item">🏠 Home</a>
-        <a href="" class="nav-item">📍 Destinations</a>
-        <a href="" class="nav-item">⭐ Favorites</a>
-        <a href="" class="nav-item">🔍 Search</a>
-    </div>
+        // Get the destination ID from the query parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const destinationId = urlParams.get('id');  // Extract the 'id' from URL query parameters
+
+        // Fetch the dataset and find the matching destination by id
+        fetch(datasetUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Find the destination with the matching id
+                const destination = data.find(item => item.id === destinationId);
+
+                if (destination) {
+                    // Populate the page with destination info
+                    const container = document.getElementById('destination-container');
+                    container.innerHTML = `
+                        <div class="header">
+                            <img src="${destination.image}" width="800px">
+                            <div class="rating">⭐ ${destination.placeRating}</div>
+                            <div class="distance">${destination.city}</div>
+                            <h1>${destination.name}</h1>
+                        </div>
+                        <div class="content">
+                            <div class="location"><strong>Location:</strong> ${destination.theme}</div>
+                            <div class="contact"><strong>Contact:</strong> ${destination.contact || 'N/A'}</div>
+                            <div class="working-hours"><strong>Working Hours:</strong> ${destination.workingHours || 'N/A'}</div>
+                            <div class="description">
+                                <strong>Description:</strong>
+                                <p>${destination.description}</p>
+                            </div>
+                            <a href="${destination.website || '#'}" class="button">Visit Website</a>
+                        </div>
+                    `;
+                } else {
+                    // Handle the case where the destination is not found
+                    document.getElementById('destination-container').innerHTML = '<p>Destination not found.</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching the dataset:', error));
+    </script>
+</body>
+
+</html>
 
 </body>
 
