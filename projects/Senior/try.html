@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Dataset</title>
+</head>
+<body>
+    <h1>Dataset from GitHub</h1>
+    <table id="dataset-table" border="1"></table>
+
+    <script>
+        // URL to the raw CSV file on GitHub
+        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DataSets/refs/heads/main/NoDuplicates/FinalDataset.csv';
+
+        // Fetch the CSV file and display its content in the table
+        fetch(datasetUrl)
+            .then(response => response.text())
+            .then(csvData => {
+                const rows = csvData.split('\n');
+                const table = document.getElementById('dataset-table');
+                
+                // Loop through each row in the CSV
+                rows.forEach((row, rowIndex) => {
+                    const tr = document.createElement('tr');
+                    const columns = row.split(',');
+
+                    // Loop through each column in the row
+                    columns.forEach(col => {
+                        const td = document.createElement('td');
+                        td.textContent = col.trim();
+                        tr.appendChild(td);
+                    });
+
+                    table.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error fetching the dataset:', error));
+    </script>
+</body>
+</html>
