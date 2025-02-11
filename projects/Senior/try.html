@@ -323,7 +323,7 @@
         const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination.json';
 
 
-       fetch(datasetUrl)
+fetch(datasetUrl)
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('card-container');
@@ -332,7 +332,7 @@
         data.forEach(destination => {
             const cardHtml = `
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}');">
+                    <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.image}');">
                         <img class="card-img d-none" src="">
                         <div class="card-img-overlay d-flex flex-column">
                             <div class="card-body">
