@@ -359,25 +359,39 @@
 
     <script>
         // URL to the raw JSON file on GitHub
-        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination2.json';
+        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination.json';
     
         // Fetch the dataset from GitHub
         fetch(datasetUrl)
             .then(response => response.json())
             .then(data => {
-                const container = document.getElementById('card-container') || document.getElementById('popular');
+                const container1 = document.getElementById('card-container'); // First card layout container
+                const container2 = document.getElementById('popular'); // Second card layout container
     
-                data.forEach(destination2 => {
-                    const cardHtml = `
+                data.forEach(destination => {
+                    // First Card Layout
+                    const cardHtml1 = `
+                        <div>
+                            <h3 class="card-title">${destination.name}</h3>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <p>⭕ ${destination.theme}</p>
+                            <p>📍${destination.city}</p>
+                            <p>⭐ ${destination.placeRating}</p>
+                        </div><br>
+                    `;
+    
+                    // Second Card Layout
+                    const cardHtml2 = `
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                            <a href="info2.html?id=${destination2.id}" class="card-link">
-                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination2.imageUrl}');">
+                            <a href="info2.html?id=${destination.id}" class="card-link">
+                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}');">
                                     <img class="card-img d-none" src="">
                                     <div class="card-img-overlay d-flex flex-column">
                                         <div class="card-body">
                                             <div class="row">
-                                                <small>📍 ${destination2.city}</small>
-                                                <small>⭐ ${destination2.placeRating}</small>
+                                                <small>📍 ${destination.city}</small>
+                                                <small>⭐ ${destination.placeRating}</small>
                                             </div>
                                         </div>
                                         <div class="card-footer">
@@ -394,7 +408,9 @@
                         </div>
                     `;
     
-                    container.innerHTML += cardHtml; // Append the card HTML
+                    // Append to respective containers
+                    if (container1) container1.innerHTML += cardHtml1;
+                    if (container2) container2.innerHTML += cardHtml2;
                 });
             })
             .catch(error => console.error('Error fetching the dataset:', error));
