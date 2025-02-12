@@ -35,7 +35,7 @@
 
         <script>
             // Fetching data from the JSON file (or an API endpoint)
-            fetch('popular_sites.json')
+            fetch('https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination.json')
                 .then(response => response.json())
                 .then(data => {
                     const cardsList = document.getElementById('cards-list');
@@ -44,7 +44,7 @@
                     data.forEach(site => {
                         const cardElement = document.createElement('li');
                         cardElement.classList.add('card');
-                        cardElement.style.backgroundImage = `url(${site.image_url})`;
+                        cardElement.style.backgroundImage = `url(${site.imageUrl})`;
 
                         // Card content
                         cardElement.innerHTML = `
@@ -52,9 +52,9 @@
                                 <h3 class="card-title">${site.name}</h3>
                             </div>
                             <div class="card-link-wrapper">
-                                <p>⭕ ${site.category}</p>
-                                <p>📍 ${site.location}</p>
-                                <p>⭐ ${site.rating}</p>
+                                <p>⭕ ${site.theme}</p>
+                                <p>📍 ${site.address}</p>
+                                <p>⭐ ${site.placeRating}</p>
                             </div>
                         `;
 
