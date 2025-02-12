@@ -320,7 +320,7 @@
             <div class="container">
                 <h1 class="display-4 font-weight-bolder">Most Popular</h1>
                 <ul class="cards">
-                    <li id="card" class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/a8/5e/e4/masjid-al-nabvi.jpg?w=900&h=-1&s=1');">
+                    <li id="popular" class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/a8/5e/e4/masjid-al-nabvi.jpg?w=900&h=-1&s=1');">
                     </li>
                 </ul>
             </div>
@@ -359,68 +359,47 @@
 
     <script>
         // URL to the raw JSON file on GitHub
-        // const datasetUrl = 'https://raw.githubusercontent.com/yourusername/yourrepo/main/dataset.json';
         const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination.json';
-
-
+    
         // Fetch the dataset from GitHub
-fetch(datasetUrl)
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('card-container');
-        const container = document.getElementById('card');
-        
-
+        fetch(datasetUrl)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('card-container') || document.getElementById('popular');
+    
                 data.forEach(destination => {
-            const cardHtml = `
-                    <div>
-                        <h3 class="card-title">${destination.name}</h3>
-                    </div>
-                    <div class="card-link-wrapper">
-                        <p>⭕ ${destination.theme}</p>
-                        <p>📍${destination.city}</p>
-                        <p>⭐ ${destination.placeRating}</p>
-                    </div>
-                </div><br>
-            `;
-
-
-
-        
-        // Loop through each item in the dataset
-        data.forEach(destination => {
-            const cardHtml = `
-                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}');">
-                        <img class="card-img d-none" src="">
-                        <div class="card-img-overlay d-flex flex-column">
-                            <div class="card-body">
-                                <div class="row">
-                                    <small><i class="far fa-clock"></i>📍${destination.city}</small>
-                                    <small><i class="far fa-clock"></i>⭐ ${destination.placeRating}</small>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <h4 class="my-0 text-light d-block">${destination.name}</h4>
-                                        <small>⭕ ${destination.theme}</small>
+                    const cardHtml = `
+                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                            <a href="info2.html?id=${destination.id}" class="card-link">
+                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}');">
+                                    <img class="card-img d-none" src="">
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <small>📍 ${destination.city}</small>
+                                                <small>⭐ ${destination.placeRating}</small>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h4 class="my-0 text-light d-block">${destination.name}</h4>
+                                                    <small>⭕ ${destination.theme}</small>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                </div><br>
-            `;
-            const link = document.createElement('a');
-            link.href = `info2.html?id=${destination.id}`;  // The destination ID or unique identifier
-            link.innerHTML = cardHtml;
-            container.appendChild(link);
-        });
-    })
-    .catch(error => console.error('Error fetching the dataset:', error));
-
+                    `;
+    
+                    container.innerHTML += cardHtml; // Append the card HTML
+                });
+            })
+            .catch(error => console.error('Error fetching the dataset:', error));
     </script>
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For the clock icon -->
 </body>
 </html>
