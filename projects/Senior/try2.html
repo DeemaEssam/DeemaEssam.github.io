@@ -359,7 +359,7 @@
 
     <script>
         // URL to the raw JSON file on GitHub
-        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination.json';
+        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination2.json';
     
         // Fetch the dataset from GitHub
         fetch(datasetUrl)
@@ -367,17 +367,17 @@
             .then(data => {
                 const container = document.getElementById('card-container') || document.getElementById('popular');
     
-                data.forEach(destination => {
+                data.forEach(destination2 => {
                     const cardHtml = `
                         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                            <a href="info2.html?id=${destination.id}" class="card-link">
-                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}');">
+                            <a href="info2.html?id=${destination2.id}" class="card-link">
+                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination2.imageUrl}');">
                                     <img class="card-img d-none" src="">
                                     <div class="card-img-overlay d-flex flex-column">
                                         <div class="card-body">
                                             <div class="row">
-                                                <small>📍 ${destination.city}</small>
-                                                <small>⭐ ${destination.placeRating}</small>
+                                                <small>📍 ${destination2.city}</small>
+                                                <small>⭐ ${destination2.placeRating}</small>
                                             </div>
                                         </div>
                                         <div class="card-footer">
