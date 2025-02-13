@@ -1,312 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Destinations</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-        <style>
-            body {
-                background-image: url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                color: rgb(125, 125, 125);
-                position: relative;
-                margin: 0; /* Ensure no extra spacing */
-                height: 100vh;
-                overflow-x: hidden; /* Prevent horizontal scrolling */
-            }
+            <link rel="stylesheet" href="cards.css">
+            <link rel="stylesheet" href="cards2.css">
 
-            /* Fix the blur effect so it stays in place */
-            body::before {
-                content: "";
-                position: fixed; /* Keeps it fixed while scrolling */
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay */
-                backdrop-filter: blur(10px); /* Apply blur */
-                -webkit-backdrop-filter: blur(10px); /* Safari support */
-                z-index: -1; /* Ensure it stays behind content */
-            }
 
-            h1{
-                color:#fff;
-            }
-            .lead{
+<style>
+    body {
+        background-image: url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    /* Fix the blur effect so it stays in place */
+    body::before {
+        content: "";
+        position: fixed;
+        /* Keeps it fixed while scrolling */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        /* Semi-transparent overlay */
+        backdrop-filter: blur(10px);
+        /* Apply blur */
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari support */
+        z-index: -1;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    /*.lead{
                 color:#aaa;
             }
 
             .wrapper{
                 margin:10vh
-            }
+            }*/
 
-            .card{
-                border: none;
-                transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-                overflow:hidden;
-                border-radius:50px;
-                min-height:250px;
-                box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
-            
-            @media (max-width: 768px) {
-                min-height:350px;
-            }
+    :root {
+        --orange: #fd9940;
+        --darkorange: #dd7d25;
+        --platinum: #e5e5e5;
+        --black: #2b2d42;
+        --white: #fff;
+        --thumb: #edf2f4;
+    }
 
-            @media (min-width: 420px) {
-                min-height:400px;
-            }
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
 
-            &.card-has-bg{
-                transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-                background-size:120%;
-                background-repeat:no-repeat;
-                background-position: center center;
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    /*background: inherit;*/
-                    -webkit-filter: grayscale(1);
-                    -moz-filter: grayscale(100%);
-                    -ms-filter: grayscale(100%);
-                    -o-filter: grayscale(100%);
-                    filter: grayscale(100%);}
+    .container {
+        max-width: 1400px;
+        padding: 0 15px;
+        margin: 0 auto;
+        color: var(--white);
+    }
 
-                &:hover {
-                    transform: scale(0.98);
-                    box-shadow: 0 0 5px -2px rgba(0,0,0,0.3);
-                    background-size:130%;
-                    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    h2 {
+        font-size: 32px;
+        margin-bottom: 1em;
+    }
 
-                    .card-img-overlay {
-                    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-                    background: rgb(0, 0, 0);
-                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgb(0, 0, 0) 100%);
-                    }
-                }
-            }
-            .card-footer{
-                background: none;
-                border-top: none;
-                    .media{
-                    img{
-                    border:solid 3px rgba(255,255,255,0.3);
-                    }
-                }
-            }
-            .card-title{
-                font-weight:800
-            }
-            .card-meta{
-                color:rgba(0, 0, 0, 0);
-                text-transform:uppercase;
-                font-weight:500;
-                letter-spacing:2px;
-            }
-            
-            .card-body{ 
-                transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-            }
+    .tag {
+        background-color: #FF5722;
+        /* Vibrant orange */
+        color: white;
+        font-weight: bold;
+        padding: 8px 20px;
+        border-radius: 20px;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        font-size: 14px;
 
-            &:hover {
-                .card-body{
-                    margin-top:30px;
-                    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-                }
-                cursor: pointer;
-                transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-            }
-            /*.card-img-overlay {
-                transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-                background: rgba(255, 185, 33, 0);
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.185) 0%, rgb(0, 0, 0) 100%);
-                }*/
-            }
+    }
 
-            :root {
-                --orange: #fd9940;
-                --darkorange: #dd7d25;
-                --platinum: #e5e5e5;
-                --black: #2b2d42;
-                --white: #fff;
-                --thumb: #edf2f4;
-            }
+    .tag:hover {
+        background-color: #ff562298;
+        /* Vibrant orange */
+    }
 
-            * {
-                box-sizing: border-box;
-                padding: 0;
-                margin: 0;
-            }
-
-            .container {
-                max-width: 1400px;
-                padding: 0 15px;
-                margin: 0 auto;
-                color: var(--white);
-            }
-
-            h2 {
-                font-size: 32px;
-                margin-bottom: 1em;
-            }
-
-            .cards {
-                display: grid;
-                grid-auto-columns: 100%;
-                grid-column-gap: 10px;
-                grid-auto-flow: column;
-                padding: 25px 0px;
-                list-style: none;
-                overflow-x: scroll;
-                -ms-scroll-snap-type: x mandatory;
-                scroll-snap-type: x mandatory;
-            }
-
-            .card {
-                display: flex;
-                flex-direction: column;
-                padding: 20px;
-                /*background: var(--white);
-                background-image: url('https://github.com/DeemaEssam/Final_Project/blob/main/img/bg2.jpg?raw=true');*/
-                background-size: cover;
-                background-repeat: no-repeat;
-                border-radius: 12px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
-                scroll-snap-align: start;
-                transition: all 0.2s;
-            }
-
-            .card:hover {
-                /*background: #ff56223f;*/
-                transform: scale(0.98);
-            }
-
-            .card .card-title {
-                font-size: 20px;
-            }
-
-            .card .card-content {
-                margin: 20px 0;
-                max-width: 85%;
-            }
-
-            .card .card-link-wrapper {
-                margin-top: auto;
-            }
-
-            .card .card-link {
-                display: inline-block;
-                text-decoration: none;
-                color: white;
-                background: var(--orange);
-                padding: 6px 12px;
-                border-radius: 8px;
-                transition: background 0.2s;
-            }
-
-            .card:hover .card-link {
-                background: var(--darkorange);
-            }
-
-            .cards::-webkit-scrollbar {
-                height: 12px;
-            }
-
-            .cards::-webkit-scrollbar-thumb,
-            .cards::-webkit-scrollbar-track {
-                border-radius: 92px;
-            }
-
-            .cards::-webkit-scrollbar-thumb {
-                background: var(--darkorange);
-            }
-
-            .cards::-webkit-scrollbar-track {
-                background: var(--thumb);
-            }
-
-            @media (min-width: 500px) {
-                .cards {
-                    grid-auto-columns: calc(50% - 10px);
-                    grid-column-gap: 20px;
-                }
-            }
-
-            @media (min-width: 700px) {
-                .cards {
-                    grid-auto-columns: calc(calc(100% / 3) - 20px);
-                    grid-column-gap: 30px;
-                }
-            }
-
-            @media (min-width: 1100px) {
-                .cards {
-                    grid-auto-columns: calc(25% - 30px);
-                    grid-column-gap: 40px;
-                }
-            }
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        /* Position it from the left side to the middle */
+        transform: translateX(-50%);
+        /* Offset it by 50% of its width to truly center it */
+        width: 70%;
+        background-color: #b7a8a3bf;
+        /* Vibrant color */
+        display: flex;
+        justify-content: space-around;
+        padding: 12px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
 
 
-            .tag {
-                background-color: #FF5722; /* Vibrant orange */
-                color: white;
-                font-weight: bold;
-                padding: 8px 20px;
-                border-radius: 20px;
-                display: inline-block;
-                font-family: Arial, sans-serif;
-                text-transform: uppercase;
-                font-size: 14px;
-                
-            }
+    /* Navbar buttons */
+    .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 15px;
+        transition: background 0.3s ease;
+    }
 
-            .tag:hover{
-                background-color: #ff562298; /* Vibrant orange */
-            }
-
-            /* Bottom Navigation Bar */
-            .bottom-nav {
-                position: fixed;
-                bottom: 15px;
-                left: 50%; /* Position it from the left side to the middle */
-                transform: translateX(-50%); /* Offset it by 50% of its width to truly center it */
-                width: 70%;
-                background-color: #b7a8a3bf; /* Vibrant color */
-                display: flex;
-                justify-content: space-around;
-                padding: 12px 0;
-                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-                border-radius: 15px;
-            }
-
-
-            /* Navbar buttons */
-            .nav-item {
-                color: white;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: bold;
-                padding: 10px;
-                border-radius: 15px;
-                transition: background 0.3s ease;
-            }
-
-            /* Hover effect */
-            .nav-item:hover {
-                background: rgba(255, 255, 255, 0.2);
-            }
-        </style>
+    /* Hover effect */
+    .nav-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+</style>
 </head>
+
 <body>
-            <section>
+        <section><center>
+            <br>br
             <center>
                 <img src="https://github.com/DeemaEssam/Final_Project/blob/main/img/icon.png?raw=true" width="80px">
                 <br>
@@ -319,103 +147,101 @@
             
             <div class="container">
                 <h1 class="display-4 font-weight-bolder">Most Popular</h1>
-                <ul class="cards">
-                    <li id="popular" class="card" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/a8/5e/e4/masjid-al-nabvi.jpg?w=900&h=-1&s=1');">
-                    </li>
-                </ul>
-            </div>
+                    <div>
+                        <ul class="cards" id="card-popular">
 
+                        </ul>
+                    </div>
+            </div>
+            
             <br>
             
-            <section class="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center mb-5">
-                            <h1 class="display-4 font-weight-bolder">Recommended Sites</h1>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row" id="card-container">
-                    </div>
+            <center>
+                <h1 class="display-4 font-weight-bolder">Recommended Sites</h1>
+                <br>
+                <div class="row" id="card-container">
+                    <!-- Cards will be populated here dynamically -->
                 </div>
-            </section>
+            </center>
 
             <!-- Navbar at Bottom -->
             <div class="bottom-nav">
                 <a href="https://deemaessam.github.io/projects/Senior/Index.html" class="nav-item">🏠 Home</a>
                 <!--<a href="" class="nav-item">📍 Destinations</a>
-                <a href="" class="nav-item">⭐ Favorites</a>-->
+                                <a href="" class="nav-item">⭐ Favorites</a>-->
                 <a href="https://deemaessam.github.io/projects/Senior/profile.html" class="nav-item">👤 Profile</a>
                 <a href="" class="nav-item">↩️ Logout</a>
             </div>
-        </section>
-    
-<!--     <div class="container mt-5">
-        <div class="row" id="card-container">
-             Cards will be populated here dynamically
-            <br>
-        </div>
-    </div> -->
+        </center></section>
 
-    <script>
-        // URL to the raw JSON file on GitHub
-        const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/projects/Senior/destination2.json';
-    
-        // Fetch the dataset from GitHub
-        fetch(datasetUrl)
-            .then(response => response.json())
-            .then(data => {
-                const container1 = document.getElementById('card-container'); // First card layout container
-                const container2 = document.getElementById('popular'); // Second card layout container
-    
-                data.forEach(destination2 => {
-                    // First Card Layout
-                    const cardHtml1 = `
-                        <div>
-                            <h3 class="card-title">${destination2.name}</h3>
-                        </div>
-                        <div class="card-link-wrapper">
-                            <p>⭕ ${destination2.theme}</p>
-                            <p>📍${destination2.city}</p>
-                            <p>⭐ ${destination2.placeRating}</p>
-                        </div><br>
-                    `;
-    
-                    // Second Card Layout
-                    const cardHtml2 = `
-                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                            <a href="info2.html?id=${destination2.id}" class="card-link">
-                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination2.imageUrl}');">
+        <script>
+            // URL to the raw JSON file on GitHub
+            const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination2.json';
+
+            // Fetch the dataset from GitHub
+            fetch(datasetUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the first container (card-container)
+                    const container = document.getElementById('card-container');
+                    data.forEach(destination => {
+                        const cardHtml = `
+                            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}'); min-height: 300px; min-width: 300px;">
                                     <img class="card-img d-none" src="">
-                                    <div class="card-img-overlay d-flex flex-column">
+                                    <div style="text-align: left;" class="card-img-overlay d-flex flex-column">
                                         <div class="card-body">
                                             <div class="row">
-                                                <small>📍 ${destination2.city}</small>
-                                                <small>⭐ ${destination2.placeRating}</small>
+                                                <small><i class="far fa-clock"></i>📍${destination.city}</small>
+                                                <small><i class="far fa-clock"></i>⭐ ${destination.placeRating}</small>
                                             </div>
                                         </div>
                                         <div class="card-footer">
                                             <div class="media">
                                                 <div class="media-body">
-                                                    <h4 class="my-0 text-light d-block">${destination2.name}</h4>
-                                                    <small>⭕ ${destination2.theme}</small>
+                                                    <h4 class="my-0 text-light d-block">${destination.name}</h4>
+                                                    <small>⭕ ${destination.theme}</small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                    `;
-    
-                    // Append to respective containers
-                    if (container1) container1.innerHTML += cardHtml1;
-                    if (container2) container2.innerHTML += cardHtml2;
-                });
-            })
-            .catch(error => console.error('Error fetching the dataset:', error));
-    </script>
+                            </div>
+                        `;
+                        const link = document.createElement('a');
+                        link.href = `info2.html?id=${destination.id}`;  // The destination ID or unique identifier
+                        link.innerHTML = cardHtml;
+                        container.appendChild(link);
+                    });
+
+                    // Populate the second container (card-popular)
+                    const containerPopular = document.getElementById('card-popular');
+                    data.forEach(destination => {
+                        const cardHtmlPopular = `
+                                <li class="card" style="min-height: 200px; min-width: 100px; text-align: left; background-image: url('${destination.imageUrl}');">
+                                    <div class="card-img-overlay d-flex flex-column">
+                                        <div>
+                                            <h3 class="card-title">${destination.name}</h3>
+                                        </div>
+                                        <div class="card-link-wrapper">
+                                            <p>⭕ ${destination.theme}</p>
+                                            <p>📍${destination.city}</p>
+                                            <p>⭐ ${destination.placeRating}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                        `;
+                        const link = document.createElement('a');
+                        link.href = `info2.html?id=${destination.id}`;  // The destination ID or unique identifier
+                        link.innerHTML = cardHtmlPopular;
+                        containerPopular.appendChild(link);
+                    });
+                })
+                .catch(error => console.error('Error fetching the dataset:', error));
+        </script>
+
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For the clock icon -->
 </body>
+
 </html>
