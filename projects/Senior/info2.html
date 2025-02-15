@@ -149,7 +149,9 @@
             .then(response => response.json())
             .then(data => {
                 // Find the destination with the matching id
-                const destination = data.find(item => item.id === destinationId);
+                //const destination = data.find(item => item.id === destinationId);
+                const destination = data.find(item => item.id == destinationId);
+
 
                 if (destination) {
                     // Populate the page with destination info
