@@ -133,7 +133,8 @@
 </head>
 
 <body>
-        <section><center>
+        <section>
+        <center>
             <br><br>
             <center>
                 <img src="https://github.com/DeemaEssam/Final_Project/blob/main/img/icon.png?raw=true" width="80px">
@@ -172,11 +173,12 @@
                 <a href="https://deemaessam.github.io/projects/Senior/profile.html" class="nav-item">👤 Profile</a>
                 <a href="" class="nav-item">↩️ Logout</a>
             </div>
-        </center></section>
+        </center>
+        </section>
 
         <script>
             // URL to the raw JSON file on GitHub
-            const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/main/projects/Senior/destination2.json';
+            const datasetUrl = 'https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/projects/Senior/dataset/dataset.json';
 
             // Fetch the dataset from GitHub
             fetch(datasetUrl)
@@ -187,7 +189,7 @@
                     data.forEach(destination => {
                         const cardHtml = `
                             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl}'); min-height: 200px; min-width: 300px;">
+                                <div class="card text-light card-has-bg click-col" style="background-image:url('${destination.imageUrl_x}'); min-height: 200px; min-width: 300px;">
                                     <img class="card-img d-none" src="">
                                     <div style="text-align: left;" class="card-img-overlay d-flex flex-column">
                                         <div class="card-body">
@@ -218,7 +220,7 @@
                     const containerPopular = document.getElementById('card-popular');
                     data.forEach(destination => {
                         const cardHtmlPopular = `
-                                <li class="card" style="min-height: 200px; min-width: 100px; text-align: left; background-image: url('${destination.imageUrl}');">
+                                <li class="card" style="min-height: 200px; min-width: 100px; text-align: left; background-image: url('${destination.imageUrl_x}');">
                                     <div class="card-img-overlay d-flex flex-column">
                                         <div>
                                             <h3 class="card-title">${destination.name}</h3>
