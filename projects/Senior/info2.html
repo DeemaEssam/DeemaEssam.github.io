@@ -142,14 +142,14 @@
 
         // Get the destination ID from the query parameter in the URL
         const urlParams = new URLSearchParams(window.location.search);
-        const destinationId = urlParams.get('placeID');  // Extract the 'id' from URL query parameters
+        const destinationId = urlParams.get('id');  // Extract the 'id' from URL query parameters
 
         // Fetch the dataset and find the matching destination by id
         fetch(datasetUrl)
             .then(response => response.json())
             .then(data => {
                 // Find the destination with the matching id
-                const destination = data.find(item => item.placeID === destinationId);
+                const destination = data.find(item => item.id === destinationId);
 
                 if (destination) {
                     // Populate the page with destination info
