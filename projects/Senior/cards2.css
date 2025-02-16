@@ -82,7 +82,7 @@
     background: var(--thumb);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 400px) {
     .cards {
         grid-auto-columns: calc(50% - 10px);
         grid-column-gap: 20px;
