@@ -20,6 +20,8 @@
         }
 
         .tag {
+            background-color: #5634f7;
+            color: white;
             font-size: 12px;
             font-weight: bold;
             padding: 5px 10px;
@@ -81,8 +83,8 @@
 
         /* الصور بنفس المقاس */
         .card img {
-            /*width: 180px;
-            height: 120px;*/
+            /*width: 180px;*/
+            height: 120px;
             object-fit: cover;
             border-radius: 5px;
         }
