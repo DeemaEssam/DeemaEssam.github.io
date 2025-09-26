@@ -1,11 +1,11 @@
     <style>
-        body {
+        /* body {
             background-color: #f1e9ef;
             font-family: Arial, sans-serif;
-        }
+        } */
 
         .card {
-            background: #f1e9ef;
+            /* background: #f1e9ef; */
             border: none;
             display: flex;
             flex-direction: row;
