@@ -1,15 +1,19 @@
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
 
         .card {
-            
-            border: none;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 20px;
-            margin-bottom: 20px;
-            height: 100%;
+        /*background: #f1e9ef;*/
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; /* بدل flex-start */
+        padding: 20px;
+        margin-bottom: 20px;
+        height: 100%;
         }
+
 
         .card-content {
             max-width: 70%;
@@ -77,7 +81,7 @@
 
         /* الصور بنفس المقاس */
         .card img {
-            width: 180px;
+            /*width: 180px;*/
             height: 120px;
             object-fit: cover;
             border-radius: 5px;
