@@ -1,11 +1,6 @@
-    <style>
-        body {
-            background-color: #f1e9ef;
-            font-family: Arial, sans-serif;
-        }
 
         .card {
-            /* background: #f1e9ef; */
+            
             border: none;
             display: flex;
             flex-direction: row;
@@ -21,7 +16,7 @@
         }
 
         .tag {
-            /* background-color: #5634f7; */
+            background-color: #5634f7;
             color: white;
             font-size: 12px;
             font-weight: bold;
@@ -80,10 +75,10 @@
             background: #5634f7;
         }
 
+        /* الصور بنفس المقاس */
         .card img {
             width: 180px;
             height: 120px;
             object-fit: cover;
             border-radius: 5px;
         }
-    </style>
