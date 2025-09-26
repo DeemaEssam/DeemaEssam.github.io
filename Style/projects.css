@@ -1,0 +1,89 @@
+    <style>
+        body {
+            background-color: #f1e9ef;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: #f1e9ef;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card-content {
+            max-width: 70%;
+        }
+
+        .tag {
+            background-color: #5634f7;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #163d93;
+            margin: 0 0 10px 0;
+        }
+
+        .description {
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: gray;
+        }
+
+        /* روابط مع أنيميشن */
+        .meta a {
+            position: relative;
+            color: gray;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .meta a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: gray;
+            transform: scaleX(1);
+            transform-origin: left;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .meta a:hover {
+            color: #5634f7;
+        }
+
+        .meta a:hover::after {
+            transform: scaleX(0);
+            background: #5634f7;
+        }
+
+        .card img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
