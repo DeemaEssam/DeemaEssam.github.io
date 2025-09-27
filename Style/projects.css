@@ -3,7 +3,7 @@
         }
 
         .card {
-        /*background: #f1e9ef;*/
+        background: #f1e9ef00;
         border: none;
         display: flex;
         flex-direction: row;
@@ -83,7 +83,7 @@
 
         /* الصور بنفس المقاس */
         .card img {
-            /*width: 180px;*/
+            /* width: 150px; */
             height: 120px;
             object-fit: cover;
             border-radius: 5px;
