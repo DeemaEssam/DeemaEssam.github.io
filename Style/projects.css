@@ -83,8 +83,8 @@
 
         /* الصور بنفس المقاس */
         .card img {
-            width: 130px;
-            height: 70px;
+            width: 200px;
+            height: 100px;
             /* object-fit: cover; */
             border-radius: 5px;
         }
