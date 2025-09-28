@@ -11,43 +11,49 @@
         <link rel="stylesheet" href="projects.css">
         <link rel="stylesheet" href="Style/Deema.css">
         <link rel="stylesheet" href="Style/projects.css">
-    <title>Portfolio</title>
+    <title>Portfolio - Deema Hamidah</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-        }
+/* السايدبار ثابتة على اليسار في الشاشات الكبيرة */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        background: #f8f9fa;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
 
-        /* الجزء اللي على اليسار */
+    .section {
+        margin-bottom: 50px;
+        /*background: #bdb9b969;*/
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* المحتوى بجانب السايدبار */
+    .main-content {
+        margin-left: 320px;
+        
+        padding: 20px;
+    }
+
+    /* للجوال */
+    @media (max-width: 768px) {
         .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 100vh;
-            /* يغطي الشاشة بالكامل */
-            background: #f8f9fa;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: relative;   /* ما تكون ثابتة */
+            width: 100%;          /* تغطي عرض الصفحة */
+            height: auto;         /* تتعدل حسب المحتوى */
+            box-shadow: none;
         }
 
-        /* المحتوى الرئيسي */
         .main-content {
-            margin-left: 320px;
-            /* نفس عرض الـ sidebar + مسافة */
-            padding: 20px;
-            flex: 1;
-            
+            margin-left: 0;       /* يجي تحت السايدبار */
         }
-
-        .section {
-            margin-bottom: 50px;
-            /*background: #bdb9b969;*/
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    }
     </style>
 </head>
 
@@ -55,14 +61,12 @@
     <!-- يسار -->
     <div class="sidebar">
         <center><h2>Deema Essam</h2></center>
-        <!-- <h5> -->
             <p style=" text-align: justify;">
                 Fresh Computer Science graduate specialized in Artificial Intelligence, with strong skills in Data Science and Web
                 Development. Skilled in data preparation, visualization, and analysis, and experienced in building responsive websites
                 with HTML, CSS, JavaScript, and PHP. Passionate about integrating AI with web technologies to deliver innovative,
                 data-driven solutions.
             </p>
-        <!-- </h5> -->
 
         <p>
             <a href="mailto:Deemaessam@gmail.com" class="text-dark text-decoration-none">
@@ -214,7 +218,7 @@
                             <a href="https://github.com/DeemaEssam/Travel-Persona-Based-Destinations-Recommendation">GITHUB</a>
                         </p>
                     </div>
-                    <iframe style=" object-fit: cover; border-radius: 21px;" width="590" height="315"
+                    <iframe style="position: relative;  object-fit: cover; border-radius: 21px;" width="590" height="315"
                         src="https://www.youtube.com/embed/dryeV0mrXRA?si=1ftvz6REt8VkbDjA" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
