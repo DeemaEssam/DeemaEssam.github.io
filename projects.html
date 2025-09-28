@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link rel="stylesheet" href="Deema.css">
+        <link rel="stylesheet" href="projects.css">
+        <link rel="stylesheet" href="Style/Deema.css">
+        <link rel="stylesheet" href="Style/projects.css">
+    <title>Portfolio - Deema Hamidah</title>
+    <style>
+/* السايدبار ثابتة على اليسار في الشاشات الكبيرة */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        background: #f8f9fa;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+
+    .section {
+        margin-bottom: 50px;
+        /*background: #bdb9b969;*/
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* المحتوى بجانب السايدبار */
+    .main-content {
+        margin-left: 320px;
+        
+        padding: 20px;
+    }
+
+    /* للجوال */
+    @media (max-width: 768px) {
+        .sidebar {
+            position: relative;   /* ما تكون ثابتة */
+            width: 100%;          /* تغطي عرض الصفحة */
+            height: auto;         /* تتعدل حسب المحتوى */
+            box-shadow: none;
+        }
+
+        .main-content {
+            margin-left: 0;       /* يجي تحت السايدبار */
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!-- يسار -->
+    <div class="sidebar">
+        <center><h2>Deema Essam</h2></center>
+            <p style=" text-align: justify;">
+                Fresh Computer Science graduate specialized in Artificial Intelligence, with strong skills in Data Science and Web
+                Development. Skilled in data preparation, visualization, and analysis, and experienced in building responsive websites
+                with HTML, CSS, JavaScript, and PHP. Passionate about integrating AI with web technologies to deliver innovative,
+                data-driven solutions.
+            </p>
+
+        <p>
+            <a href="mailto:Deemaessam@gmail.com" class="text-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
+                    <path
+                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                </svg>
+                Deemaessam@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <a href="https://github.com/DeemaEssam" target="_blank" class="text-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                github.com/DeemaEssam
+            </a>
+        </p>
+        <p>
+            <a href="" target="_blank" class="text-dark text-decoration-none">
+
+            📍 Saudi Arabia
+            </a>
+        </p>
+        
+        <!-- <button>Download Resume</button> -->
+        <a href="https://www.dropbox.com/scl/fi/dkphyg5jv5cepr5u3m674/Deema-Hamidah_English.pdf?rlkey=tnkygvemvdjohaocst773ctuw&st=gxc7se4e&dl=0" class="btn btn-primary w-100 mt-3" download>My Resume</a>
+        <a href="https://www.dropbox.com/scl/fi/7xik5l9iav4qn1egjah6e/_.pdf?rlkey=688t7ihmjfngbah27c2qrtb9u&st=ovqf3ju3&dl=0" class="btn btn-primary w-100 mt-3" download>السيرة الذاتية</a>
+    </div>
+
+    <!-- يمين -->
+    <div class="main-content">
+        <!-- Education -->
+        <div class="section p-3 shadow rounded bg-light">
+            <h2>🎓Education</h2>
+            <!-- <img src="https://seeklogo.com/images/E/effat-university-bundle-logo-ADA2750722-seeklogo.com.png" width="30px" style="border-radius: 50%;">  -->
+            <div class="education-section">
+                <div class="degree">Bachelor's of <strong> Computer Science </strong>with concentration of <strong>Artiftial
+                        Intellegence</strong></div>
+                <div class="university">Effat University</div>
+                <div class="year">2021 - 2025</div>
+            </div>
+        
+            <p>
+                <span class="tag">Python</span>
+                <span class="tag">C++</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">PHP</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Responsive design</span>
+                <span class="tag">APIs integration</span>
+                <span class="tag">Database management</span>
+                <span class="tag">Data collection & preprocessing</span>
+                <span class="tag">Data cleaning</span>
+                <span class="tag">Exploratory Data Analysis (EDA)</span>
+                <span class="tag">Data</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Model integration into web apps</span>
+                <span class="tag">Excel</span>
+                <span class="tag">Word</span>
+                <span class="tag">PowerPoint</span>
+                <span class="tag">Outlook</span>
+            </p>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section p-3 shadow rounded bg-light">
+            <h2>📜 Certifications & Achievements</h2>
+            <ul>
+                <li><b>Duke University</b> – Java Programming: Arrays, Lists, and Structured Data (Dec 12, 2023)</li>
+                <li><b>Coursera</b> – Linear Regression with Python(Jun 23, 2023)</li>
+                <li><b>Google</b> – Agile Project Management (Sep 8, 2023)</li>
+                <li><b>HKUST</b> – Software Engineering: Modeling Software Systems using UML (Sep 7, 2023)</li>
+                <li><b>DeepLearning.AI</b> – Mathematics for Machine Learning and Data Science Specialization</li>
+                <li><b>Microsoft</b> – Analysis and Visualization with Power BI (Nov 24, 2024)</li>
+                <li><b>KAUST</b> – Introduction to AI Program (Jun 30, 2023)</li>
+                <li><b>Smart Methods Internship</b>:
+                    <ul>
+                        <li>AI & Robotics</li>
+                        <li>Electronics & IoT</li>
+                        <li>Web Development & NLP</li>
+                        <li>Mechanical Design</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- awards -->
+        <div class="section p-3 shadow rounded bg-light">
+            <h4>🏆 Awards</h4>
+            <ul>
+                <li>Best Engineer Award 2024 – Smart Methods</li>
+                <li>Best Team Award 2024 – Smart Methods</li>
+            </ul>
+        </div>
+
+        <!-- publications -->
+        <div class="section p-3 shadow rounded bg-light">
+            <h4>📖 Publications</h4>
+            <ul>
+                <li>
+                    Published research paper:
+                    <i>“Travel Persona-Based Destination Recommendations for Enhancing Tourism in Saudi Arabia”</i> in
+                    <b>IEEE</b>
+                    <p class="meta">
+                        <a href="https://lnkd.in/eVXQCvqw">
+                            READ
+                        </a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- projects -->
+        <div class="section p-3 shadow rounded bg-light">
+            <h2>📂Projects</h2>
+            <div class="container mt-4" style="border-radius: 25px; background: #ffffff; padding: 20px;">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag">PYTHON / SQL / HTML / CSS / PHP</span>
+                        <h2 class="title">
+                            AI-based Tourism Recommendation System🎓✈️
+                        </h2>
+                        <p class="description">
+                            This is a web-based travel recommendation system that uses AI to suggest personalized
+                            destinations
+                            based on user preferences such as persona, keywords, and budget.
+                        </p>
+                        <p class="meta">
+                            DEC 20, 2024 ·
+                            <a
+                                href="https://www.dropbox.com/scl/fi/sccdgpw4en9okfgeapync/demo_tourism.mp4?rlkey=xespymw8tc7jqabc158zlh7y8&e=1&st=t7bx36at&dl=0">VIDEO</a>
+                            |
+                            <a
+                                href="https://www.dropbox.com/scl/fi/bpvcx13zalpf7v8oiil06/tourism.pdf?rlkey=6wthdx024gwby0yd56rwwerro&e=1&st=mq7zsspd&dl=0">DASHBOARD</a>
+                            |
+                            <a
+                                href="https://github.com/DeemaEssam/Travel-Persona-Based-Destinations-Recommendation/blob/main/dataset.zip">DATASET</a>
+                            |
+                            <a href="https://github.com/DeemaEssam/Travel-Persona-Based-Destinations-Recommendation">GITHUB</a>
+                        </p>
+                    </div>
+                    <iframe style="position: relative;  object-fit: cover; border-radius: 21px;" width="590" height="315"
+                        src="https://www.youtube.com/embed/dryeV0mrXRA?si=1ftvz6REt8VkbDjA" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <!-- <iframe style=" object-fit: cover; border-radius: 21px;" width="590" height="315"
+                            src="https://www.youtube.com/embed/dryeV0mrXRA?si=1ftvz6REt8VkbDjA" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe> -->
+            <br>
+            <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+        
+                    <!-- الكارد الأول -->
+                    <div class="carousel-item active">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON / POWER BI</span>
+                                <h2 class="title">Real Estate in Riyadh</h2>
+                                <p class="description">
+                                    This project involves developing a real estate platform to assist buyers and sellers with
+                                    property listings, market analysis,
+                                    and transaction management. The goal is to simplify the buying and selling process, provide
+                                    accurate property data, and enhance
+                                    user experience through innovative technology.
+                                </p>
+                                <p class="meta">
+                                    Apr 27, 2024 ·
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/uqao6eu33rhvdw8ppilhq/Riyadh_RealEstate.pdf?rlkey=4jd5qxkwdlml6ypk36kdh1cnx&e=1&st=vv0fxfcr&dl=0">DASHBOARD</a>
+                                    |
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/r0e4fda3f2w0nr49dx831/updated_Riyadh_RealEstate.csv?rlkey=doxloqi3ogr78krhz1sugx4c2&e=1&st=dcu69fgv&dl=0">DATASET</a>
+                                    |
+                                    <a href="https://github.com/DeemaEssam/RealEstate_Riyadh/tree/main">GITHUB</a>
+                                </p>
+                            </div>
+                            <img src="https://previews.dropbox.com/p/thumb/ACxW2usimFe0XnEcJIFHglS5J52m5dVvICQvYKMquIgxbmy-p0anLARZ4NmJ6jZ01oHMFNW6NOPUApUuMb1g7SbwjQg8VbVv0aFpzvtTi5WuuXgbscT--KuOydCgjhifKK9mWewd7OtxgKAmidpYlVA0vPXp3w4inIkFXTJWZ_YO8xEDnGdkhOeV-SMFrhQmOyzd0XUkYAjLykDkAF17rWE1Er9jNhaM25AFro_1BPYqbBF2cuVnHdmv8Ws2YDisQP5gMWqs__PmDkjeeIG6Gw63gKOTtZwTZYx1BUjzrJNM6TYtma9bkY1vh9FDrqLZxZA/p.png"
+                                class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+        
+                    <!-- الكارد الثاني -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON / POWER BI</span>
+                                <h2 class="title">Building a High-Quality Dataset for the Future of Tourism Analytics in Saudi
+                                    Arabia</h2>
+                                <p class="description">
+                                    Built a custom dataset by scraping TripAdvisor reviews of Saudi destinations,
+                                    cleaning and restructuring the data. Each destination includes representative reviews
+                                    (ratings 1–5) with location details, ready for analysis.
+                                </p>
+                                <p class="meta">
+                                    Dec 20, 2024 ·
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/bpvcx13zalpf7v8oiil06/tourism.pdf?rlkey=6wthdx024gwby0yd56rwwerro&e=1&st=jzbrspxn&dl=0">DASHBOARD</a>
+                                    |
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/ycsq3v5hq9alvakzk6u7f/tourism.csv?rlkey=2ykv1jjj1dy3sdgzo9wkbpc4q&e=1&st=1ay5674a&dl=0">DATASET</a>
+                                    |
+                                    <a href="https://github.com/DeemaEssam/DataSciences_Project">GITHUB</a>
+                                </p>
+                            </div>
+                            <img src="https://previews.dropbox.com/p/thumb/ACzYqhxUj-vJ9Gz6qg9O_eUNB8F6To8kaukWZywubPxnOqJxORaKXUlRzGpunI7zKy---peU6Pqg8Oo5ENCTj4r5FQL5F1nIZVSPLI68faNhmBTV001xAeiyWmdvT9G3ckdbi5iSksNck27Rj5MjX0Dcdi0wiOtV8K7trL9h6EpfANAQ274un2kDQ4nwVKcZKxObjd0MclMT4-EqiooV2yK_O21TEzNTVZvhUBwQvgFpacecocDEuj5wQGFOQhr4_-Mn1JAWeaX4KA6xUiQWsApD3JZw9fGi9gaZSAbZLnMUyasVU9l7HfvxjShSdLK5nlI/p.png"
+                                class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+        
+        
+                    <!-- الكارد الثالث -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">POWER BI</span>
+                                <h2 class="title">Superstore Data Analysis</h2>
+                                <p class="description">
+                                    I developed an advanced Power BI dashboard to link sales with discounts and profitability.
+                                    <br> Key insights include:
+                                </p>
+                                <ul>
+                                    <li>Sales and profit by region and category</li>
+                                    <li>Most profitable products vs. products causing losses due to discounts</li>
+                                    <li>The relationship between discount levels and profit margin</li>
+                                    <li>Year-over-year sales comparison</li>
+                                </ul>
+                                <p>
+                                    This dashboard highlights how discounts impact profitability and identifies the best- and
+                                    worst-performing products and categories.
+                                </p>
+                                <p class="meta">
+                                    Sep 20, 2025 ·
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/9kndfzf8v3hdts5ns2jmk/marketing.pdf?rlkey=8j616flobnvy005ew8f34ejer&e=1&st=i5nxp7uq&dl=0">DASHBOARD</a>
+                                    |
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/q16gqnd68ivli3kb0h2ia/Sample-Superstore.csv?rlkey=o4l8a7z0oe6x5x2j3v5egs3dd&e=1&st=6s2b1al2&dl=0">DATASET</a>
+                                </p>
+                            </div>
+                            <img src="https://previews.dropbox.com/p/thumb/ACzOFH04eYujIbYOPTSICrXlmtv3JeCNvOl3NB1z0nwVVRZ61LQsyG4QPmgCVR2lYfIYqysGq2b782nEooVeBbo7xKV1Icho_wpfbKko8DwVVhS0HYO8CcAytSF1EVHUm97R7DJTNfYT9eLCv0eBF_S0lzv9YqoOh52pCfh0iwD-0GanhsPrwN1By1RhHU2PQtYFzKqOtsVE320ObwANq0WXTXr8Y9Seq8bcdyO04pPRJCU6His2BMHO5uSzZ9XOG2y1zWY9WC0b_ODZtJu8o9P5SyNZ8HrqQXa8I5yKxAJtndTysitjRjLo3QIpp6oUWRg/p.png"
+                                class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+        
+                    <!-- الكارد الرابع -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">POWER BI</span>
+                                <h2 class="title">Sales Data Analysis</h2>
+                                <p class="description">
+                                    I designed an interactive Power BI dashboard to visualize sales performance indicators.
+                                    Key insights include:
+                                    <br> Key insights include:
+                                </p>
+                                <ul>
+                                    <li>Top-selling products</li>
+                                    <li>Sales comparison across categories</li>
+                                    <li>Orders distribution by city and customer age</li>
+                                    <li>Monthly order trends</li>
+                                </ul>
+                                <p>
+                                    This dashboard provides a clear understanding of market trends and customer behavior,
+                                    supporting data-driven
+                                    decision-making.
+                                </p>
+                                <p class="meta">
+                                    ِAug 28, 2025 ·
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/xb2uo21abbhxhwop6laib/sales.pdf?rlkey=9ibb6dsqz2ijeqzjcf2s89mh4&e=1&st=y3jnf7vw&dl=0">DASHBOARD</a>
+                                    |
+                                    <a
+                                        href="https://www.dropbox.com/home/PowerBI/Sales%20data/Sales%20data?share_manage_access=false">DATASET</a>
+                                </p>
+                            </div>
+                            <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/sales.png?raw=true"
+                                class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+        
+                    <!-- الكارد الخامس -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON / POWER BI</span>
+                                <h2 class="title">IMDb Movie Ratings EDA</h2>
+                                <p class="description">
+                                    Performed data cleaning and EDA on IMDb dataset to uncover patterns in movie ratings and
+                                    user preferences. Built
+                                    interactive dashboards to present insights.
+                                </p>
+                                <p class="meta">
+                                    ِAug 28, 2025 ·
+                                    <a
+                                        href="https://www.dropbox.com/scl/fi/h9ggxvn2o4oh16mke3mct/movies.png?rlkey=et09jziu98bsbi6mefb74f4uo&st=psngnjtv&dl=0">DASHBOARD</a>
+                                    |
+                                    <a href="https://www.dropbox.com/scl/fi/f24ut3ddprmfuqas7b2bg/movies.csv?dl=0">DATASET</a>
+                                    |
+                                    <a href="https://github.com/DeemaEssam/DataVisulization">GITHUB</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/movies.png?raw=true"
+                                class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد السادس -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON</span>
+                                <h2 class="title">Advancements in Neural Network-based Classification for Thyroid Disease
+                                    Diagnosis</h2>
+                                <p class="description">
+                                    This project focuses on detecting and classifying thyroid diseases using clinical data,
+                                    aiming to improve early
+                                    diagnosis and accuracy through machine learning techniques. It successfully addresses the
+                                    challenges of subtle and
+                                    varied symptoms, enhancing patient care and treatment outcomes.
+                                </p>
+                                <p class="meta">
+                                    APR 28, 2024 ·
+                                    |
+                                    <a href="https://github.com/DeemaEssam/ThyroidDisease">GITHUB</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/thyroid.png" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد السابع -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">HTML / CSS / JS / PHP</span>
+                                <h2 class="title">Menu Website</h2>
+                                <p class="description">
+                                    Restaurant's menu website allows the user to add suggestion, evaluation or just view the
+                                    menu and some information about
+                                    the resaurant.
+        
+                                </p>
+                                <p class="meta">
+                                    DEC 18, 2022 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/menu/Pizza.html">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/pizza.gif" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد الثامن -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">HTML / CSS / JS</span>
+                                <h2 class="title">Numbers Game</h2>
+                                <p class="description">
+                                    German course project, we created a website that includes two exciting games to help you
+                                    learn numbers in German. We are
+                                    planning to add more games about more topics.
+                                </p>
+                                <p class="meta">
+                                    APR 19, 2023 ·
+                                    |
+                                    <a href="https://gger.netlify.app/index.html">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/game.gif" class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد التاسع -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">JAVAFX</span>
+                                <h2 class="title">Snake Game</h2>
+                                <p class="description">
+                                    The game consists of a snake that moves around the screen and tries to eat food.
+        
+                                </p>
+                                <p class="meta">
+                                    MAY 10, 2023 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/reports/snake.pdf">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/snake.gif" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد العاشر -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">ASSEMBLY</span>
+                                <h2 class="title">BMI Calculator</h2>
+                                <p class="description">
+                                    Body Mass Index (BMI) calculator asks the user to enter his weight in ponds and height in
+                                    inche.
+                                </p>
+                                <p class="meta">
+                                    DEC 18, 2022 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/reports/arc-bmi.pdf">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/bmi.jpeg" class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد 11 -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">C++</span>
+                                <h2 class="title">Book Club</h2>
+                                <p class="description">
+                                    The program manages the data for a book club that has multiple books and many members.
+                                    Members can view the data, take
+                                    some books.
+        
+                                </p>
+                                <p class="meta">
+                                    MAY 16, 2022 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/reports/bookClub.pdf">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/book.png" class="d-block w-50 h-50" alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد 12 -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON</span>
+                                <h2 class="title">Store</h2>
+                                <p class="description">
+                                    A store management program where the owner can manage, delete, or edit items.
+                                </p>
+                                <p class="meta">
+                                    APR 1, 2021 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/reports/store.pdf">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/storee.png" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد 13 -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">PYTHON</span>
+                                <h2 class="title">Research Tracker</h2>
+                                <p class="description">
+                                    user-friendly website that simplifies finding scholarly research, enabling exploration of a
+                                    scholar’s work on Google
+                                    Scholar and allowing easy download of results as an Excel file.
+                                </p>
+                                <p class="meta">
+                                    MAY 16, 2022 ·
+                                    |
+                                    <a href="https://deemaessam.pythonanywhere.com/">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/presentation.gif" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                    <!-- الكارد 14 -->
+                    <div class="carousel-item">
+                        <div class="card mx-auto" style="max-width: 800px;">
+                            <div class="card-content p-3">
+                                <span class="tag">SQL</span>
+                                <h2 class="title">Blood Donation System</h2>
+                                <p class="description">
+                                    Donation database system. First it asks the user to login/register and enter his information
+                                    and saves it in the
+                                    database.
+                                </p>
+                                <p class="meta">
+                                    MAY 16, 2022 ·
+                                    |
+                                    <a href="https://deemaessam.github.io/projects/reports/database.pdf">VIEW</a>
+        
+                                </p>
+                            </div>
+                            <img src="https://deemaessam.github.io/pics/mainform1.jpeg" class="d-block w-50 h-50"
+                                alt="Dashboard preview">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- الأسهم -->
+                <button style="  background-image: none; width: 2rem; height: 2rem; background-color: black; /* اللون الأسود */ mask-size: contain; mask-repeat: no-repeat;" class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button style="  background-image: none; width: 2rem; height: 2rem; background-color: black; /* اللون الأسود */ mask-size: contain; mask-repeat: no-repeat;"  class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
