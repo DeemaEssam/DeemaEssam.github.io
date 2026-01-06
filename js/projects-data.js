@@ -24,7 +24,7 @@ const projects = [
             "AI-powered web system that recommends tourism destinations based on user preferences.",
         fullDescription:
             "A web-based tourism recommendation system that uses artificial intelligence techniques to suggest personalized destinations based on user preferences and inputs.",
-        date: "Dec 20, 2024",
+        date: "Jun 2, 2025",
         github: "https://github.com/DeemaEssam"
     },
 
@@ -224,3 +224,4 @@ const projects = [
         github: ""
     }
 ];
+
