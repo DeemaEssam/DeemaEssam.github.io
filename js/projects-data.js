@@ -211,9 +211,7 @@ const projects = [
         fullDescription:
             `
             Conducted Exploratory Data Analysis (EDA) on IMDb movie ratings to understand user preferences. 
-            The project involved:
-            🔺 Data cleaning, and preprocessing using Python, 
-            🔺 Data visualization in Power BI to present insights effectively.
+            🔺The project involved data cleaning, and preprocessing using Python, followed by data visualization in Power BI to present insights effectively.
             `,
         date: "Aug 28, 2025",
         github: "https://github.com/DeemaEssam"
@@ -325,6 +323,31 @@ const projects = [
             "Designed a database system for managing blood donations with login and registration features.",
         date: "May 16, 2022",
         github: ""
+    },
+
+// AI chatvoice
+    {
+        id: "ai-chatvoice",
+        title: "AI ChatVoice",
+        category: "html sql php python flask",
+        tools: ["HTML/ SQL/ PHP/ PYTHON"],
+        image: "",
+        video: "https://private-user-images.githubusercontent.com/106381596/352356818-bbbad12f-2184-4fd5-becb-8aa6fae97876.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc4ODEzNzksIm5iZiI6MTc2Nzg4MTA3OSwicGF0aCI6Ii8xMDYzODE1OTYvMzUyMzU2ODE4LWJiYmFkMTJmLTIxODQtNGZkNS1iZWNiLThhYTZmYWU5Nzg3Ni5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOFQxNDA0MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNGI5N2MzYmRkMGZiMWQ3Y2QyZDBiMzNlNTJmYTZjZDE2NTE3YTRiZDAzNWI5OGE1OGJhMTgxZjBhMjAzZjVhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Iabnnnqzrwp_RvXjd522GwmYlmZ8G_b9gPQyTFeQWtM",
+        
+        shortDescription:
+            "chatbot application that integrates speech recognition and synthesis with a web-based interface.",
+        fullDescription:
+            `
+            AIChatVoice is a chatbot application that integrates speech recognition and synthesis with a web-based interface. Built with Node.js, Express, and the OpenAI API, this project provides an interactive experience by converting spoken language into text and delivering vocal responses. The application includes a feature to choose between English and Arabic languages and records user transcripts and AI responses in a MySQL database through a PHP script.
+
+            Features:
+            🔺Speech Recognition: Converts spoken input into text.
+            🔺Speech Synthesis: Reads out AI responses in the chosen language.
+            🔺Language Selection: Allows users to choose between English and Arabic.
+            🔺Database Integration: Saves user transcripts and AI responses in a MySQL database.
+            🔺Web Interface: Provides an intuitive user interface for chatbot interaction.
+            `,
+        date: "Jul 26, 2024",
+        github: ""
     }
 ];
-
