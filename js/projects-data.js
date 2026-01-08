@@ -209,7 +209,10 @@ const projects = [
         shortDescription:
             "Exploratory data analysis on IMDb movie ratings.",
         fullDescription:
-            "Performed data cleaning and exploratory data analysis on IMDb movie ratings dataset using Python, then visualized insights using Power BI dashboards.",
+            `
+            Conducted Exploratory Data Analysis (EDA) on IMDb movie ratings to understand user preferences. 
+            🔺The project involved data cleaning, and preprocessing using Python, followed by data visualization in Power BI to present insights effectively.
+            `,
         date: "Aug 28, 2025",
         github: "https://github.com/DeemaEssam"
     },
@@ -237,7 +240,11 @@ const projects = [
         shortDescription:
             "Restaurant menu website with evaluation features.",
         fullDescription:
-            "Developed a restaurant menu website allowing users to browse menus, submit evaluations, and receive recommendations.",
+            `
+            🔺Designed and developed the website along with a database containing tables for users and messages.
+            🔺Implemented CRUD functionalities(Create, Read, Update, Delete) for managing customer and message data.
+            🔺Managed user permissions, allowing only administrators to delete data.
+            `,
         date: "Dec 18, 2022",
         github: ""
     },
@@ -293,7 +300,13 @@ const projects = [
         shortDescription:
             "Website for searching and exporting research results.",
         fullDescription:
-            "A web application that allows users to search academic research results and export them into Excel files.",
+            `
+            🔺Developed a Python-based tool to track scholarly research and analyze authors’ publications on Google Scholar.
+            🔺Built a user-friendly web interface using Flask, allowing users to explore a scholar’s work and download results as an Excel file.
+            🔺Implemented backend logic to fetch, organize, and export data efficiently, ensuring a seamless user experience.
+            🔺Integrated Python scripts with Flask APIs for real-time data retrieval and processing.
+            
+            `,
         date: "May 16, 2022",
         github: ""
     },
