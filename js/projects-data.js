@@ -331,8 +331,8 @@ const projects = [
         title: "AI ChatVoice",
         category: "html sql php python flask",
         tools: ["HTML/ SQL/ PHP/ PYTHON"],
-        image: "",
-        video: "https://private-user-images.githubusercontent.com/106381596/352356818-bbbad12f-2184-4fd5-becb-8aa6fae97876.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc4ODEzNzksIm5iZiI6MTc2Nzg4MTA3OSwicGF0aCI6Ii8xMDYzODE1OTYvMzUyMzU2ODE4LWJiYmFkMTJmLTIxODQtNGZkNS1iZWNiLThhYTZmYWU5Nzg3Ni5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOFQxNDA0MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNGI5N2MzYmRkMGZiMWQ3Y2QyZDBiMzNlNTJmYTZjZDE2NTE3YTRiZDAzNWI5OGE1OGJhMTgxZjBhMjAzZjVhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Iabnnnqzrwp_RvXjd522GwmYlmZ8G_b9gPQyTFeQWtM",
+        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png",
+        // video: "https://private-user-images.githubusercontent.com/106381596/352356818-bbbad12f-2184-4fd5-becb-8aa6fae97876.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc4ODEzNzksIm5iZiI6MTc2Nzg4MTA3OSwicGF0aCI6Ii8xMDYzODE1OTYvMzUyMzU2ODE4LWJiYmFkMTJmLTIxODQtNGZkNS1iZWNiLThhYTZmYWU5Nzg3Ni5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOFQxNDA0MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNGI5N2MzYmRkMGZiMWQ3Y2QyZDBiMzNlNTJmYTZjZDE2NTE3YTRiZDAzNWI5OGE1OGJhMTgxZjBhMjAzZjVhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Iabnnnqzrwp_RvXjd522GwmYlmZ8G_b9gPQyTFeQWtM",
         
         shortDescription:
             "chatbot application that integrates speech recognition and synthesis with a web-based interface.",
