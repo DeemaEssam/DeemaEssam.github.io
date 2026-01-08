@@ -211,7 +211,9 @@ const projects = [
         fullDescription:
             `
             Conducted Exploratory Data Analysis (EDA) on IMDb movie ratings to understand user preferences. 
-            🔺The project involved data cleaning, and preprocessing using Python, followed by data visualization in Power BI to present insights effectively.
+            The project involved:
+            🔺 Data cleaning, and preprocessing using Python, 
+            🔺 Data visualization in Power BI to present insights effectively.
             `,
         date: "Aug 28, 2025",
         github: "https://github.com/DeemaEssam"
@@ -325,3 +327,4 @@ const projects = [
         github: ""
     }
 ];
+
