@@ -1,33 +1,63 @@
 const projects = [
+    // 🔘⚪️🟢🟡⚫️🟣🟠🔴🔵🟤🔺🔻🔸🔳🔷🔶🔹🔲▪️▫️◾️🟥◻️◼️◽️🟧🟨🟩🟦🟫⬜️🟪🟪♦️💬
+
+    // Tourism Project
+    {
+        id: "Tourism-project",
+        title: "AI-based Tourism Recommendation System🎓✈️",
+        category: "powerbi python",
+        tools: ["Python", "Power BI"],
+        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/UiUx_Tourism.png",
+        shortDescription: "",
+        fullDescription: 
+        `
+            A web-based travel recommendation system that provides personalized destination suggestions using AI, tailored to user preferences such as travel persona, favorite themes, keywords, and budget.
+            🔹Key Features:
+            🔺User Management: Registration, login, and session tracking for a personalized experience.
+            🔺Persona-Based Recommendations: Based on users’ answers (theme, travel style, budget, and keywords), the system assigns a travel persona 
+                  (e.g., Adventure Seeker, Cultural Explorer) and suggests destinations matching that persona.
+            🔺AI-Powered Matching: Cosine similarity is calculated between user keywords and dataset columns (description + reviews) to filter and rank destinations relevant to the user’s persona.
+            🔺Interactive Interface: Clean web design with dynamic destination cards for easy exploration.
+            🔺Database Integration: MySQL stores user info and persona data, allowing updates and persistent personalized recommendations.
+
+            🔹Technologies Used:
+            🔺Python (Flask) for backend and AI logic
+            🔺Pandas for dataset processing and similarity calculations
+            🔺MySQL for data storage
+            🔺HTML, CSS, Bootstrap, and Jinja2 for frontend and templating
+
+            This project demonstrates a full-stack application that combines AI-driven insights with persona-based personalization, offering users tailored travel recommendations and an engaging interface.
+        
+        `,
+        date: "Jun 4, 2025",
+        github: ""
+    },
+
+// customer-sales-analysis
     {
         id: "customer-sales-analysis",
         title: "Customer & Sales Analysis for an Online Store",
         category: "powerbi python",
         tools: ["Python", "Power BI"],
         image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/Customer%20%26%20Sales%20Analysis%20for%20an%20Online%20Store.png",
-        shortDescription:
-            "Interactive dashboards to analyze customers, sales performance, and time series trends.",
-        fullDescription:
-            "An analytical project focused on customer behavior, sales performance, and time-series trends. Data was cleaned and analyzed using Python, then visualized using interactive Power BI dashboards to support data-driven decision-making.",
+        shortDescription: "Interactive dashboards to analyze customers, sales performance, and time series trends.",
+        fullDescription: `
+            I built an analytical report that includes several dashboards, each designed to answer different business questions and support data-driven decision-making.
+
+            🔹 Dashboard 1 – Customer Analysis: Analyzes customer behavior, distribution by gender and location, and customer spending value.
+
+            🔹 Dashboard 2 – Sales Analysis: Examines overall sales performance, top-performing categories and products, and the impact of discounts on sales.
+
+            🔹 Dashboard 3 – Time Series Analysis: Explores sales trends over time and identifies seasonal patterns to support future sales forecasting.
+
+            🔍 Interactive Slicers: Date · Location · Gender
+
+             These slicers enable users to analyze data from multiple perspectives and easily compare performance across periods, regions, and customer segments.
+    `,
         date: "Jan 4, 2026",
-        github:
-            ""
+        github: ""
     },
-
-    {
-        id: "ai-tourism-recommendation",
-        title: "AI-based Tourism Recommendation System",
-        category: "python ai web",
-        tools: ["Python", "SQL", "HTML", "CSS", "PHP"],
-        image: "pics/AI Tourism Recommendation System.png",
-        shortDescription:
-            "AI-powered web system that recommends tourism destinations based on user preferences.",
-        fullDescription:
-            "A web-based tourism recommendation system that uses artificial intelligence techniques to suggest personalized destinations based on user preferences and inputs.",
-        date: "Jun 2, 2025",
-        github: "https://github.com/DeemaEssam"
-    },
-
+// tourism dataset
     {
         id: "tourism-dataset",
         title: "Building a High-Quality Dataset for Tourism Analytics",
@@ -37,11 +67,39 @@ const projects = [
         shortDescription:
             "Created a clean and structured dataset for tourism analytics.",
         fullDescription:
-            "Built a custom tourism dataset by scraping TripAdvisor reviews, cleaning and structuring the data using Python, and preparing it for analysis and visualization in Power BI.",
-        date: "Dec 20, 2024",
+            `
+            This project aimed to create a comprehensive, high-quality dataset to support any tourism-related project, beyond just recommendation systems.
+
+            Project Roadmap & Contributions:
+
+            🔹 Research & Feature Selection: Reviewed academic papers to identify key features for tourism analytics.
+
+            🔹 Data Collection: Web-scraped and gathered data from trusted sources, including TripAdvisor, Google Maps, and two Kaggle datasets 
+            (Entertainment Destinations in KSA & Cafe Shops in Riyadh).
+
+            🔹 Dataset Integration: Merged multiple sources to compile detailed information on 20,000+ tourist destinations, including:
+            🔺 Names, descriptions, ratings, and reviews
+            🔺 Geographical coordinates and addresses
+            🔺 Web URLs and official websites
+            🔺 Visitor sentiment via text ratings and sentiment analysis
+            🔺 Attributes like travel modes (family, solo) and city/region
+
+            🔹 Data Preprocessing:
+            🔺 Deduplication: Removed repeated entries for the same destinations across different sources.
+            🔺 Standardization: Unified naming conventions, theme categories, and location formats to maintain consistency.
+            🔺 Noise Removal: Eliminated irrelevant data, special characters, and placeholders from text fields.
+            🔺 Handling Missing Values: Filled or removed incomplete entries to ensure a complete and reliable dataset.
+            🔺 Translation: Converted non-English entries to English for uniformity.
+            🔺 Feature Engineering: Added derived features such as sentiment scores from user reviews, travel mode indicators, and numeric encodings for categorical data to facilitate analysis.
+
+            🔹 Visualization & Insights: Reduced themes, removed duplicates, and visualized data to uncover patterns, trends, and actionable insights for tourism stakeholders.
+
+            This dataset provides a reliable foundation for projects in tourism analytics, destination recommendation, sentiment analysis, and strategic planning.
+            `,
+        date: "Jun 2, 2025",
         github: "https://github.com/DeemaEssam"
     },
-
+// Khayrkom
     {
         id: "Khayrkom",
         title: "Quran Education Data Analysis – Khayrkom Association",
@@ -55,7 +113,7 @@ const projects = [
         date: "Dec 2025",
         github: ""
     },
-
+// YUSUR
     {
         id: "Yusur",
         title: "Beneficiary Data Analysis – Yusr Association",
@@ -65,11 +123,29 @@ const projects = [
         shortDescription:
             "Interactive dashboards for beneficiary data analysis.",
         fullDescription:
-            "Analyzed beneficiary data using Power BI to track trends and support strategic planning for Yusr Association.",
+            `
+            As part of my volunteer work as an Administrative Assistant and Data Analyst at Yusr Association for Family Development – Al- Hayat Al - Mutma’inah Center 🤍,
+
+            I developed an interactive dashboard using Power BI as part of operational tasks, aiming to transform raw data into clear indicators that support administrative planning and monitoring.
+
+        The dashboard enables:
+
+        🔹 Analyzing monthly changes in the number of beneficiaries and family consultation requests
+
+        🔹 Understanding the distribution of beneficiaries by gender(male / female)
+
+        🔹 Analyzing the most requested types of family consultations
+        
+        🔹 Measuring the impact of initiatives through the number of beneficiaries per initiative
+
+        This tool contributed to facilitating decision - making, improving monitoring, and identifying the actual need for services based on data.
+            
+            
+            `,
         date: "Dec 2025",
         github: ""
     },
-
+// Sakhaa 
     {
         id: "sakhaa-performance",
         title: "Sakhaa Association – Annual Performance Analysis",
@@ -79,11 +155,23 @@ const projects = [
         shortDescription:
             "Annual performance dashboard for Sakhaa Association.",
         fullDescription:
-            "Developed a Power BI dashboard summarizing annual performance metrics to support management decision-making.",
+            `
+            I volunteered with Sakhaa Association through the National Volunteer Platform in a data analysis opportunity within the Marketing Department.
+
+            During this experience, I worked on:
+
+            🔹 Receiving the association’s annual work and achievement data.
+
+            🔹 Organizing and analyzing the data to make it presentation-ready.
+
+            🔹 Designing an interactive dashboard using Excel to visually highlight the association’s efforts and key performance indicators.
+
+            This was a valuable experience that enhanced my skills in transforming data into actionable insights and supporting decision-making in a simple and effective way.
+`,
         date: "Sep 2025",
         github: ""
     },
-
+// Real estate
     {
         id: "real-estate-riyadh",
         title: "Real Estate in Riyadh",
@@ -97,7 +185,7 @@ const projects = [
         date: "Apr 27, 2024",
         github: ""
     },
-
+// sales-data-analysis
     {
         id: "sales-data-analysis",
         title: "Sales Data Analysis",
@@ -111,7 +199,7 @@ const projects = [
         date: "Apr 27, 2024",
         github: ""
     },
-
+// IMDB-EDA
     {
         id: "imdb-eda",
         title: "IMDb Movie Ratings EDA",
@@ -125,7 +213,7 @@ const projects = [
         date: "Aug 28, 2025",
         github: "https://github.com/DeemaEssam"
     },
-
+// thyroid-disease
     {
         id: "thyroid-disease",
         title: "Neural Network-based Thyroid Disease Classification",
@@ -139,7 +227,7 @@ const projects = [
         date: "Apr 28, 2024",
         github: ""
     },
-
+// MENU web
     {
         id: "menu-website",
         title: "Menu Website",
@@ -153,7 +241,7 @@ const projects = [
         date: "Dec 18, 2022",
         github: ""
     },
-
+// Numbers Game
     {
         id: "numbers-game",
         title: "Numbers Game",
@@ -167,7 +255,7 @@ const projects = [
         date: "Apr 19, 2023",
         github: ""
     },
-
+// Book Club
     {
         id: "book-club",
         title: "Book Club",
@@ -181,7 +269,7 @@ const projects = [
         date: "May 16, 2022",
         github: ""
     },
-
+// STORE SYSTEM
     {
         id: "store-system",
         title: "Store Management System",
@@ -195,7 +283,7 @@ const projects = [
         date: "Apr 1, 2021",
         github: ""
     },
-
+// Research tracker
     {
         id: "research-tracker",
         title: "Research Tracker",
@@ -209,7 +297,7 @@ const projects = [
         date: "May 16, 2022",
         github: ""
     },
-
+// Blood donation
     {
         id: "blood-donation",
         title: "Blood Donation System",
@@ -224,4 +312,3 @@ const projects = [
         github: ""
     }
 ];
-
