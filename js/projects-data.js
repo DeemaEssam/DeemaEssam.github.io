@@ -325,29 +325,21 @@ const projects = [
         github: ""
     },
 
-// AI chatvoice
+// Numerical-Methods-Equation-Solvers-MATLAB
     {
-        id: "ai-chatvoice",
-        title: "AI ChatVoice",
-        category: "html sql php python flask",
-        tools: ["HTML/ SQL/ PHP/ PYTHON"],
+        id: "Numerical-Methods-Equation",
+        title: "Numerical Methods Equation",
+        category: "matlab",
+        tools: ["MATLAB"],
         image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png",
-        // video: "https://private-user-images.githubusercontent.com/106381596/352356818-bbbad12f-2184-4fd5-becb-8aa6fae97876.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc4ODEzNzksIm5iZiI6MTc2Nzg4MTA3OSwicGF0aCI6Ii8xMDYzODE1OTYvMzUyMzU2ODE4LWJiYmFkMTJmLTIxODQtNGZkNS1iZWNiLThhYTZmYWU5Nzg3Ni5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOFQxNDA0MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNGI5N2MzYmRkMGZiMWQ3Y2QyZDBiMzNlNTJmYTZjZDE2NTE3YTRiZDAzNWI5OGE1OGJhMTgxZjBhMjAzZjVhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Iabnnnqzrwp_RvXjd522GwmYlmZ8G_b9gPQyTFeQWtM",
-        
         shortDescription:
-            "chatbot application that integrates speech recognition and synthesis with a web-based interface.",
+            "Numerical-Methods-Equation",
         fullDescription:
             `
-            AIChatVoice is a chatbot application that integrates speech recognition and synthesis with a web-based interface. Built with Node.js, Express, and the OpenAI API, this project provides an interactive experience by converting spoken language into text and delivering vocal responses. The application includes a feature to choose between English and Arabic languages and records user transcripts and AI responses in a MySQL database through a PHP script.
-
-            Features:
-            🔺Speech Recognition: Converts spoken input into text.
-            🔺Speech Synthesis: Reads out AI responses in the chosen language.
-            🔺Language Selection: Allows users to choose between English and Arabic.
-            🔺Database Integration: Saves user transcripts and AI responses in a MySQL database.
-            🔺Web Interface: Provides an intuitive user interface for chatbot interaction.
+            The project focused on implementing and comparing three numerical methods for solving equations in MATLAB: the Euler method, the Taylor method, and the Runge-Kutta method. These methods are commonly used in various scientific and engineering applications when analytical solutions are not easily obtainable. By employing these numerical techniques, we aim to approximate solutions to equations and analyze the accuracy and efficiency of each method.
             `,
-        date: "Jul 26, 2024",
+        date: "May, 2023",
         github: ""
     }
 ];
+
