@@ -333,7 +333,7 @@ const projects = [
         tools: ["MATLAB"],
         image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png",
         shortDescription:
-            "Numerical-Methods-Equation",
+            "Implementing and comparing three numerical methods for solving equations in MATLAB: the Euler method, the Taylor method, and the Runge-Kutta method",
         fullDescription:
             `
             The project focused on implementing and comparing three numerical methods for solving equations in MATLAB: the Euler method, the Taylor method, and the Runge-Kutta method. These methods are commonly used in various scientific and engineering applications when analytical solutions are not easily obtainable. By employing these numerical techniques, we aim to approximate solutions to equations and analyze the accuracy and efficiency of each method.
@@ -342,4 +342,5 @@ const projects = [
         github: ""
     }
 ];
+
 
