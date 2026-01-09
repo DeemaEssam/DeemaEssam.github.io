@@ -331,7 +331,7 @@ const projects = [
         title: "Numerical Methods Equation",
         category: "matlab",
         tools: ["MATLAB"],
-        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png",
+        image: "https://private-user-images.githubusercontent.com/106381596/240417289-ac10ab05-ac3c-41df-8e60-76f50c967d7a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc5OTc3MzMsIm5iZiI6MTc2Nzk5NzQzMywicGF0aCI6Ii8xMDYzODE1OTYvMjQwNDE3Mjg5LWFjMTBhYjA1LWFjM2MtNDFkZi04ZTYwLTc2ZjUwYzk2N2Q3YS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTA5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEwOVQyMjIzNTNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wNjVkMjk5YzgzZDUwZjZkNzI4ZDlmMzQ0NzJlZGNjY2EwMGRiYjBjOTg2NTBjNTQ4YzExZGY5ZDcwNmY1NjE3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.BWayuptnX38bt6kO3b4MgiBS2zYSx_O22ulsJFqmblA",
         shortDescription:
             "Implementing and comparing three numerical methods for solving equations in MATLAB: the Euler method, the Taylor method, and the Runge-Kutta method",
         fullDescription:
@@ -342,5 +342,6 @@ const projects = [
         github: ""
     }
 ];
+
 
 
