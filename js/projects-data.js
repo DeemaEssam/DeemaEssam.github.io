@@ -9,8 +9,8 @@ const projects = [
         tools: ["Python", "Power BI"],
         image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/UiUx_Tourism.png",
         shortDescription: "",
-        fullDescription: 
-        `
+        fullDescription:
+            `
             A web-based travel recommendation system that provides personalized destination suggestions using AI, tailored to user preferences such as travel persona, favorite themes, keywords, and budget.
             🔹Key Features:
             🔺User Management: Registration, login, and session tracking for a personalized experience.
@@ -33,7 +33,7 @@ const projects = [
         github: ""
     },
 
-// customer-sales-analysis
+    // customer-sales-analysis
     {
         id: "customer-sales-analysis",
         title: "Customer & Sales Analysis for an Online Store",
@@ -57,7 +57,7 @@ const projects = [
         date: "Jan 4, 2026",
         github: ""
     },
-// tourism dataset
+    // tourism dataset
     {
         id: "tourism-dataset",
         title: "Building a High-Quality Dataset for Tourism Analytics",
@@ -99,7 +99,7 @@ const projects = [
         date: "Jun 2, 2025",
         github: "https://github.com/DeemaEssam"
     },
-// Khayrkom
+    // Khayrkom
     {
         id: "Khayrkom",
         title: "Quran Education Data Analysis – Khayrkom Association",
@@ -113,7 +113,7 @@ const projects = [
         date: "Dec 2025",
         github: ""
     },
-// YUSUR
+    // YUSUR
     {
         id: "Yusur",
         title: "Beneficiary Data Analysis – Yusr Association",
@@ -145,7 +145,7 @@ const projects = [
         date: "Dec 2025",
         github: ""
     },
-// Sakhaa 
+    // Sakhaa 
     {
         id: "sakhaa-performance",
         title: "Sakhaa Association – Annual Performance Analysis",
@@ -171,7 +171,7 @@ const projects = [
         date: "Sep 2025",
         github: ""
     },
-// Real estate
+    // Real estate
     {
         id: "real-estate-riyadh",
         title: "Real Estate in Riyadh",
@@ -185,7 +185,7 @@ const projects = [
         date: "Apr 27, 2024",
         github: ""
     },
-// sales-data-analysis
+    // sales-data-analysis
     {
         id: "sales-data-analysis",
         title: "Sales Data Analysis",
@@ -199,7 +199,7 @@ const projects = [
         date: "Apr 27, 2024",
         github: ""
     },
-// IMDB-EDA
+    // IMDB-EDA
     {
         id: "imdb-eda",
         title: "IMDb Movie Ratings EDA",
@@ -216,7 +216,7 @@ const projects = [
         date: "Aug 28, 2025",
         github: "https://github.com/DeemaEssam"
     },
-// thyroid-disease
+    // thyroid-disease
     {
         id: "thyroid-disease",
         title: "Neural Network-based Thyroid Disease Classification",
@@ -230,7 +230,7 @@ const projects = [
         date: "Apr 28, 2024",
         github: ""
     },
-// MENU web
+    // MENU web
     {
         id: "menu-website",
         title: "Menu Website",
@@ -248,7 +248,7 @@ const projects = [
         date: "Dec 18, 2022",
         github: ""
     },
-// Numbers Game
+    // Numbers Game
     {
         id: "numbers-game",
         title: "Numbers Game",
@@ -262,7 +262,7 @@ const projects = [
         date: "Apr 19, 2023",
         github: ""
     },
-// Book Club
+    // Book Club
     {
         id: "book-club",
         title: "Book Club",
@@ -276,7 +276,7 @@ const projects = [
         date: "May 16, 2022",
         github: ""
     },
-// STORE SYSTEM
+    // STORE SYSTEM
     {
         id: "store-system",
         title: "Store Management System",
@@ -290,7 +290,7 @@ const projects = [
         date: "Apr 1, 2021",
         github: ""
     },
-// Research tracker
+    // Research tracker
     {
         id: "research-tracker",
         title: "Research Tracker",
@@ -310,7 +310,7 @@ const projects = [
         date: "May 16, 2022",
         github: ""
     },
-// Blood donation
+    // Blood donation
     {
         id: "blood-donation",
         title: "Blood Donation System",
@@ -325,7 +325,7 @@ const projects = [
         github: ""
     },
 
-// Numerical-Methods-Equation-Solvers-MATLAB
+    // Numerical-Methods-Equation-Solvers-MATLAB
     {
         id: "Numerical-Methods-Equation",
         title: "Numerical Methods Equation",
@@ -340,8 +340,22 @@ const projects = [
             `,
         date: "May, 2023",
         github: ""
+    },
+
+    // Numerical-Methods-Equation-Solvers-MATLAB
+    {
+        id: "ai-chatvoice",
+        title: "AI VoiceChat",
+        category: "python flask",
+        tools: ["PYTHON"],
+        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png",
+        shortDescription:
+            "ai-chatvoicechatbot application that integrates speech recognition and synthesis with a web-based interface.",
+        fullDescription:
+            `
+            ai-chatvoicechatbot application that integrates speech recognition and synthesis with a web-based interface.
+            `,
+        date: "Jul, 2024",
+        github: ""
     }
 ];
-
-
-
