@@ -342,7 +342,7 @@ const projects = [
         github: ""
     },
 
-    // Numerical-Methods-Equation-Solvers-MATLAB
+    // ai-chatvoice
     {
         id: "ai-chatvoice",
         title: "AI VoiceChat",
@@ -353,7 +353,14 @@ const projects = [
             "ai-chatvoicechatbot application that integrates speech recognition and synthesis with a web-based interface.",
         fullDescription:
             `
-            ai-chatvoicechatbot application that integrates speech recognition and synthesis with a web-based interface.
+            AIChatVoice is a chatbot application that integrates speech recognition and synthesis with a web-based interface. Built with Node.js, Express, and the OpenAI API, this project provides an interactive experience by converting spoken language into text and delivering vocal responses. The application includes a feature to choose between English and Arabic languages and records user transcripts and AI responses in a MySQL database through a PHP script.
+
+            Features
+            🔹Speech Recognition: Converts spoken input into text.
+            🔹Speech Synthesis: Reads out AI responses in the chosen language.
+            🔹Language Selection: Allows users to choose between English and Arabic.
+            🔹Database Integration: Saves user transcripts and AI responses in a MySQL database.
+            🔹Web Interface: Provides an intuitive user interface for chatbot interaction.
             `,
         date: "Jul, 2024",
         github: ""
