@@ -1,916 +1,0 @@
-
-<html lang="ar" dir="rtl">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <link rel="stylesheet" href="Style/projects.css">
-        <title>ملف الأعمال - ديما حميدة</title>
-        <style>
-            .rtl {
-                direction: rtl;
-                text-align: right;
-            }
-
-            /* السايدبار ثابتة على اليسار في الشاشات الكبيرة */
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 340px;
-                height: 100vh;
-                background: #f8f9fa;
-                padding: 20px;
-                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-                overflow-y: auto;
-            }
-
-            .section {
-                margin-bottom: 50px;
-                /*background: #bdb9b969;*/
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-
-            /* المحتوى بجانب السايدبار */
-            .main-content {
-                margin-left: 320px;
-
-                padding: 20px;
-            }
-
-            /* للجوال */
-            @media (max-width: 768px) {
-                .sidebar {
-                    position: relative;
-                    /* ما تكون ثابتة */
-                    width: 100%;
-                    /* تغطي عرض الصفحة */
-                    height: auto;
-                    /* تتعدل حسب المحتوى */
-                    box-shadow: none;
-                }
-
-                .main-content {
-                    margin-left: 0;
-                    /* يجي تحت السايدبار */
-                }
-            }
-        </style>
-    </head>
-
-    <body style="font-family: 'Cairo', Calibri, sans-serif;">
-        <!-- يسار -->
-        <div class="sidebar">
-            <center>
-                <a style="width: 145px;" class="tag" href="">عربي</a>
-                <a style="width: 145px;" class="tag" href="https://deemaessam.github.io">English</a>
-            </center>
-
-            <center>
-                <h2>ديما عصام حميدة</h2>
-            </center>
-            <p style=" text-align: justify;">
-                خريجة حديثة في علوم الحاسوب ومتخصصة في الذكاء الاصطناعي، أتمتع بمهارات قوية في Excel وSQL وPython وPower BI.
-                لديّ خبرة
-                في تنظيف البيانات، التصوير البياني، وتحليل الاتجاهات من خلال المشاريع الأكاديمية. متحفزة لتطبيق المهارات
-                التحليلية لدعم
-                اتخاذ القرارات التجارية وحريصة على التطور في مجال تحليل البيانات.
-            </p>
-
-            <p>
-                <!-- ايميلي -->
-                <a style="font-family: 'Times New Roman', serif;" href="mailto:Deemaessam@gmail.com"
-                    class="text-dark text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
-                        <path
-                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
-                    </svg>
-                    Deemaessam@gmail.com
-                </a>
-            </p>
-
-            <p>
-                <!-- قيتهب -->
-                <a style="font-family: 'Times New Roman', serif;" href="https://github.com/DeemaEssam" target="_blank"
-                    class="text-dark text-decoration-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-github me-2" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                    </svg>
-                    github.com/DeemaEssam
-                </a>
-            </p>
-            <p>
-                <!-- لنكدان -->
-                <a style="font-family: 'Times New Roman', serif;" href="https://www.linkedin.com/in/deema-h-52446922a/"
-                    target="_blank" class="text-dark text-decoration-none">
-                    <i class="fa fa-linkedin-square"></i>
-                    LinkedIn
-                </a>
-            </p>
-            <p>
-                <a href="" target="_blank" class="text-dark text-decoration-none">
-
-                    📍 المملكة العربية السعودية
-                </a>
-            </p>
-
-            <!-- <button>Download Resume</button> -->
-            <!-- <a href="https://www.dropbox.com/scl/fi/1bm7tbcb3gowjkh9ke47m/Deema-Hamidah_.pdf?rlkey=teqqfpdfllm8bkrk5rgkx3si5&st=mzhhsfy5&dl=0"
-                class="btn btn-primary w-100 mt-3" download>My Resume</a>
-            <a href="https://www.dropbox.com/scl/fi/ue6nqxhztxltrpermt1k4/_.pdf?rlkey=y1y4n6k7hhnsbt81jk8jkjeou&st=0srvil1h&dl=0"
-                class="btn btn-primary w-100 mt-3" download>السيرة الذاتية</a> -->
-        </div>
-
-        <!-- Footer Navbar -->
-        <nav class="navbar fixed-bottom navbar-light bg-light border-top shadow-sm">
-            <div class="container d-flex justify-content-around">
-                <a class="nav-link text-dark" href="#education">🎓 التعليم</a>
-                <a class="nav-link text-dark" href="#certs">📜 الشهادات</a>
-                <a class="nav-link text-dark" href="#projects">📂 المشاريع</a>
-                <a class="nav-link text-dark" href="#awards">🏆 الجوائز</a>
-                <a class="nav-link text-dark" href="#publications">📖 المنشورات</a>
-                <a class="nav-link text-dark" href="#experience">💻 الخبرات</a>
-            </div>
-        </nav>
-
-
-        <!-- يمين -->
-        <div class="main-content">
-            <!-- Education -->
-            <div class="section p-3 shadow rounded bg-light">
-                <h2 id="education">🎓 التعليم</h2>
-                <!-- <img src="https://seeklogo.com/images/E/effat-university-bundle-logo-ADA2750722-seeklogo.com.png" width="30px" style="border-radius: 50%;">  -->
-                <div class="education-section">
-                    <div class="degree">بكالوريوس <strong> علوم الحاسب </strong> مع التركيز على
-                        <strong>الذكاء الاصطناعي</strong>
-                    </div>
-                    <div class="university">جامعة عفت الأهلية</div>
-                    <div class="year">2021 - 2025</div>
-                    <br>
-                </div>
-                <!-- Skills -->
-                <p>
-                    <span class="tag">Database management</span>
-                    <span class="tag">جمع البيانات ومعالجتها</span>
-                    <span class="tag">تنظيف البيانات</span>
-                    <span class="tag">التحليل الاستكشافي للبيانات (EDA)</span>
-                    <span class="tag">البيانات</span>
-                    <span class="tag">Matplotlib</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Scikit-learn</span>
-                    <span class="tag">TensorFlow</span>
-                    <span class="tag">دمج النموذج في تطبيقات الويب</span>
-                    <span class="tag">Excel</span>
-                    <span class="tag">Word</span>
-                    <span class="tag">PowerPoint</span>
-                    <span class="tag">Outlook</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">PHP</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">تصميم متجاوب</span>
-                    <span class="tag">دمج واجهات برمجة التطبيقات (APIs)</span>
-                </p>
-            </div>
-
-            <!-- مشاريع -->
-            <div class="section p-3 shadow rounded bg-light">
-                <h4 id="projects">📂 المشاريع</h4>
-                <section class="container" style="background-color:#e8e1e500">
-                    <!-- projects مشروع التخرج  -->
-                    <div class="cards" style="  display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                        <div data-category="" style="background: #ffffff; border: 4px solid #000000; box-shadow: 6px 6px 0 #a79ca2; box-sizing: border-box; 
-                        width: calc(100% - 20px); display: flex; flex-direction: column; transition: transform 0.2s;">
-                            <br>
-                            <center>
-                                <h5>نظام السياحة القائم على الذكاء الاصطناعي🎓✈️</h5>
-                            </center>
-                            <br>
-                            <center>
-                                <iframe width="260" height="315"
-                                    src="https://www.youtube.com/embed/dryeV0mrXRA?si=ckhAAG5KK0GKBH0Q"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                </iframe>
-                            </center>
-
-                            <br>
-
-                            <center>
-                                <h5 style="font-family: 'Times New Roman', serif;">PYTHON/ POWER BI/ NLP/ HTML/ CSS/ SQL/
-                                    PHP</h5>
-                            </center>
-                            <p style="padding: 0 5px 10px 5px; text-align: justify;">
-                                نظام توصية سياحي عبر الويب قائم على الذكاء الاصطناعي يقترح وجهات مخصصة بناءً على شخصية
-                                المستخدم، الكلمات المفتاحية،
-                                والميزانية باستخدام تقنيات تعلم الآلة.
-                            </p>
-
-                            <div style="color: rgb(144, 137, 137); font-size: 10px;">
-                                <center>
-                                    ديسمبر 2024 · <a
-                                        href="https://deemaessam.github.io/project-ar.html?id=Tourism-project">التفاصيل</a>
-                                </center>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:0 10px;">
-                        <!-- projects ازارير  -->
-                        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:30px;">
-                            <button onclick="filterProjects('all')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">كل المشاريع</button>
-                            <button onclick="filterProjects('html')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">HTML</button>
-                            <button onclick="filterProjects('python')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">PYTHON</button>
-                            <button onclick="filterProjects('powerbi')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">POWER BI</button>
-                            <button onclick="filterProjects('sql')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">SQL</button>
-                            <button onclick="filterProjects('flask')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">FLASK</button>
-                            <button onclick="filterProjects('c++')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">C++</button>
-                            <button onclick="filterProjects('matlab')" class="filter-btn"
-                                style="font-family: 'Times New Roman', serif;">MATLAB</button>
-                        </div>
-
-                        <!-- كاردز المشاريع -->
-                        <div class="projects-container">
-
-                            <!-- Project 1 -->
-                            <div class="project-card" data-category="powerbi python" data-id="customer-sales-analysis">
-                                <img src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/Customer%20%26%20Sales%20Analysis%20for%20an%20Online%20Store.png"
-                                    alt="Project 1">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>تقرير تحليلي يحتوي على لوحات معلومات تفاعلية لتحليل العملاء، وأداء المبيعات، والاتجاهات
-                                    الزمنية، بهدف دعم اتخاذ القرارات
-                                    المبنية على البيانات.
-                                </p>
-                                <div class="date">
-                                    2026 ·
-                                    <a target="_blank" href="">التفاصيل</a> |
-                                    <a style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Customer-Sales-Analysis-for-an-Online-Store">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 2 -->
-                            <div class="project-card" data-category="powerbi python" data-id="tourism-dataset">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/tourism.png?raw=true"
-                                    alt="Project 2">
-                                <h4 style="font-family: 'Times New Roman', serif;">Web Scraping / Python / Power BI</h4>
-                                <p>قمت ببناء مجموعة بيانات عالية الجودة من خلال جمع وتنظيف مراجعات TripAdvisor لوجهات
-                                    السياحة في السعودية، بما في ذلك
-                                    التقييمات وتفاصيل المواقع.</p>
-                                <div class="date">ديسمبر2024 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/DataSciences_Project">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 3 -->
-                            <div class="project-card" data-category="python flask" data-id="ai-chatvoice">
-                                <center>
-                                    <iframe width="200" height="115"
-                                        src="https://www.youtube.com/embed/ttMO8eTr7wA?si=n0koSDwj4neOWlDo"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                    </iframe>
-                                </center>
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Node.js/ HTML/ SQL</h4>
-                                <p>تطبيق شات بوت يدمج التعرف على الكلام وتحويل النص إلى صوت مع واجهة ويب تفاعلية.</p>
-                                <div class="date">Jul 2024 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/AIChatVoice">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 4 -->
-                            <div class="project-card" data-category="powerbi python" data-id="Yusur">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/تحليل%20بيانات%20مستفيدين%20مركز%20الحياة%20المطمئنة%202025م.jpg?raw=true"
-                                    alt="Project 4">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>لوحة Power BI تفاعلية لتحليل اتجاهات المستفيدين، طلبات الاستشارات، وأثر المبادرات لدعم
-                                    اتخاذ القرار الإداري.
-
-                                </p>
-                                <div class="date">ديسمبر2025 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Beneficiary-Data-Analysis-Yusr-Association">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 5 -->
-                            <div class="project-card" data-category="powerbi python" data-id="imdb-eda">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/movies.png?raw=true"
-                                    alt="Project 5">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>تحليل استكشافي للبيانات (EDA) لمجموعة بيانات أفلام IMDb للكشف عن أنماط التقييم وتفضيلات
-                                    الجمهور، وعرض النتائج عبر لوحات
-                                    معلومات تفاعلية.</p>
-                                <div class="date">أغسطس2025·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Data-Analysis_IMDb-Movie-Ratings-EDA">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 6 -->
-                            <div class="project-card" data-category="flask html sql python" data-id="research-tracker">
-                                <img src="https://deemaessam.github.io/pics/presentation.gif" alt="Project 9">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Flask / HTML / SQL</h4>
-                                <p>تطبيق ويب سهل الاستخدام يسهّل البحث في الأبحاث الأكاديمية، ويتيح استعراض نتائج Google
-                                    Scholar وتصديرها إلى Excel.</p>
-                                <div class="date">مايو 2022·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/ResearchTracker">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 7 -->
-                            <div class="project-card" data-category="powerbi python" data-id="sakhaa-performance">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/%D8%B3%D8%AE%D8%A7.png?raw=true"
-                                    alt="Project 6">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Excel</h4>
-                                <p>مشروع تحليل الأداء السنوي لجمعية سخاء يشمل تنظيف البيانات، تحديد مؤشرات الأداء الرئيسية
-                                    (KPI)، وبناء لوحة معلومات
-                                    تفاعلية لدعم التقييم الاستراتيجي.</p>
-                                <div class="date">سبتمبر2025 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Data-Analysis-of-Sakha-Association-Dashboard-Using-Excel">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- project 8 -->
-                            <div class="project-card" data-category="sql html" data-id="menu-website">
-                                <img src="https://deemaessam.github.io/pics/pizza.gif" alt="Project 11">
-                                <h4 style="font-family: 'Times New Roman', serif;">HTML / CSS / SQL</h4>
-                                <p>موقع ويب لقائمة مطعم يتيح للمستخدمين تصفح القائمة، تقديم الاقتراحات والتقييمات، وعرض
-                                    المعلومات الأساسية عن المطعم.</p>
-                                <div class="date">ديسمبر2022 ·
-                                    <a target="_blank" href="">التفاصيل</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 9 -->
-                            <div class="project-card" data-category="powerbi python" data-id="real-estate-riyadh">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/Riyadh_Realestate.png?raw=true"
-                                    alt="Project 7">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>منصة تحليلات العقارات تقدم رؤى السوق، قوائم العقارات، ولوحات معلومات مبنية على البيانات
-                                    لدعم قرارات الشراء والبيع في
-                                    الرياض.
-                                </p>
-                                <div class="date">
-                                    إبريل2024 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Data-Analysis_Real-Estate-in-Riyadh">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 10 -->
-                            <div class="project-card" data-category="powerbi python" data-id="sales-data-analysis">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/sales.png?raw=true"
-                                    alt="Project 8">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>لوحة Power BI تعرض أداء المبيعات، سلوك العملاء، واتجاهات المنتجات لدعم اتخاذ القرارات
-                                    التجارية المبنية على البيانات.</p>
-                                <div class="date">إبريل2024 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Sales-Data-Analysis">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 11 -->
-                            <div class="project-card" data-category="html" data-id="numbers-game">
-                                <img src="https://deemaessam.github.io/pics/game.gif" alt="Project 10">
-                                <h4 style="font-family: 'Times New Roman', serif;">HTML / CSS</h4>
-                                <p>مشروع دورة اللغة الألمانية يتضمن ألعاب تفاعلية لمساعدة المتعلمين على ممارسة الأرقام
-                                    بالألمانية، مع خطط لتوسيع المحتوى
-                                    ليشمل مواضيع لغوية إضافية.</p>
-                                <div class="date">إبريل2023 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://gger.netlify.app/index.html">جرِّب</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 12 -->
-                            <div class="project-card" data-category="powerbi python" data-id="Khayrkom">
-                                <img src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/خيركم.png?raw=true"
-                                    alt="Project 3">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / Power BI</h4>
-                                <p>مشروع تحليل بيانات تطوعي لجمعية خيركم يركز على تقييم برامج تعليم القرآن، أداء الطلاب،
-                                    وتحديد فرص التحسين باستخدام لوحات
-                                    معلومات Power BI.
-                                </p>
-                                <div class="date">
-                                    ديسمبر2025 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Quran-Education-Data-Analysis_Khayrkom-Association">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 13 -->
-                            <div class="project-card" data-category="sql" data-id="blood-donation">
-                                <img src="https://deemaessam.github.io/pics/mainform1.jpeg" alt="Project 12">
-                                <h4 style="font-family: 'Times New Roman', serif;">SQL</h4>
-                                <p>نظام قاعدة بيانات لتبرع الدم قائم على SQL يتيح للمستخدمين التسجيل، تسجيل الدخول، وتخزين
-                                    معلومات المتبرعين بشكل آمن لدعم
-                                    إدارة الدم بكفاءة.</p>
-                                <div class="date">مايو 2022 ·
-                                    <a target="_blank" href="">التفاصيل</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 14 -->
-                            <div class="project-card" data-category="python" data-id="thyroid-disease">
-                                <img src="https://deemaessam.github.io/pics/thyroid.png" alt="Project 13">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python / ML</h4>
-                                <p>مشروع تعلم آلي يركز على كشف وتصنيف أمراض الغدة الدرقية باستخدام البيانات السريرية، حيث
-                                    يعمل النظام على تحسين دقة التشخيص
-                                    المبكر من خلال التعامل مع الأعراض الطبية الدقيقة والمتنوعة.
-                                </p>
-                                <div class="date">إبريل2024 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/ThyroidDisease">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- project 15 -->
-                            <div class="project-card" data-category="matlab" data-id="Numerical-Methods-Equation">
-                                <img src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/matlab.png"
-                                    alt="Project 9">
-                                <h4 style="font-family: 'Times New Roman', serif;">MATLAB</h4>
-                                <p>تنفيذ ومقارنة ثلاث طرق عددية لحل المعادلات في MATLAB: طريقة أويلر، طريقة تايلور، وطريقة
-                                    رونج-كوتا.</p>
-                                <div class="date">مايو 2023 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        href="https://github.com/DeemaEssam/Numerical-Methods-Equation-Solvers-MATLAB">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 16 -->
-                            <div class="project-card" data-category="c++" data-id="book-club">
-                                <img src="https://deemaessam.github.io/pics/book.png" alt="Project 14">
-                                <h4>C++</h4>
-                                <p>برنامج C++ يدير نظام نادي الكتب بما يشمل الكتب والأعضاء، حيث يمكن للأعضاء تصفح الكتب
-                                    المتاحة واستعارتها عبر النظام.</p>
-                                <div class="date">مايو2022 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/bookClub">GITHUB</a>
-                                </div>
-                            </div>
-
-                            <!-- Project 17 -->
-                            <div class="project-card" data-category="python" data-id="store-system">
-                                <img src="https://deemaessam.github.io/pics/storee.png" alt="Project 15">
-                                <h4 style="font-family: 'Times New Roman', serif;">Python</h4>
-                                <p>نظام إدارة متجر قائم على Python يتيح للمالك إدارة المخزون، تعديل العناصر، وإزالة المنتجات
-                                    بكفاءة.</p>
-                                <div class="date">إبريل2021 ·
-                                    <a target="_blank" href="">التفاصيل</a> | <a
-                                        style="font-family: 'Times New Roman', serif;"
-                                        href="https://github.com/DeemaEssam/Store">GITHUB</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br>
-                    </div>
-                </section>
-            </div>
-
-
-            <!-- Certifications شهادات  -->
-            <div class="section p-3 shadow rounded bg-light">
-                <h2 id="certs">📜 الشهادات والإنجازات</h2>
-                <br>
-
-                <div class="row">
-                    <!-- Certificate 1 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
-                            <div class="cert-info">
-                                <h6>دورة تحليل البيانات وتصويرها باستخدام Power BI.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                                <p><small>صُدِر في أغسطس2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 2 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
-                            <div class="cert-info">
-                                <h6>دورة إعداد البيانات للتحليل باستخدام Microsoft Excel</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                                <p><small>صُدِر في أغسطس2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                                                    
-                    <!-- Certificate 3 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
-                            <div class="cert-info">
-                                <h6>دورة التصميم الإبداعي في Power BI</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                                <p><small>صُدِر في أغسطس2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 4 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
-                            <div class="cert-info">
-                                <h6>الذكاء الاصطناعي التوليدي: مقدمة وتطبيقات.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">IBM</p>
-                                <p><small>صُدِر في فبراير2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 5 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="شركة الأساليب الذكي">
-                            <div class="cert-info">
-                                <h6>أنظمة الطاقة الإلكترونية وإنترنت الأشياء (IoT).</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>صُدِر في أغسطس2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 6 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://ipomedia.kaust.edu.sa/images/logo/KAUST_Seeds_Color.png" alt="KAUST">
-                            <div class="cert-info">
-                                <h6>برنامج الذكاء الاصطناعي</h6>
-                                <p>مدينة الملك عبدالله الإقتصادية</p>
-                                <p><small>صُدِر في نوفمبر 2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 7 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="شركة الأساليب الذكي">
-                            <div class="cert-info">
-                                <h6>التصميم الميكانيكي.</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>صُدِر في أغسطس2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 8 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Duke_University_seal.svg"
-                                alt="Duke University">
-                            <div class="cert-info">
-                                <h6>برمجة Java: المصفوفات، القوائم، والبيانات المنظمة.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Duke University</p>
-                                <p><small>صُدِر في أكتوبر2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 9 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="شركة الأساليب الذكية">
-                            <div class="cert-info">
-                                <h6>الروبوتات والذكاء الاصطناعي.</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>صُدِر في أغسطس2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 10 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://media.licdn.com/dms/image/v2/C560BAQEHKffoI8RwIQ/company-logo_100_100/company-logo_100_100/0/1630672537710/deeplearningai_logo?e=1762387200&v=beta&t=RMdGQ589pLCx1pQ2VdbhnU2oP4dq565SgKe-DrMyNHY"
-                                alt="DeepLearning.AI">
-                            <div class="cert-info">
-                                <h6>الرياضيات لتعلم الآلة وعلوم البيانات.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">DeepLearning.AI</p>
-                                <p><small>صُدِر في أكتوبر2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 11 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="شركة الأساليب الذكيةة">
-                            <div class="cert-info">
-                                <h6>تطوير الويب ومعالجة اللغة الطبيعية (NLP).</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>صُدِر في أغسطس2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 12 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
-                                alt="Google">
-                            <div class="cert-info">
-                                <h6>إدارة المشاريع بأسلوب Agile.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Google</p>
-                                <p><small>صُدِر في سبتمبر2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 13 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,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"
-                                alt="شركة الأساليب الذكية">
-                            <div class="cert-info">
-                                <h6>مهندس روبوتات Full Stack.</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>صُدِر في أغسطس2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- Certificate 14 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-96x96.png"
-                                alt="Coursera">
-                            <div class="cert-info">
-                                <h6>الانحدار الخطي باستخدام Python.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Coursera Project Network</p>
-                                <p><small>صُدِر في مارس2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-
-                    <!-- Certificate 15 -->
-                    <div class="col-md-6 mb-3">
-                        <div class="cert-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_200_200/B56ZnMyVr4HUAI-/0/1760077372453/cisco_logo?e=2147483647&v=beta&t=wMRlDk1RRcz8v2MnLi-WNQ-07NQIVXIdK096CqgMa14"
-                                alt="Cisco">
-                            <div class="cert-info">
-                                <h6>برنامج شبكات الحاسوب.</h6>
-                                <p style="font-family: 'Times New Roman', serif;">Cisco</p>
-                                <p><small>صُدِر في يونيو2022</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-
-            <!-- awards -->
-            <div class="section p-3 shadow rounded bg-light">
-                <h4 id="awards">🏆 الجوائز</h4>
-                <ul>
-                    <li>جائزة أفضل مهندس 2024 – شركة الأساليب الذكية</li>
-                    <li>جائزة أفضل فريق 2024 – شركة الأساليب الذكية</li>
-                </ul>
-            </div>
-
-            <!-- publications -->
-            <div class="section p-3 shadow rounded bg-light">
-                <h4 id="publications">📖 المنشورات</h4>
-                <ul>
-                    <li>
-                        ورقة بحثية منشورة:
-                        
-                            “توصيات وجهات سياحية بناءً على شخصية المسافر لتعزيز السياحة في المملكة العربية السعودية.”
-                        في
-                        <b style="font-family: 'Times New Roman', serif;">IEEE</b>
-                        <p class="meta">
-                            <a href="https://lnkd.in/eVXQCvqw">
-                                قراءة
-                            </a>
-                        </p>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="section p-3 shadow rounded bg-light">
-                <h2 id="experience">💻 الخبرات</h2>
-                <br>
-
-                <div class="row">
-                    <!-- 1 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAZCAMAAABn0dyjAAAAmVBMVEVHcExkXGxuSpdjWXFmPY90UpxuQoFlO45jOI1fMoliOY1yTpp7aHv6sKpgM4r3radvS5jxhpntbpHxkZ5jOIztapDxkZ30p6LxhpmmMHqxOn3taI9zUG6sNHqsM3qsNHqsNHqsNHqtM3qsNHqsM3qsNHqsNHquNXrJVozNUoncaI7WjpuxOHzTmJ1gM4lhYWBhYmFhYmFhYmGqVPVZAAAAM3RSTlMAGH0sTv8j+zv+XJ8IJI39avay/7H+/67NQFXLEKNyOIOSY92zu/b//9HSechC2zlHbYDUu4ajAAABKklEQVR4AWJAAYyAPugCsUEYAKDoZ2hC6t7iOkfuf7gh8w1e3IV5dzqzDNNiftyeneCYtmCGdIWQc+PmnZBqwRTdtJeS1eSEtWsLnc3kBGm6QrLdrdTE/7j23oDD8TQxbi6FQTfhzC+X6/g/w3q48YvnB3S6/1H8FUaM1rZw+BT7EIUkV5IUogzYiyVx5l8Y+D6kCXk8TIhzwBYU5f3D49PXhCvZOCHqJ4glz/fXxWY1zIjTICiyqCyStIyC52GCQe+8elFAXOS9S5T6YZ7lAfDqMFBYEJcBXzLrWcFSMvIsSAK+kHh909szcqgU1JXlKa3SUZqne0p5ICU9y6Fp2qap6rZt2qrpUtvVasBY6sqSDhqKgULhofHF6YZBr7Sqp+u6VXd5VdVd6w2Z/xnz9DPsEwAAAABJRU5ErkJggg=="
-                                alt="Raed">
-                            <div class="cert-info">
-                                <h6>متطوعة - مساعدة ادارية ومحللة بيانات</h6>
-                                <p>جمعية يُسر للتنمية الأسرية </p>
-                                <p><small>نوفمبر 2025 - الى الآن</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 2 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAbCAMAAABY1h8eAAAA2FBMVEVHcExnLxxoMR6LeSVoMR5pMh5nMB1oMR5oMBxoMB5oMB2kZAu/qQyIdh2vWhLFqgDFqgKoZxFQWRTFpwHEqQDFqQHlbRr0ch/0ciDTcRPEqQH0cyH3cR3FqgD0ch/0cyFVXA70cyDzcR70ch+xkRK5VxPzcR65VxO6WRS6WBS6VxOtawrzcR7zch/zciC6VxT0cR5aag9Uaw5Vaw9TaQ2qcAircAmrcAmqcAhWbBBVaxBVaxBVaw+rcQlVaxCSo0OqcAircAmSo0OTpEWSpESQokKSo0SSo0TCGG/7AAAASHRSTlMAU7cVzf+I6Gil3iMnCDKb/1IkXFbpHXXZRLf/NYF37jPEVYM8pU2Y/9itiVmavLxoYVFvQXTm37v/49CQ/7Vyom6A/upS0LYLrnrHAAABbUlEQVR4AXTMAwLEMBAF0F9MaruTtb33v9yaxYszwA9F1dBLJxLooREZRCY6CdIBi2zHvfHw71Z43y0/CMMwwJ9I2GQrgpQ4Cd00w1delJUfm8ISio20rpC53wgzlxKeqRNZcOu6DgePyPAe4RHzcAhgrCpAlgWDBDeSbyYe8pKnMzzN5xr8xTu6BJDzkiu85av1BjdL5tIDpiyZ83dwu/V3j+j+3njChxkf30FtvaiiE+7OfHNYlhIfzmKz9vFQ8Gi63ONPdcLLWUr8y51rHXOQwyAIRGH4JSxbmsgJXLhjBVh1ALEF0PvfqNZg00X7JbP6M++GiivRaqN6wXC4D3KcUAmyzitDZHGQ03SfUSl6sy0FAAvQPZ4YLjV6Is95cMYDMWXO5CjnpkZ3vLSkDcq6xMiaeTwbiByAQLq9Ltuac2k6nATt1VuiXpS8ASlxfCiqTMmpgO33FYM3uhcAupxyTBv+iKmO/sTWc/QFq28wBPZZ9WYAAAAASUVORK5CYII="
-                                alt="Raed">
-                            <div class="cert-info">
-                                <h6>متطوعة - محللة بيانات</h6>
-                                <p>جمعية خيركم لتحفيظ القرآن </p>
-                                <p><small>ديسمبر2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 3 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="" alt="Raed">
-                            <div class="cert-info">
-                                <h6>متطوعة - مدخلة بيانات</h6>
-                                <p>جمعية مَكَن التعليمية</p>
-                                <p><small>نوفمبر 2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 4 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="https://pbs.twimg.com/profile_images/1825145249867386881/0_tGOtCp_400x400.jpg"
-                                alt="سخاء">
-                            <div class="cert-info">
-                                <h6>متطوعة - محللة بيانات</h6>
-                                <p>جمعية سخاء</p>
-                                <p><small>سبتمبر2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 5 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/png;base64,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"
-                                alt="">
-                            <div class="cert-info">
-                                <h6>متطوعة - مساعدة معلمة</h6>
-                                <p>شركة تِك مصباح & مدارس الأندلس العالمية</p>
-                                <p><small>يوليو 2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 6 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="https://pbs.twimg.com/profile_images/1925606971857616896/dSNJ3bP3_400x400.jpg" alt="Raed">
-                            <div class="cert-info">
-                                <h6>متطوعة - مطورة ويب</h6>
-                                <p>جمعية اكتشاف المواهب (رائد)</p>
-                                <p><small>ديسمبر 2024 - فبراير 2025</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 7 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEBIVFhEWFhUWFxIYGBcQEBkSHBcYGxkWGBcdHyggHR8nIBgYJTIlJTUrLjIuGR8zODMvNygtLi0BCgoKDg0OGxAQGy0dICUrLTA3LS0rLTcrLSsuLTIuLS4tLSs3Ky0rLS8tNTAtKystNi0yLi0tLS0tLS0tLS0tLf/AABEIAMgAyAMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABwEDBAUGCAL/xABBEAABAwICBwUFBQcDBQEAAAABAAIDBBEFEgYTISIxQVEHYXGBkRQjMkKxUmKhwdEVJDNDcuHwU1TCgpKj0uIX/8QAGwEBAAMBAQEBAAAAAAAAAAAAAAEEBQMCBgf/xAAsEQACAQMDAwQBAwUAAAAAAAAAAQIDBBESITEFQVETImFxsdHh8BQjJDOR/9oADAMBAAIRAxEAPwCcUREAREQBERAEREAREQFEurVTUMjYXvcGsaLlxNgAoo0u7TnvJioN1vAzkbx/oB4eJ2+CFi3taleWIIlkyAcSPVfQXl2pqZJHZ5Huc88XOJc71U5dl2NPqqG0ri6SJxjLjxLdhbfyNvJMly86ZK3pqec+TskREMsIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAosPFMSiponTTODWNG0n6DqVXFMRiponTTOyxtFyfy8VAOmelkuIzXN2wtPu4un3j1cpSLdpaSry+DJ000ymxB+UXZTtO7Hfj95/U/RcuECBSz6uhSjTioxWECpp7G6J0dE6Q8JZHEeDQG39QVGeiWjU2ITBjARGCNZJya38yei9B0FIyGJsUYsxjQ1o7gvCMzrF1HQqS57mSiIpPnAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAorVTOyNjnvcGsaCXOOwADiVdKhjtY0w10hoYHe6YfeuHzP+z4N+vgpO1Ci6s9KNHp7pe/EJsrCRTMO43hc/bd3n8Fy4XwFttH8CqK6XVQMudmZ3BjR1cVJ9LTUKMPCRgRsLiA0Ek7ABtJKkjRLsxkktLXXYziIR/EP9R+X6+C7XRDQinoAHW1k9tspHDuYPlC6qyhszLrqkn7aWy8mLh9BFTsEcLAxg4NAsFlIigyG23llUREICIiAIiIAiIgCIiAIiIAiIgCIiAIioSgOO7TNKPYKXLGf3iW7Y+rRszP8r+pC8/327VvtO8eNfXSSg3iByRjlqxz8zc+awdHcKdWVUVMw2dI61+gAJcfQFSbtrTVGnl/bNroXolNiUtm7sLbayW2wdw6lT3guDwUcQhgZlYPNxPVx5lfWC4VFSQtghblY0eZPNxPMlZ6Gbc3Uqz+CqIigqBERAEREAREQBERAEREAREQBERAEREAREQFFzXaNiRpsNnkB3i0Rt8XkN+hJ8l0q4DtrB/Zo6a6O/o5SdKKzUSZBLV94djMlLVR1EJGeJ1xfaDxBB7rEhWnvytJ6Ba6MobNaW2nyTdQ9tcZA11I8HmWPDx6EBZM/bPTAblNKT3uY0fmoWoaZ0rgxg2n/LrrafR6ENs+7j1uWhdadGU+DHuri0tf9mcvsjpKztsm/lUbG/1SOk+jWrUntgxB7re6jvwIbm+pWgxbR1gGaJ9j9hxG3wK5cROLsoG2/oonTcHudrOvb1t6az8NEk//AKLiv+48tXF/6Ld4H2q1DXgVbGvjPF7RkeO+3A/go5KouLZ9S7C3nHDgkepKadsjGyMILXAEEcCDwKuri+ySqc/Dmh3yPe0H7t83/L8F1OJ18dPE6aU2Y0XJ/Id6lb8Hx9xBUZyi+xl3RQxjenFZNJeN5ijB3WN4/wDU7mtlo92lOjcI65wLD/N2NePEDiF3dCSWTMh1ClKelZJWRWoJmyND2ODmuAIcDcEciCrq4F8IiIAiIgCIiAIiIAiIgKLV6S4MyupZKZ5sHiwdxs4G7T5EBbREJTaeUeX9IdFqukLo54nAcpAM0ZHIhy0FNh0zzlZG956NaX/RevrLHr6hsMT5HcGtLj5BSi3O9ysyW6PPOj2GOgaTI0tlJsWkWc0Dkus0fwKStc5jHhgaLmQtzgHlsuP8C09RUue9z3G7nEuPiV2eGaRUuFUTTIc1RLd+pb8dvlzH5Ra3HqtCcvTp4XJ8xQpzv7ttrP8ANkRrpTgFRQzmKfeJ3myD4Xt6j9FjuxaY07aXN7lri7KABdx6nnz9Vl6T6TVGISB8xAa2+SMfC0Hj48OK0yqSm5Lc+56Z0iFvL1Jbv8Aq9QUck8jYYml0jzZrR1WfgGj9RXSauBl/tPOxjR1J/JTZododBhzLjfncN6Uixt0aOQXDBo3fUIW8cLeXj9TP0VwYUVJHTixLRdzurybuKj7tGx3XzezsPuojt6Ok5+nD1Xe6XYx7JSueD7x26wfePPy4qFJDzKu2tLPuZ+e9VunL253e7MaZ1gSeS5+ZpeS48SpU7N8DjqZZXzMD4msy5XC7S539gfVaLtD0S9gmD4rmnkvlvtLXc2E/T+y6TqLVpKdtSlCn6vkr2aaYuoZBTzuvSPPP+W77Q7jzHmp3abi68s2Uzdk+khngNJK73sI3SeLov/nh6KvVh3Ro21xl6WSEiIq5eCIiAIiIAiIgCIiAIiICi5PtKxAQ0Lm3sZHNbfuvmP4C3mr+l2mVNhzN855iN2EHePeT8o7yoP0m0nqcQkzzu3RfJGNjG+HXxK9R2eSxTsZ3EWuE+/6FqqxQnZHsH2ua15cTtO0r5au30Y7OKuqs+b3EPVwvIR3M5ea9ym5Pc2ba3trCniO3z3Zx0ELnuDGNLnHYGgXJPgrlVTPie6ORpa9psWnYQV6G0e0WpKFtoI98jbId6Q+fLwCi7tfwwxVwnA3ZmA35Z2jKR6ZUp4bwzO6h1epoxR2+e/7HX9kOLsmo9RsEsJIIGwuY4ktd+Xku9uvL2F4zPRTNnp3ZXi/e0j7LhzCk1unlVV0pDoGwlwtnDy4ubzs0jdv4le3QblsYn9UlDVN7/kxtOcZ9pnIafdR3azv+07/Oi5Z6y510GgWA+0z61491EQT95/Jv5q/7acPoxWpV6v2d7oVhPslIxjhaR2+/rmPLyFh5K9pbg4raSSC28Rdh6SDa39PNbmyLKcm5ZPoY00oaOx5ac0jYeI5LYaPYq+jqY6hl9x20dWHY5votp2hYb7PiMzQLNeRI3wcLn8brnLLQSUomFJunPHg9P0tQ2RjZGG7XAOB6g8FdXA9kOMa6ldTOO9CdnXVuuR6G49F3yz5x0vBu0pqcFJFURF5OgREQBERAEREBRR92hdoLaK9NTWdU/M7i2Lx6u7vVbPtI0p/Z1LeM/vEt2x93DM/yv6kLz45znuJJLnOO08SSVJetLdT98uC5U1L5XukkcXPcblxN3Eq5T0zn8OHVbys0cFJEw1J/eJLOEH+nH1k7zyHqvnD6d00rIYxvPcGgeK7Qp53ZX6h1r0X6Vusvz2RI/ZPo1EyE1b2B0jnWY5wuQ1uwlvTbf0UkLFw2jbBEyFnwsaGjyWUuMnucFKcknUeWFo9LcEZWU5Y5uYjaBwPkVvVSyJ4eSJxUo4ZB0ejFPE7MQXEcA7gPL9VfqFKOK6OwznMbtdzI5+IWuh0Igvd73vHT4R+G1XYXEEtzJqWVVvHJwODYHLWSZGCzR8b/AJWj9e5S7heHx00TYYhZrfUnmT3q5SUkcTAyNoa0cANgV9V61Z1NuxdtrVUVnllURFxLZFHbTRWdTzjmHxk+Fi36u9FGVlN3a1SZ8PL/APTkY7yJyf8AIKE7LQt3mBhX0dNX7Ok7PMV9lr4yTZj/AHb/AAdw9HWU+heXwvRei2Je1UcM/NzBf+sbrvxBXK6hjEi106plOBtkRFUNMIiIAiIgCIiAgbtpqXuxEMd8DI25fPaT6/RaPRCvgpHuqZG6yZn8GM/BnP8AMcfu8h1UtdpuhjsQjbLBb2iIEAHYHsPy35Hp4lQtNg9VE7Vvgla+9rFjv0XSCTe5enW/xtMOeC/XYjJPI6WV2Z7jcuUl9kWjx218o6thv6Of+Xque0L7Oaipe2WrY6KnG3Kd2V/cBxaO8+Sm2nhbG0MYA1rQA1o2AAcAF7qT20oyIWyUtTLyIi4FkIiIAiIgCIiAIiIDR6a02sw+oZa/u3HzbvD6Lz3Zema2ASRvjPBzXN9QQvNtRA6N7mOFnNJaR3hXrR7NGR1KOJJlmymHsfqS6jfGfkkNvBwB/VRApX7GoiIJ38i9oHk3+66XS/tnCwb9ZEjIiLNN4IiIAiIgCIiAIiICiLRPxSokmlip44yIS1rjI9zC55aHWaA022EbStlUYhDH/EkYyxA3nBu07bbVJ6cGjLRYor4tZqtYzWWvkzDPbw4qjcShMmqErDJ9gOBf6cVGCNL8GYqLWYnjtPTsMkkrbAOOUEF5y8QBfaeSxcb0hbBTe0Qhs13taA1wsSeO0X5XU4ZEk4x1Pg3qLU4vjQhpfaGN1mYN1bL5c5da23w2+RV6LFI9THNK9kYka1wzOAFyL2BPFMM861k2KLWVOOU8cjInyNDpGuc3aMuUW2k3532ddqsYXjbXhwlexj9dJG1tw0uDXWFgTtTDGuOcG6RYtVXRRW1sjGX4ZnBt/C6rUVkcbc8j2tb9pxDR6qCcovlRxp/oPJNIaqkAL3fxIrhpJ+02+zxC6yHHWh1SZCNVE+NrXNBcXZ443CwHElz7Cy2FDWa0E6uRhBtZ7ch8uRXSEpQeUcakIVo6WQnh+g+ITPDdQ5g5vfuNA+p8lMmjeDsoqdkDDe1yXcC554lbOyqvVWvKpszxQtYUXlclURFxLQREQBERAEREAREQHHaSy0bXSSxz6utaLbjveOcBusdH8/ThzVzBqYTVVU6eNusMVMHAjNa8bszfX6LqJC0bzrDvOziqxuBFwQR1G1esnf1sRwv+nCUVO1uGUUgaM4kp3Z/mzOeA7b4EhY2JYqZmsdnja5tWwCmaz3rLTZS5777CePAfFbmpGyhUyBMntXCzlrucG6ha6hxFwYDKZKgXtd1hwA/FbmunhmbR6ktdG6dpGW2U5Y3uPDwXSWWNJVRMzAva3LbNcgZc2xt+l9qZONSbqR0/Jy+EUrnSmkcDq6PWWPJ2tB1Vv6WFw9FrMLldeGSSaOJrqSFsTpY9Yw2zaxoOZoafh8fJSJZULQeIU6yp6PycVTQQ08lCXSsfFaraJbBsd3uY5rBtNvmA28kZRxuoK5xYCTJUkm227Scvou1LQrHtsXDWM+LJbMPj+z49yamPTSOVw+rhjqJn1paDJHCY3yWyui1Qzht9nx5rjvC1+DWhlgfVjJTZJ/Z9Z8LLyktDr8CWWtflsUhFoWLiFSIo3yOF2saXW5m3LomoOljfPBymEQ0svtozCOF1RG5jwdVZ2SMtc2+z4hcdVusArZHvmhfI2URFlp2gNzZgSWkDZmbYcOoWSyvp5Ys0hYGlrXOY8t3Q74cwKzoImsblYA1o4AANHoobJhHGMMvIiLydgiIgCIiAIiIAiIgCIiA5fTvEjBDGLR5ZJWtL5Gl8TLbwcQO9osvrQPENdSZiIxlkkaNWMsZGYm4B63v5rpCL8VzmJ6IUr2yGOO0r7n+JM2LOeZY14C9FiE4OGiW2/P8AMHxHjVTVYe2oo4m66S4ALwWx2cQXEkC9rcLcSq6IVj2A0dQ1zaiMZy5z9aJGucbva7pe+zkvmk0MpQDrIwN42Eb5oWZODbtD7XtxKz6PRikhc50bHBzmFhcZJXHIeQJcbeSbHqUqWHFfj9y1FiGqrnQPY5uuGaOTPnY8sYMzQ35CPx2lczpe4A4ifuYef/M5dG7QygJBMbyRwOunJHgc6vxaLUbY5IhFuylpku97nOym7buLs2zxTKJjVpReVnt2+fstS6QNhrDTzlscZja+ORxy5nX323OzZsVo6WQe2ajWxarVZxJmHx5vhve3BbnEKJkzC1zWk2OUuaJMruRsfJY1PgdO1ga6GJzrDM7VsbmI52AsE9pntTzszW0GlkL6uogfLE2OPVat+YDPmbd+0m2w24LlW1DAWS5hq/2o52e+5ly8brs6fR5ofd+qdFd5EWojaN4jLt7rHxutn+zocmr1TNXxyZW5L9bcF61JcHN05y5ZoMR0yhimMTXRubqHyh+cWzt4R+a1dZpIa2F8LBHaSjfI7eG5Je2QuNgPOy639h0n+3i/7G/orrcMgGa0UYz7Hbrd4dDs2qMxRLhUfL2IrqHB9PXlhDg2nomOcN5mdhbmAPPgpci+EeAVltBCGGIRsEZ4sDRkPlwWSAkpZPVKk4dyqIi8HYIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiA//Z"
-                                alt="IBM">
-                            <div class="cert-info">
-                                <h6>متدربة - مهندسة</h6>
-                                <p>شركة الأساليب الذكية</p>
-                                <p><small>اغسطس 2024</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 8 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img
-                                src="data:image/jpeg;base64,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Sp67qov0mn3WrZZ+3LYK7toquAJUdsjb+smaureU9aPaqJ9hV1DFVHmZxkZ7nErcMoj8kg3SgV2HSUldxfbvONxGCcbO+PeZ0V62ZxTWpfAJNx5IGB3XGcDEqHhrxSWuqFuqXaV9W5lAz5VZ5P8ArLfnmbGo6st1SKbldxryFAZSfLDtjAHtt95N48pdVOvwWAaAMG/u9ZDsLCwubJYdiGC5GPoZlOkbcX+zVbiME+YckYA/g+ABIvpGpZKumqGwrjaw+R5TED9QJE+J/ENlWovrS/bgYVcjOTUCMD53H9YmGVuoeVj/ALOAXyvs9YBO8DzmzkDGQdu7gYH4cTONG2cjToDsFXFrD9mPbAX2ycSAGqLa0+bbtVTqkDkgbE26fsTwME+8xanxIfshT7WgsXU+QbVZAzVB8bsdh6ffGI6MuwuXTqdlYQItYXgKp3AD8SBEw+H9Q1mmpsc5ZqkZj8kgcxOOUsrnUhNPqnTq9RWa7BkH9QfYg+xHzNyJBLZdxzHxB0dlYfaG2P8Adr1oGa7F9k1C+x9t0qvVujmsjz6vL+7ixfVUygYAVxwAeM7gT9Z3W2sMCrAEEYIIyCPwMjL+l7afI06oik8j2VScnAIIz34nfHlsaZzzWrHFFTUg5qtG0leF5QE5zgerCrMh1GsKDkhuSfQMbc4wPTnd3P4Touv8KUuLnbSLuD/sxWCuUyoz6CMnGTNRfBtW6r+6uQR6wbLcD1gd93p9BLY/KdevG97J/hPxMHPTQ4bddeCfWoDYbnsCFOSQQT7AiTWh6IVXzG/utOTiywftGzjK1V/eOcDBOfpOgabw0qeYtNFVRDK1dgAyUz6lYnLZwDz9R8Sc0nTgEqFu2xqxhXYZPxnn3xjmUz5Yi82M9oq3QPDnmKoao06VTuWlv8S1/wCO4/1Cy7gYjE9nDLLbhnyXIiIlVGJtMhOSikkbSSATt+M/E006LpwxcVJlsZBAK8fC9h+UkYk7o1V0FIIIqQEdiFXI/DiH0FJOTVWSe5KqT+uJtRG6NZNDUvK1IOMcKo4/ITA/SKWtNrIGbYKwGAKhQSeARxyf6CSERum2qenU/wCVXz/Iv/Ex6LpNNQAStRjsSMt+p5m9Ebptp63p1VqeXYgKjBA7YI7EEYKkfImPR9H09QASpe+ckbmLfJZskn6kyQiN1O2jp+lVJv8ATu3u1jb8Ny2M9/bgDH0mT+zqf8qv/wCC/wDE2ojdQ8VQBgcCJ7EgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiB//Z">
-                            <div class="cert-info">
-                                <h6>متطوعة - مساعدة معلمة</h6>
-                                <p>شركة تِك مصباح & مدارس اليُسر العالمية</p>
-                                <p><small>فبراير 2023</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <!-- 9 -->
-                    <div class="col-md- mb-3">
-                        <div class="cert-card">
-                            <img
-                                src="data:image/jpeg;base64,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">
-                            <div class="cert-info">
-                                <h6>متطوعة - مساعدة معلمة</h6>
-                                <p>شركة تِك مصباح</p>
-                                <p><small>أكتوبر 2022</small></p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div id="projects-container"></div> -->
-    </body>
-
-    <script>
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'flex';
-                } else {
-                    const categories = card.dataset.category.split(' ');
-                    card.style.display = categories.includes(category) ? 'flex' : 'none';
-                }
-            });
-        }
-
-        document.querySelectorAll(".project-card").forEach(card => {
-            card.addEventListener("click", () => {
-                const projectId = card.dataset.id;
-                window.location.href = `project-ar.html?id=${projectId}`;
-            });
-        });
-
-
-    </script>
-
-
-</html>
