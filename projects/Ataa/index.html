@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحليل بيانات ذوي الإعاقة</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root {
+    --bg: #fffFFF; /* f9f9f9 لون خلفية فاتح */
+    --surface: #ffffff; /* لون سطح رئيسي */
+    --surface2: #DIDBCD; /* لون سطح ثانوي */
+
+    --border: #cccccc; /* لون حدود */
+    --text: #2f4f4f; /* لون النص الرئيسي - داكن قليلاً لسهولة القراءة */
+
+    --muted: #7a7a7a; /* لون النص المغمور */
+
+    --blue: #007b8a; /* لون أزرق من شعار الجمعية */
+    --green: #3fb950; /* لون أخضر من شعار الجمعية */
+
+    --red: #f78166; /* يمكن إبقاؤه كما هو أو تغييره حسب الحاجة */
+    --amber: #ffa657;
+    --purple: #d2a8ff;
+  }
+  body{background:var(--bg);color:var(--text);font-family:'Calibri',Tahoma,sans-serif;min-height:100vh}
+  .layout{display:grid;
+    /*grid-template-columns:220px 1fr;*/ 
+    min-height:100vh}
+  .sidebar{background:var(--surface);border-left:1px solid var(--border);padding:20px 14px;display:flex;flex-direction:column;gap:8px}
+  .sidebar .logo{font-size:14px;font-weight:600;color:var(--blue);padding:10px 0 18px;border-bottom:1px solid var(--border);margin-bottom:8px}
+  .sidebar .logo i{margin-left:6px}
+  .nav-item{padding:9px 12px;border-radius:8px;font-size:13px;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s}
+  .nav-item:hover,.nav-item.active{background:var(--surface2);color:var(--text)}
+  .nav-item.active{border-right:2px solid var(--blue)}
+  .main{padding:20px;overflow-y:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .topbar h1{font-size:18px;font-weight:500}
+  .topbar .actions{display:flex;gap:10px}
+  .btn{padding:7px 16px;border-radius:8px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+  .btn:hover{background:var(--surface2)}
+  .btn-primary{border-color:var(--blue);color:var(--blue)}
+  .btn-success{border-color:var(--green);color:var(--green)}
+
+  /* Upload */
+  .upload-card{background:var(--surface);border:2px dashed var(--border);border-radius:12px;padding:24px;text-align:center;cursor:pointer;margin-bottom:20px;transition:border-color .2s}
+  .upload-card:hover{border-color:var(--blue)}
+  .upload-card i{font-size:32px;color:var(--blue);margin-bottom:10px}
+  .upload-card h3{font-size:14px;margin-bottom:4px}
+  .upload-card p{font-size:12px;color:var(--muted)}
+  #progress-bar{height:4px;background:var(--surface2);border-radius:2px;overflow:hidden;margin-top:10px;display:none}
+  #progress-fill{height:100%;background:var(--blue);width:0;transition:width .3s}
+
+  /* Filters  748DA4 */
+  .filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px;background:#fffFFF;padding:14px;border-radius:12px;border:1px solid var(--border)}
+  .filters label{font-size:18px;color:#0;margin-bottom:4px;display:block}
+  .filters select{width:100%;background:#e3e3e3;color:#0;border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:16px;cursor:pointer}
+  .filters select:focus{outline:none;border-color:var(--blue)}
+
+  /* Status bar */
+  .status-bar{display:flex;align-items:center;gap:12px;font-size:17px;color:var(--muted);margin-bottom:14px}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* Cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px}
+  .card{background:#d9efcb96;border:1px solid var(--border);border-radius:12px;padding:16px}
+  .card .label{font-size:15px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .card .value{font-size:26px;font-weight:600;color:var(--blue)}
+  .card .sub{font-size:13px;color:var(--green);margin-top:4px}
+
+  /* Insights */
+  #insights{background:#FFFFFF;border:1px solid #1f5f31;border-radius:12px;padding:14px;margin-bottom:20px;display:none}
+  #insights h3{font-size:15px;color:var(--blue);margin-bottom:10px}
+  .insight-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--muted)}
+  .chip strong{color:var(--text)}
+
+  /* Charts */
+  .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:20px}
+  .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .chart-card h3{font-size:15px;color:var(--muted);margin-bottom:10px;font-weight:400}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;font-size:15px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:4px}
+  .legend .dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+  /* Table */
+  .table-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;overflow:hidden}
+  .table-section h3{font-size:19px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .table-wrap{overflow-x:auto}
+  table{width:100%;font-size:17px;border-collapse:collapse}
+  th{color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--border);text-align:right;font-weight:400;white-space:nowrap}
+  td{padding:8px 12px;border-bottom:1px solid var(--surface2);white-space:nowrap}
+  tr:hover td{background:var(--surface2)}
+  .badge{padding:2px 8px;border-radius:10px;font-size:17px}
+  .badge.شديدة{background:#cccccc;color:#f78166}
+  .badge.متوسطة{background:#cccccc;color:#ffa657}
+  .badge.خفيفة{background:#cccccc;color:#a7fab2}
+  .badge.بسيطة{background:#cccccc;color:#a7fab2}
+
+  /* Notifications */
+  #toast{position:fixed;bottom:20px;left:20px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:12px;opacity:0;transition:opacity .3s;z-index:999;max-width:300px}
+  #toast.show{opacity:1}
+
+  @media(max-width:768px){
+    .layout{grid-template-columns:1fr}
+    .sidebar{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <!--div class="logo"><i class="fa-solid fa-chart-pie"></i> لوحة التحكم</div>
+    <div class="nav-item active"><i class="fa-solid fa-gauge"></i> نظرة عامة</div>
+    <div class="nav-item"><i class="fa-solid fa-chart-bar"></i> التحليلات</div>
+    <div class="nav-item"><i class="fa-solid fa-users"></i> المستفيدون</div>
+    <div class="nav-item"><i class="fa-solid fa-upload"></i> رفع البيانات</div>
+    <div class="nav-item" style="margin-top:auto"><i class="fa-solid fa-gear"></i> الإعدادات</div-->
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <img src="/static/logo.png" alt="Logo" style="height:32px;vertical-align:middle;margin-left:8px; width:200px; height:80px;"><!--bject-fit:contain;-->
+        <h1><i class="fa-solid fa-chart-line" style="color:var(--blue);margin-left:8px"></i>تحليل بيانات ذوي الإعاقة</h1>
+        <p style="font-size:12px;color:var(--muted);margin-top:4px">نظام تفاعلي لتحليل وعرض بيانات المستفيدين</p>
+      </div>
+      <div class="actions">
+        <!--button class="btn btn-primary" onclick="exportPDF()"><i class="fa-solid fa-file-pdf"></i> تصدير PDF</button>
+        <button class="btn btn-success" onclick="exportCSV()"><i class="fa-solid fa-file-csv"></i> تصدير CSV</button-->
+      </div>
+    </div>
+
+    <div class="upload-card" onclick="document.getElementById('fileInput').click()" id="dropZone">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <h3>اسحب ملف البيانات هنا أو اضغط للاختيار</h3>
+      <p>يدعم ملفات CSV و Excel (.xlsx, .xls) — الحد الأقصى 16MB</p>
+      <div id="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+    <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" style="display:none" onchange="uploadFile(event)">
+
+    <DIV style="background:#;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+      <div class="filters">
+        <div><label>الجنس</label><select id="f-gender" onchange="applyFilters()"><option value="">الكل</option></select></div>
+        <div><label>الدولة</label><select id="f-country" onchange="applyFilters()"><option value="">الكل</option></select></div>
+        <div><label>شدة الإعاقة</label><select id="f-severity" onchange="applyFilters()"><option value="">الكل</option></select></div>
+        <div><label>نوع الإعاقة</label><select id="f-type" onchange="applyFilters()"><option value="">الكل</option></select></div>
+        <div><label>القدرات</label><select id="f-ability" onchange="applyFilters()"><option value="">الكل</option></select></div>
+        <div style="display:flex;align-items:flex-end"><button class="btn" onclick="resetFilters()" style="width:100%"><i class="fa-solid fa-rotate-left"></i> إعادة ضبط</button></div>
+      </div>
+
+      <div class="status-bar">
+        <div class="pulse"></div>
+        <span>تحديث تلقائي كل 30 ثانية</span>
+        <span style="margin-right:auto" id="record-count"></span>
+        <span id="last-update"></span>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="label">
+            <i class="fa-solid fa-users"></i> إجمالي السجلات
+          </div>
+          <DIV style="background:#ffffff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:2px">
+            <div class="value" id="c-total">
+              —
+            </div>
+            <div class="sub" id="c-total-sub">
+              جميع المستفيدين
+            </div>
+          </DIV>
+        </div>
+        <div class="card">
+          <div class="label">
+            <i class="fa-solid fa-triangle-exclamation">
+            </i> أكثر شدة شيوعاً
+          </div>
+          <DIV style="background:#ffffff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:2px">
+            <div class="value" id="c-sev" style="font-size:16px;padding-top:4px">
+              —
+            </div>
+            <div class="sub" id="c-sev-pct">
+
+            </div>
+          </DIV>
+        </div>
+        <div class="card">
+          <div class="label">
+            <i class="fa-solid fa-star"></i>
+            أكثر قدرة شيوعاً
+          </div>
+          <DIV style="background:#ffffff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:2px">
+            <div class="value" id="c-ability" style="font-size:14px;padding-top:4px">
+              —
+            </div>
+            <div class="sub" id="c-ability-pct">
+
+            </div>
+          </DIV>
+        </div>
+          <div class="card">
+            <div class="label">
+              <i class="fa-solid fa-globe">
+
+              </i>
+              عدد الدول
+            </div>
+            <DIV style="background:#ffffff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:2px">
+              <div class="value" id="c-countries">
+                —
+              </div>
+              <div class="sub">
+                دولة ممثّلة
+              </div>
+            </DIV>
+          </div>
+      </div>
+    </div>
+
+      <div id="insights">
+        <h3><i class="fa-solid fa-lightbulb" style="margin-left:6px"></i>تحليلات ذكية</h3>
+        <div class="insight-chips" id="insight-chips"></div>
+      </div>
+    </DIV>
+    <DIV style="background:#D9EFCB;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+      <div class="chart-section" style="background:#;">
+        <br>
+        <!-- ذي لحالها عشان ماتصير مربع صغير-->
+        <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+          <div class="chart-card">
+            <h3>توزيع نوع الإعاقة حسب الشدة</h3>
+            <div id="legend-type" class="legend"></div>
+            <div style="position:relative;height:230px"><canvas id="chartType" role="img" aria-label="مخطط أعمدة لتوزيع أنواع الإعاقات"></canvas></div>
+          </div>
+        </DIV>
+
+        <div class="charts-grid">
+          <!--DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+            <div class="chart-card">
+              <h3>توزيع نوع الإعاقة حسب الشدة</h3>
+              <div id="legend-type" class="legend"></div>
+              <div style="position:relative;height:230px"><canvas id="chartType" role="img" aria-label="مخطط أعمدة لتوزيع أنواع الإعاقات"></canvas></div>
+            </div>
+          </DIV-->
+          <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+            <div class="chart-card">
+              <h3>توزيع الجنس</h3>
+              <div id="legend-gender" class="legend"></div>
+              <div style="position:relative;height:230px"><canvas id="chartGender" role="img" aria-label="مخطط دائري لتوزيع الجنس"></canvas></div>
+            </div>
+          </DIV>
+          <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+            <div class="chart-card">
+              <h3>توزيع شدة الإعاقة</h3>
+              <div id="legend-sev" class="legend"></div>
+              <div style="position:relative;height:230px"><canvas id="chartSev" role="img" aria-label="توزيع شدة الإعاقة"></canvas></div>
+            </div>
+          </DIV>
+          <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+            <div class="chart-card">
+              <h3>توزيع القدرات</h3>
+              <div id="legend-ability" class="legend"></div>
+              <div style="position:relative;height:230px"><canvas id="chartAbility" role="img" aria-label="توزيع القدرات"></canvas></div>
+            </div>
+          </DIV>
+        </div>
+
+        <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+          <div class="chart-card">
+            <h3>عدد المستفيدين حسب الشهر</h3>
+            <div style="position:relative;height:250px">
+                <canvas id="chartMonth"></canvas>
+            </div>
+          </div>
+        </DIV>
+
+        <DIV style="background:#1f5f31;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+          <div class="chart-card">
+            <h3>توزيع المستفيدين حسب السنة</h3>
+            <div style="position:relative;height:250px">
+                <canvas id="chartYear"></canvas>
+            </div>
+          </div>
+        </DIV>
+
+        <br>
+      </div>
+    </DIV>
+
+    <div class="table-section">
+      <h3><i class="fa-solid fa-table"></i> آخر السجلات</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>الاسم</th><th>الجنس</th><th>الدولة</th><th>نوع الإعاقة</th><th>شدة الإعاقة</th><th>القدرات</th><th>العمر</th></tr></thead>
+          <tbody id="tableBody"><tr><td colspan="7" style="text-align:center;padding:20px;color:var(--muted)">ارفع ملف بيانات لبدء التحليل...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  
+const COLORS=['#58a6ff','#3fb950','#f78166','#d2a8ff','#ffa657','#79c0ff','#56d364','#ff7b72'];
+let charts={};
+
+function toast(msg,type='info'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.borderColor=type==='error'?'#f78166':type==='success'?'#3fb950':'#30363d';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+async function uploadFile(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const bar=document.getElementById('progress-bar');
+  const fill=document.getElementById('progress-fill');
+  bar.style.display='block';
+  let p=0;
+  const interval=setInterval(()=>{if(p<85){p+=5;fill.style.width=p+'%';}},100);
+
+  const form=new FormData();
+  form.append('file',file);
+  try{
+    const res=await fetch('/upload',{method:'POST',body:form});
+    const data=await res.json();
+    clearInterval(interval);
+    fill.style.width='100%';
+    setTimeout(()=>{bar.style.display='none';fill.style.width='0';},500);
+    if(data.error){toast('خطأ: '+data.error,'error');}
+    else{toast('✓ '+data.message,'success');loadFilters();fetchData();}
+  }catch(err){clearInterval(interval);toast('فشل الاتصال بالخادم','error');}
+}
+
+async function loadFilters(){
+  try{
+    const res=await fetch('/filters');
+    const data=await res.json();
+    const fill=(id,key,label)=>{
+      const sel=document.getElementById(id);
+      const cur=sel.value;
+      sel.innerHTML=`<option value="">الكل</option>`+
+        (data[key]||[]).map(v=>`<option value="${v}"${v===cur?' selected':''}>${v}</option>`).join('');
+    };
+    fill('f-gender','gender','الجنس');
+    fill('f-country','country','الدولة');
+    fill('f-severity','disability_severity','الشدة');
+    fill('f-type','disability_type','النوع');
+    fill('f-ability','abilities','القدرة');
+  }catch(e){}
+}
+
+function getFilters(){
+  return{
+    gender:document.getElementById('f-gender').value,
+    country:document.getElementById('f-country').value,
+    disability_severity:document.getElementById('f-severity').value,
+    disability_type:document.getElementById('f-type').value,
+    abilities:document.getElementById('f-ability').value
+  };
+}
+
+async function fetchData(){
+  const f=getFilters();
+  const q=new URLSearchParams(f).toString();
+  try{
+    const res=await fetch(`/dashboard-data?${q}`);
+    const data=await res.json();
+    if(data.error){toast('خطأ في جلب البيانات','error');return;}
+    renderDash(data);
+    document.getElementById('last-update').textContent='آخر تحديث: '+new Date().toLocaleTimeString('ar');
+  }catch(e){}
+}
+
+function buildChart(id,type,chartData,opts={}){
+  const ctx=document.getElementById(id);
+  if(charts[id]){charts[id].destroy();}
+  charts[id]=new Chart(ctx,{
+    type,data:chartData,
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},...(opts.plugins||{})},
+      scales:opts.scales||{}
+    }
+  });
+}
+
+function setLegend(id,labels,colors){
+  document.getElementById(id).innerHTML=labels.map((l,i)=>
+    `<span><span class="dot" style="background:${colors[i%colors.length]}"></span>${l}</span>`
+  ).join('');
+}
+
+function renderDash(d){
+  document.getElementById('c-total').textContent=(d.total||0).toLocaleString('ar');
+  document.getElementById('record-count').textContent=(d.total||0)+' سجل';
+  document.getElementById('c-sev').textContent=d.top_severity||'—';
+  const topSevN=(d.severity_distribution||[]).find(x=>x.disability_severity===d.top_severity);
+  if(topSevN&&d.total)document.getElementById('c-sev-pct').textContent=Math.round(topSevN.count/d.total*100)+'% من الإجمالي';
+  document.getElementById('c-ability').textContent=d.top_ability||'—';
+  const topAbN=(d.abilities_distribution||[])[0];
+  if(topAbN&&d.total)document.getElementById('c-ability-pct').textContent=Math.round(topAbN.count/d.total*100)+'% من الإجمالي';
+  document.getElementById('c-countries').textContent = d.total_countries || 0;
+
+  // insights
+  if(d.total>0){
+    document.getElementById('insights').style.display='block';
+    const females=(d.gender_distribution||[]).find(g=>g.gender==='أنثى');
+    const severe=(d.severity_distribution||[]).find(s=>s.disability_severity==='شديدة');
+    const topCountry=(d.country_distribution||[])[0];
+    const chips=[
+      d.top_severity?`الفئة الأكثر انتشاراً: <strong>${d.top_severity}</strong>`:'',
+      females&&d.total?`الإناث: <strong>${Math.round(females.count/d.total*100)}%</strong>`:'',
+      severe&&d.total?`إعاقة شديدة: <strong>${Math.round(severe.count/d.total*100)}%</strong>`:'',
+      topCountry?`أعلى تمثيل: <strong>${topCountry.country}</strong>`:'',
+      d.top_ability?`القدرة الأبرز: <strong>${d.top_ability}</strong>`:''
+    ].filter(Boolean);
+    document.getElementById('insight-chips').innerHTML=chips.map(c=>`<div class="chip">${c}</div>`).join('');
+  }
+
+  // chart 1: type stacked by severity
+  const tsd=d.type_severity_distribution||[];
+  const types=[...new Set(tsd.map(r=>r.disability_type))];
+  const sevs=[...new Set(tsd.map(r=>r.disability_severity))];
+  const typeDs=sevs.map((s,i)=>({
+    label:s,
+    data:types.map(t=>(tsd.find(r=>r.disability_type===t&&r.disability_severity===s)||{count:0}).count),
+    backgroundColor:COLORS[i%COLORS.length]
+  }));
+  buildChart('chartType','bar',{labels:types,datasets:typeDs},{
+    scales:{x:{stacked:true,ticks:{color:'#8b949e',font:{size:10}}},y:{stacked:true,ticks:{color:'#8b949e',font:{size:10}},grid:{color:'#21262d'}}},
+    plugins:{tooltip:{mode:'index'}}
+  });
+  setLegend('legend-type',sevs,COLORS);
+
+  // chart 2: gender pie
+  const gd=d.gender_distribution||[];
+  const gLabels=gd.map(r=>r.gender),gVals=gd.map(r=>r.count);
+  const gTotal=gVals.reduce((a,b)=>a+b,0);
+  buildChart('chartGender','doughnut',{labels:gLabels,datasets:[{data:gVals,backgroundColor:COLORS.slice(0,gLabels.length),borderWidth:0}]});
+  setLegend('legend-gender',gLabels.map((l,i)=>l+(gTotal?` ${Math.round(gVals[i]/gTotal*100)}%`:'')),COLORS);
+
+  // chart 3: severity
+  const sd=d.severity_distribution||[];
+  buildChart('chartSev','bar',{labels:sd.map(r=>r.disability_severity),datasets:[{data:sd.map(r=>r.count),backgroundColor:['#f78166','#ffa657','#3fb950'],borderRadius:4}]},{
+    scales:{x:{ticks:{color:'#8b949e',font:{size:11}}},y:{ticks:{color:'#8b949e',font:{size:11}},grid:{color:'#21262d'}}}
+  });
+  setLegend('legend-sev',sd.map(r=>r.disability_severity),['#f78166','#ffa657','#3fb950']);
+
+  // chart 4: abilities
+  const ad=d.abilities_distribution||[];
+  buildChart('chartAbility','bar',{labels:ad.map(r=>r.abilities),datasets:[{data:ad.map(r=>r.count),backgroundColor:COLORS,borderRadius:4}]},{
+    scales:{x:{ticks:{color:'#8b949e',font:{size:10},maxRotation:40}},y:{ticks:{color:'#8b949e',font:{size:11}},grid:{color:'#21262d'}}}
+  });
+  setLegend('legend-ability',ad.map(r=>r.abilities),COLORS);
+
+  // chart 5: year distribution
+  const yd = d.year_distribution || [];
+
+  buildChart(
+      'chartYear',
+      'scatter',
+      {
+          datasets: [{
+              label: 'عدد المستفيدين',
+              data: yd.map(r => ({
+                  x: r.year,
+                  y: r.count
+              })),
+              backgroundColor: '#2388E8',
+              pointRadius: 8
+          }]
+      },
+      {
+          scales: {
+              x: {
+                  title: {
+                      display: true,
+                      text: 'السنة'
+                  }
+              },
+              y: {
+                  title: {
+                      display: true,
+                      text: 'عدد المستفيدين'
+                  }
+              }
+          }
+      }
+  );
+
+
+  const md = d.month_distribution || [];
+  buildChart(
+      'chartMonth',
+      'scatter',
+      {
+          datasets: [{
+              label: 'عدد المستفيدين',
+              data: md.map(r => ({
+                  x: r.month_num,
+                  y: r.count
+              })),
+              backgroundColor: '#8CC63F',
+              pointRadius: 8
+          }]
+      },
+      {
+          scales: {
+              x: {
+                  title: {
+                      display: true,
+                      text: 'الشهر'
+                  },
+                  ticks: {
+                      callback: function(value) {
+                          const months = [
+                              '',
+                              'Jan','Feb','Mar','Apr','May','Jun',
+                              'Jul','Aug','Sep','Oct','Nov','Dec'
+                          ];
+                          return months[value];
+                      }
+                  }
+              },
+              y: {
+                  title: {
+                      display: true,
+                      text: 'عدد المستفيدين'
+                  }
+              }
+          }
+      }
+  );
+
+
+  // table
+  const rows=(d.recent_records||[]).map(r=>`
+    <tr>
+      <td>${r.full_name||'—'}</td><td>${r.gender||'—'}</td><td>${r.country||'—'}</td>
+      <td>${r.disability_type||'—'}</td>
+      <td><span class="badge ${r.disability_severity||''}">${r.disability_severity||'—'}</span></td>
+      <td>${r.abilities||'—'}</td><td>${r.age||'—'}</td>
+    </tr>`).join('');
+  document.getElementById('tableBody').innerHTML=rows||'<tr><td colspan="7" style="text-align:center;padding:20px;color:#8b949e">لا توجد بيانات مطابقة</td></tr>';
+}
+
+function applyFilters(){fetchData();}
+function resetFilters(){
+  ['f-gender','f-country','f-severity','f-type','f-ability'].forEach(id=>document.getElementById(id).value='');
+  fetchData();
+}
+
+function exportCSV(){window.open('/export-csv?'+new URLSearchParams(getFilters()));}
+function exportPDF(){window.print();}
+
+// drag and drop
+const dz=document.getElementById('dropZone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.style.borderColor='var(--blue)';});
+dz.addEventListener('dragleave',()=>dz.style.borderColor='var(--border)');
+dz.addEventListener('drop',e=>{
+  e.preventDefault();
+  dz.style.borderColor='var(--border)';
+  const f=e.dataTransfer.files[0];
+  if(f){document.getElementById('fileInput').files=e.dataTransfer.files;uploadFile({target:{files:[f]}});}
+});
+
+
+
+
+// init
+loadFilters();
+fetchData();
+setInterval(fetchData, 30000);
+</script>
+</body>
+</html>
