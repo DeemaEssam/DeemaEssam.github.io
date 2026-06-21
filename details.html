@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project — Deema Essam ♡</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap');
+
+        :root {
+            --pink-light: #FFD6E7;
+            --pink-mid: #FFB3D1;
+            --pink-hot: #FF69B4;
+            --pink-dark: #D63384;
+            --pink-deep: #C2185B;
+            --lavender: #E8D5F5;
+            --lavender-mid: #C9A8E8;
+            --purple: #9B59B6;
+            --white: #FFF5FA;
+            --cream: #FFF0F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--pink-light);
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+            color: #4a1a3a;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200, 160, 230, 0.15) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        /* Floating hearts */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart-float {
+            position: absolute;
+            opacity: 0.2;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.2;
+            }
+
+            90% {
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(180deg, #FFB3D1 0%, #FF85C0 100%);
+            border-bottom: 3px solid #D63384;
+            box-shadow: 0 4px 0 #FF69B4;
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-back {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            color: #4a1a3a;
+            background: var(--pink-light);
+            border: 2px solid #D63384;
+            padding: 5px 12px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 2px 2px 0 #D63384;
+            transition: all 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-back:hover {
+            background: #FF69B4;
+            color: white;
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 #D63384;
+        }
+
+        .nav-title-bar {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 8px;
+            color: white;
+            text-shadow: 2px 2px 0 #D63384;
+        }
+
+        /* MAIN */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 70px;
+            padding-bottom: 60px;
+            max-width: 860px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* PIXEL WINDOW */
+        .pixel-window {
+            background: var(--white);
+            border: 3px solid #D63384;
+            box-shadow: 6px 6px 0 #D63384;
+            margin-bottom: 20px;
+        }
+
+        .pixel-window-titlebar {
+            background: linear-gradient(90deg, #FF69B4, #C9A8E8);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #D63384;
+        }
+
+        .pixel-window-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            color: white;
+            text-shadow: 1px 1px 0 #D63384;
+        }
+
+        .pixel-window-btns {
+            display: flex;
+            gap: 4px;
+        }
+
+        .pixel-window-btns span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 6px;
+            text-align: center;
+            line-height: 10px;
+            background: var(--pink-light);
+            color: #D63384;
+        }
+
+        .pixel-window-body {
+            padding: 20px 24px;
+        }
+
+        /* NOT FOUND */
+        #not-found {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .error-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(12px, 3vw, 18px);
+            color: #D63384;
+            margin-bottom: 16px;
+            text-shadow: 3px 3px 0 #FFB3D1;
+        }
+
+        .error-msg {
+            font-size: 22px;
+            color: #9B59B6;
+            margin-bottom: 24px;
+        }
+
+        /* PROJECT HEADER */
+        .project-hero {
+            background: linear-gradient(135deg, #FFB3D1, #E8D5F5);
+            border: 3px solid #D63384;
+            box-shadow: 6px 6px 0 #D63384;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 105, 180, 0.3), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .project-type-badge {
+            display: inline-block;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 6px;
+            background: white;
+            color: #D63384;
+            border: 2px solid #D63384;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            box-shadow: 2px 2px 0 #D63384;
+        }
+
+        .project-hero-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(10px, 2.5vw, 16px);
+            color: var(--pink-deep);
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .project-hero-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 18px;
+            color: #6a2a5a;
+            margin-bottom: 16px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: #FF69B4;
+            color: white;
+            font-size: 15px;
+            padding: 2px 10px;
+            border: 1px solid #D63384;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 8px;
+            color: white;
+            background: linear-gradient(90deg, #FF69B4, #C9A8E8);
+            padding: 8px 14px;
+            margin-bottom: 0;
+            border: 2px solid #D63384;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-body {
+            background: var(--white);
+            border: 2px solid #D63384;
+            border-top: none;
+            padding: 18px 20px;
+            box-shadow: 4px 4px 0 #D63384;
+        }
+
+        .content-body p {
+            font-size: 19px;
+            color: #4a1a3a;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .content-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HIGHLIGHTS LIST */
+        .highlights-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlights-list li {
+            padding: 8px 0 8px 24px;
+            font-size: 19px;
+            color: #4a1a3a;
+            border-bottom: 1px dashed #FFB3D1;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .highlights-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlights-list li::before {
+            content: '♡';
+            position: absolute;
+            left: 0;
+            color: #FF69B4;
+            font-size: 16px;
+        }
+
+        /* LINKS ROW */
+        .links-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-link-btn {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            padding: 10px 16px;
+            color: white;
+            text-decoration: none;
+            background: #FF69B4;
+            border: 2px solid #D63384;
+            box-shadow: 3px 3px 0 #D63384;
+            transition: all 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-link-btn:hover {
+            background: #C2185B;
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 #D63384;
+        }
+
+        .project-link-btn.secondary {
+            background: var(--white);
+            color: #D63384;
+        }
+
+        .project-link-btn.secondary:hover {
+            background: #FFD6E7;
+        }
+
+        /* STATS ROW */
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #FFD6E7, #E8D5F5);
+            border: 2px solid #D63384;
+            box-shadow: 3px 3px 0 #D63384;
+            padding: 12px 18px;
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .stat-num {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 12px;
+            color: #D63384;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #6a2a5a;
+        }
+
+        /* SIMILAR PROJECTS */
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .similar-card {
+            background: var(--cream);
+            border: 2px solid #FFB3D1;
+            box-shadow: 3px 3px 0 #FF69B4;
+            padding: 14px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.1s;
+        }
+
+        .similar-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 #D63384;
+            border-color: #D63384;
+        }
+
+        .similar-card-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            color: #D63384;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .similar-card-desc {
+            font-size: 16px;
+            color: #6a2a5a;
+            line-height: 1.4;
+        }
+
+        /* LOADING */
+        #loading {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .loading-text {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            color: #D63384;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(180deg, #FF85C0, #D63384);
+            border-top: 3px solid #C2185B;
+            padding: 18px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .project-hero {
+                padding: 18px 14px;
+            }
+
+            .stats-row {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hearts-bg" id="hearts"></div>
+
+    <nav>
+        <a class="nav-back" href="index.html">◄ BACK</a>
+        <span class="nav-title-bar">✿ DEEMA.EXE — PROJECT DETAILS</span>
+    </nav>
+
+    <main>
+        <!-- PROJECT HERO -->
+        <div class="project-hero">
+            <!-- <div class="project-type-category" id="category">${project.category}</div> -->
+
+            <div class="project-hero-title" id="title">${project.title}</div>
+            <img id="image" src="images/projects/${id}.png" alt="${project.title}"
+                style="max-width:100%; margin-bottom:16px; border:2px solid #D63384; box-shadow:4px 4px 0 #D63384;">
+
+
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="content-section">
+            <div class="content-section-title">♡ PROJECT OVERVIEW</div>
+            <div class="content-body" id="description" style=" white-space: pre-line;">
+                <p>${project.desc}</p>
+            </div>
+        </div>
+
+        <div id="not-found">
+            <div class="error-title" id="title">404 — PROJECT NOT FOUND</div>
+            <img id="image" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="404 Not Found"
+                style="max-width:100%; margin:20px 0;">
+            <div id="description" class="error-msg">Hmm, this project doesn't exist... ♡</div>
+            <a class="project-link-btn" href="index.html">◄ Back to Portfolio</a>
+        </div>
+
+        <div id="project-content" style="display:none;"></div>
+    </main>
+
+
+    <footer>♡ Deema Essam Hamidah · Data Analyst · AI Specialist ♡</footer>
+
+    <script>
+
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Floating hearts
+            const heartsContainer = document.getElementById('hearts');
+            const symbols = ['♡', '✿', '★', '·', '✦'];
+            for (let i = 0; i < 15; i++) {
+                const el = document.createElement('span');
+                el.className = 'heart-float';
+                el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.animationDuration = (8 + Math.random() * 12) + 's';
+                el.style.animationDelay = (Math.random() * 8) + 's';
+                el.style.fontSize = (10 + Math.random() * 12) + 'px';
+                el.style.color = ['#FF69B4', '#FFB3D1', '#C9A8E8', '#D63384'][Math.floor(Math.random() * 4)];
+                heartsContainer.appendChild(el);
+            }
+
+            const id = getParam('id');
+            const loading = document.getElementById('loading');
+            const notFound = document.getElementById('not-found');
+            const content = document.getElementById('project-content');
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+
+                if (!id || !PROJECTS[id]) {
+                    notFound.style.display = 'block';
+                    document.title = '404 — Deema Portfolio ♡';
+                    return;
+                }
+
+                const project = PROJECTS[id];
+                document.title = `${project.title} — Deema Essam ♡`;
+                content.innerHTML = renderProject(id, project);
+                content.style.display = 'block';
+            }, 300);
+        });
+    </script>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/project-details.js"></script>
+
+</body>
+
+</html>
