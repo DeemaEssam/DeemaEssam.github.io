@@ -919,7 +919,7 @@
         </div>
 
         <!-- ABOUT -->
-        <section id="about">
+        <!-- <section id="about">
             <div class="section-title">♡ ABOUT.TXT</div>
             <div class="pixel-window">
                 <div class="pixel-window-titlebar">
@@ -940,7 +940,7 @@
                         portfolio post-graduation, and always excited about new challenges in data science and AI.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- SKILLS -->
         <section id="skills">
@@ -1001,7 +1001,7 @@
         <section id="projects">
             <div class="section-title">♡ PROJECTS FOLDER</div>
                     <!-- PROJECTS ------------------------------------------------------------------------------------>
-                            <div class="project-card" data-id="ai-tourism-recommendation">
+                            <div class="project-card" data-id="Tourism-project">
                                 <div class="project-card-header">
                                     <span class="project-card-title">AI Tourism Recommendation System</span>
                                     <span class="project-year">2024</span>
@@ -1009,13 +1009,10 @@
                                 <div class="project-card-body">
                                     <span class="project-type">★ GRADUATION PROJECT</span>
                                     <center>
-                                        <iframe width="260" height="315" src="https://www.youtube.com/embed/dryeV0mrXRA?si=6hVQeyGeCondH-aI"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                        </iframe>
+                                        <img width="750" height="350"
+                                            src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/tourism_page.png"
+                                            alt="Project Image">
                                     </center>
-                            
                                     <p class="project-desc">AI-based web travel recommendation system that suggests personalized destinations based on user persona, keywords, and
                                     budget using machine learning techniques.</p>
                                     <div class="project-techs">
@@ -1600,7 +1597,7 @@
         document.querySelectorAll(".project-card").forEach(card => {
             card.addEventListener("click", () => {
                 const projectId = card.dataset.id;
-                window.location.href = `details.html?id=${projectId}`;
+                window.location.href = `project.html?id=${projectId}`;
             });
         });
 
