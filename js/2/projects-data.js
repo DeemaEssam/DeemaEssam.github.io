@@ -30,7 +30,7 @@ const projects = [
         
         `,
         date: "Jun 4, 2025",
-        github: ""
+        github: "https://github.com/DeemaEssam/Travel-Persona-Based-Destinations-Recommendation"
     },
 
     {
@@ -76,7 +76,7 @@ const projects = [
 
     // customer-sales-analysis
     {
-        id: "customer-sales-analysis",
+        id: "https://github.com/DeemaEssam/Customer-Sales-Analysis-for-an-Online-Store",
         title: "Customer & Sales Analysis for an Online Store",
         category: "powerbi python",
         tools: ["Python", "Power BI"],
@@ -96,7 +96,7 @@ const projects = [
              These slicers enable users to analyze data from multiple perspectives and easily compare performance across periods, regions, and customer segments.
     `,
         date: "Jan 4, 2026",
-        github: ""
+        github: "https://github.com/DeemaEssam/Customer-Sales-Analysis-for-an-Online-Store"
     },
     // tourism dataset
     {
@@ -138,7 +138,7 @@ const projects = [
             This dataset provides a reliable foundation for projects in tourism analytics, destination recommendation, sentiment analysis, and strategic planning.
             `,
         date: "Jun 2, 2025",
-        github: "https://github.com/DeemaEssam"
+        github: "https://github.com/DeemaEssam/DataSciences_Project"
     },
     // Khayrkom
     {
@@ -152,7 +152,7 @@ const projects = [
         fullDescription:
             "Designed interactive Power BI dashboards to analyze Quran education program data and identify strengths and improvement opportunities for Khayrkom Association.",
         date: "Dec 2025",
-        github: ""
+        github: "https://github.com/DeemaEssam/Quran-Education-Data-Analysis_Khayrkom-Association"
     },
     // YUSUR
     {
@@ -181,10 +181,9 @@ const projects = [
 
         This tool contributed to facilitating decision - making, improving monitoring, and identifying the actual need for services based on data.
             
-            
             `,
         date: "Dec 2025",
-        github: ""
+        github: "https://github.com/DeemaEssam/Beneficiary-Data-Analysis-Yusr-Association"
     },
     // Sakhaa 
     {
@@ -210,7 +209,7 @@ const projects = [
             This was a valuable experience that enhanced my skills in transforming data into actionable insights and supporting decision-making in a simple and effective way.
 `,
         date: "Sep 2025",
-        github: ""
+        github: "https://github.com/DeemaEssam/Data-Analysis-of-Sakha-Association-Dashboard-Using-Excel"
     },
     // Real estate
     {
@@ -238,7 +237,7 @@ const projects = [
         fullDescription:
             "Power BI dashboard visualizing sales performance, customer behavior, and product trends to support data-driven business decisions.",
         date: "Apr 27, 2024",
-        github: ""
+        github: "https://github.com/DeemaEssam/Sales-Data-Analysis"
     },
     // IMDB-EDA
     {
@@ -255,7 +254,7 @@ const projects = [
             ★The project involved data cleaning, and preprocessing using Python, followed by data visualization in Power BI to present insights effectively.
             `,
         date: "Aug 28, 2025",
-        github: "https://github.com/DeemaEssam"
+        github: "https://github.com/DeemaEssam/Data-Analysis_IMDb-Movie-Ratings-EDA"
     },
     // thyroid-disease
     {
@@ -269,7 +268,7 @@ const projects = [
         fullDescription:
             "Built and evaluated neural network models to classify thyroid diseases based on clinical data using Python.",
         date: "Apr 28, 2024",
-        github: ""
+        github: "https://github.com/DeemaEssam/ThyroidDisease"
     },
     // MENU web
     {
@@ -287,7 +286,7 @@ const projects = [
             ★Managed user permissions, allowing only administrators to delete data.
             `,
         date: "Dec 18, 2022",
-        github: ""
+        github: "https://github.com/DeemaEssam/Pizza-Restaurant-System"
     },
     // Numbers Game
     {
@@ -301,7 +300,7 @@ const projects = [
         fullDescription:
             "An educational game developed to help learners practice numbers as part of a German language course.",
         date: "Apr 19, 2023",
-        github: ""
+        github: "https://github.com/DeemaEssam/German-Numbers-Learning-Game"
     },
     // Book Club
     {
@@ -315,7 +314,7 @@ const projects = [
         fullDescription:
             "A C++ program designed to manage book club members, books, and borrowing activities.",
         date: "May 16, 2022",
-        github: ""
+        github: "https://github.com/DeemaEssam/bookClub"
     },
     // STORE SYSTEM
     {
@@ -329,7 +328,7 @@ const projects = [
         fullDescription:
             "A Python-based program to manage store inventory with basic CRUD operations.",
         date: "Apr 1, 2021",
-        github: ""
+        github: "https://github.com/DeemaEssam/Store"
     },
     // Research tracker
     {
@@ -349,7 +348,7 @@ const projects = [
             
             `,
         date: "May 16, 2022",
-        github: ""
+        github: "https://github.com/DeemaEssam/ResearchTracker"
     },
     // Blood donation
     {
@@ -380,7 +379,7 @@ const projects = [
             The project focused on implementing and comparing three numerical methods for solving equations in MATLAB: the Euler method, the Taylor method, and the Runge-Kutta method. These methods are commonly used in various scientific and engineering applications when analytical solutions are not easily obtainable. By employing these numerical techniques, we aim to approximate solutions to equations and analyze the accuracy and efficiency of each method.
             `,
         date: "May, 2023",
-        github: ""
+        github: "https://github.com/DeemaEssam/Numerical-Methods-Equation-Solvers-MATLAB"
     },
 
     // ai-chatvoice
@@ -404,7 +403,7 @@ const projects = [
             🌸Web Interface: Provides an intuitive user interface for chatbot interaction.
             `,
         date: "Jul, 2024",
-        github: ""
+        github: "https://github.com/DeemaEssam/AIChatVoice"
     }
 ];
 
