@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ديمة عصام — بورتفوليو ♡</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&family=Tajawal:wght@400;500;700&display=swap');
+
+        :root {
+            --pink-light: #FFD6E7;
+            --pink-mid: #FFB3D1;
+            --pink-hot: #FF69B4;
+            --pink-dark: #D63384;
+            --pink-deep: #C2185B;
+            --lavender: #E8D5F5;
+            --lavender-mid: #C9A8E8;
+            --purple: #9B59B6;
+            --white: #FFF5FA;
+            --cream: #FFF0F8;
+            --pixel-shadow: 4px 4px 0px #D63384;
+            --pixel-border: 3px solid #FF69B4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--pink-light);
+            font-family: 'VT323', 'Tajawal', monospace;
+            font-size: 18px;
+            color: #4a1a3a;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200, 160, 230, 0.15) 0%, transparent 50%);
+        }
+
+        /* ========== PIXEL HEARTS FLOATING ========== */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 14px;
+            opacity: 0.25;
+            animation: floatUp linear infinite;
+            image-rendering: pixelated;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.25;
+            }
+
+            90% {
+                opacity: 0.25;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ========== PIXEL DECORATIONS ========== */
+        .pixel-deco {
+            image-rendering: pixelated;
+            display: inline-block;
+        }
+
+        /* ========== NAV / TASKBAR ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(180deg, #FFB3D1 0%, #FF85C0 100%);
+            border-bottom: 3px solid #D63384;
+            box-shadow: 0 4px 0 #FF69B4, 0 8px 0 rgba(0, 0, 0, 0.1);
+            padding: 0;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            padding: 6px 16px;
+            flex-wrap: wrap;
+        }
+
+        .nav-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 9px;
+            color: var(--white);
+            text-shadow: 2px 2px 0 #D63384;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            font-family: 'VT323', monospace;
+            font-size: 16px;
+            color: #4a1a3a;
+            background: var(--pink-light);
+            border: 2px solid #D63384;
+            padding: 3px 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.1s;
+            box-shadow: 2px 2px 0 #D63384;
+        }
+
+        .nav-btn:hover {
+            background: #FF69B4;
+            color: white;
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 #D63384;
+        }
+
+        .nav-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #D63384;
+        }
+
+        /* ========== MAIN WRAPPER ========== */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 48px 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ========== PIXEL WINDOW COMPONENT ========== */
+        .pixel-window {
+            background: var(--white);
+            border: 3px solid #D63384;
+            box-shadow: 6px 6px 0 #D63384, inset 0 0 0 1px #FFB3D1;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .pixel-window-titlebar {
+            background: linear-gradient(90deg, #FF69B4, #C9A8E8);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #D63384;
+        }
+
+        .pixel-window-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 7px;
+            color: white;
+            text-shadow: 1px 1px 0 #D63384;
+        }
+
+        .pixel-window-btns {
+            display: flex;
+            gap: 4px;
+        }
+
+        .pixel-window-btns span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 6px;
+            text-align: center;
+            line-height: 10px;
+            cursor: default;
+            background: var(--pink-light);
+            color: #D63384;
+        }
+
+        .pixel-window-body {
+            padding: 20px;
+        }
+
+        /* ========== HERO ========== */
+        #hero {
+            /*min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            padding-bottom: 40px;*/
+        }
+
+        .hero-inner {
+            text-align: center;
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .hero-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        /* Pixel art cat/star avatar */
+        .avatar-pixel {
+            width: 100px;
+            height: 100px;
+            image-rendering: pixelated;
+        }
+
+        .hero-name {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: clamp(14px, 3vw, 22px);
+            color: var(--pink-dark);
+            text-shadow: 3px 3px 0 #FFB3D1, 6px 6px 0 rgba(214, 51, 132, 0.2);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .hero-subtitle {
+            font-family: 'VT323', monospace;
+            font-size: 26px;
+            color: var(--purple);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero-location {
+            font-size: 20px;
+            color: #C2185B;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #FFB3D1, #E8D5F5);
+            border: 2px solid #D63384;
+            box-shadow: 3px 3px 0 #D63384;
+            padding: 10px 16px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .stat-num {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 14px;
+            color: var(--pink-dark);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6a2a5a;
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+            padding: 8px 16px;
+            background: #FF69B4;
+            color: white;
+            border: 2px solid #D63384;
+            box-shadow: 3px 3px 0 #D63384;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-btn:hover {
+            background: #C2185B;
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 #D63384;
+        }
+
+        /* ========== SECTION HEADERS ========== */
+        .section-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: clamp(10px, 2vw, 14px);
+            color: var(--pink-dark);
+            text-shadow: 2px 2px 0 #FFB3D1;
+            margin-bottom: 24px;
+            padding: 12px 16px;
+            background: linear-gradient(90deg, #FFB3D1, #E8D5F5, #FFB3D1);
+            border: 3px solid #D63384;
+            box-shadow: 4px 4px 0 #D63384;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '♡';
+            font-size: 20px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        /* ========== SKILLS GRID ========== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-category {
+            background: var(--cream);
+            border: 2px solid #FFB3D1;
+            box-shadow: 3px 3px 0 #FF69B4;
+            padding: 14px;
+        }
+
+        .skill-cat-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 7px;
+            color: #D63384;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px dashed #FFB3D1;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF85C0, #C9A8E8);
+            color: white;
+            font-size: 14px;
+            padding: 2px 8px;
+            margin: 3px 3px 3px 0;
+            border: 1px solid #D63384;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== PROJECTS GRID ========== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 2px solid #D63384;
+            box-shadow: 4px 4px 0 #D63384;
+            overflow: hidden;
+            transition: transform 0.1s, box-shadow 0.1s;
+            cursor: default;
+        }
+
+        .project-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #D63384;
+        }
+
+        .project-card-header {
+            background: linear-gradient(90deg, #FF85C0, #C9A8E8);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #D63384;
+        }
+
+        .project-card-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 6px;
+            color: white;
+            text-shadow: 1px 1px 0 #D63384;
+            flex: 1;
+            margin-right: 8px;
+            line-height: 1.6;
+        }
+
+        .project-year {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        .project-card-body {
+            padding: 12px;
+        }
+
+        .project-type {
+            display: inline-block;
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 5px;
+            background: #FFD6E7;
+            color: #D63384;
+            border: 1px solid #FFB3D1;
+            padding: 3px 6px;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 15px;
+            color: #6a2a5a;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .project-techs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .tech-pill {
+            background: #FFB3D1;
+            color: #6a2a5a;
+            font-size: 13px;
+            padding: 1px 6px;
+            border: 1px solid #D63384;
+        }
+
+        .project-link {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 6px;
+            color: #D63384;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #FFD6E7;
+            border: 1px solid #D63384;
+            padding: 4px 8px;
+            transition: all 0.1s;
+        }
+
+        .project-link:hover {
+            background: #FF69B4;
+            color: white;
+        }
+
+        /* ========== CERTS ========== */
+        .certs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cert-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--cream);
+            border: 2px solid #FFB3D1;
+            box-shadow: 3px 3px 0 #FF69B4;
+            padding: 10px 14px;
+            transition: all 0.1s;
+        }
+
+        .cert-row:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 #D63384;
+        }
+
+        .cert-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(5deg);
+            }
+
+            75% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .cert-info {
+            flex: 1;
+        }
+
+        .cert-name {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 7px;
+            color: #D63384;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+        .cert-meta {
+            font-size: 15px;
+            color: #9B59B6;
+        }
+
+        /* ========== NGO HIGHLIGHT ========== */
+        .ngo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .ngo-card {
+            background: linear-gradient(135deg, #FFF0F8, #F0E8FF);
+            border: 2px solid #C9A8E8;
+            box-shadow: 4px 4px 0 #9B59B6;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .ngo-emoji {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .ngo-name {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 7px;
+            color: #9B59B6;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .ngo-desc {
+            font-size: 16px;
+            color: #6a2a5a;
+            line-height: 1.4;
+        }
+
+        /* ========== POPUP MESSAGES ========== */
+        .popup-strip {
+            background: linear-gradient(90deg, #FF85C0, #C9A8E8, #FF85C0);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
+            border-top: 3px solid #D63384;
+            border-bottom: 3px solid #D63384;
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 40px 0;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        .ticker-text {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 9px;
+            color: white;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100vw);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* ========== NOTEPAD MESSAGE ========== */
+        .notepad {
+            background: white;
+            border: 3px solid #9B59B6;
+            box-shadow: 6px 6px 0 #9B59B6;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .notepad-bar {
+            background: linear-gradient(90deg, #C9A8E8, #9B59B6);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #9B59B6;
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 7px;
+            color: white;
+        }
+
+        .notepad-body {
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            background: repeating-linear-gradient(white,
+                    white 24px,
+                    #e8d5f5 25px);
+            min-height: 100px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(180deg, #FF85C0, #D63384);
+            border-top: 3px solid #C2185B;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .footer-title {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 9px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .footer-link {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            padding: 4px 12px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.1s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* ========== SCROLL INDICATOR ========== */
+        .scroll-hint {
+            text-align: center;
+            margin-top: 20px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        .scroll-hint span {
+            font-family: 'Press Start 2P', 'Tajawal', monospace;
+            font-size: 8px;
+            color: #D63384;
+        }
+
+        /* ========== PIXEL ART SVG ========== */
+        .pixel-star {
+            display: inline-block;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        /* ========== ABOUT BIO ========== */
+        .bio-text {
+            font-size: 20px;
+            color: #4a1a3a;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #FFD6E7, #E8D5F5);
+            border-left: 4px solid #FF69B4;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 18px;
+            color: #6a2a5a;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            section {
+                padding: 32px 12px;
+            }
+
+            .hero-stats {
+                gap: 8px;
+            }
+
+            .stat-box {
+                min-width: 75px;
+                padding: 8px 10px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ngo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts background -->
+    <div class="hearts-bg" id="hearts"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-bar">
+            <span class="nav-title">✿ ديمة.EXE</span>
+            <div class="nav-links">
+                <a class="nav-btn" href="#about">نبذة</a>
+                <a class="nav-btn" href="#skills">المهارات</a>
+                <a class="nav-btn" href="#projects">المشاريع</a>
+                <a class="nav-btn" href="#certs">الشهادات</a>
+                <a class="nav-btn" href="#ngo">العمل التطوعي</a>
+                <a class="nav-btn" href="#contact">تواصل</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <!-- HERO -->
+    <section class="hero" style="
+        position: relative;
+        background-image: url('https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/Deema/girl%20coding2.gif');
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    ">
+
+        <!-- dark overlay -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            z-index: 1;
+        "></div>
+
+        <!-- content -->
+        <div class="hero-inner" style="
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        ">
+
+            <!-- Pixel star -->
+            <div style="margin-bottom:16px;">
+                <svg width="80" height="80" viewBox="0 0 16 16" style="image-rendering:pixelated;"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <rect x="7" y="0" width="2" height="2" fill="#FF69B4" />
+                    <rect x="5" y="2" width="6" height="2" fill="#FF85C0" />
+                    <rect x="3" y="4" width="10" height="2" fill="#FFB3D1" />
+                    <rect x="1" y="6" width="14" height="4" fill="#FF69B4" />
+                    <rect x="3" y="10" width="10" height="2" fill="#FFB3D1" />
+                    <rect x="5" y="12" width="6" height="2" fill="#FF85C0" />
+                    <rect x="7" y="14" width="2" height="2" fill="#FF69B4" />
+                    <rect x="0" y="7" width="2" height="2" fill="#FF69B4" />
+                    <rect x="14" y="7" width="2" height="2" fill="#FF69B4" />
+                    
+
+                    <rect x="2" y="2" width="1" height="1" fill="#FFD6E7" />
+                    <rect x="12" y="2" width="1" height="1" fill="#FFD6E7" />
+                    <rect x="4" y="5" width="1" height="1" fill="white" opacity="0.7" />
+                    <rect x="9" y="7" width="1" height="1" fill="white" opacity="0.7" />
+                </svg>
+            </div>
+
+            <div class="hero-name">ديمة عصام حميضة</div>
+            <div class="hero-subtitle">✦ محللة بيانات · متخصصة ذكاء اصطناعي ✦</div>
+            <div class="hero-location">📍 جامعة عفت · علوم حاسب + ذكاء اصطناعي · دفعة 2025</div>
+
+            <div class="hero-stats">
+                <div class="stat-box"><span class="stat-num">+15</span><span class="stat-label">مشروع</span></div>
+                <div class="stat-box"><span class="stat-num">+12</span><span class="stat-label">شهادة</span></div>
+                <div class="stat-box"><span class="stat-num">+5</span><span class="stat-label">تقنيات</span></div>
+                <div class="stat-box"><span class="stat-num">4</span><span class="stat-label">تعاون تطوعي</span></div>
+            </div>
+
+            <div class="hero-contact">
+                <a class="contact-btn" href="mailto:deemaessam@gmail.com">✉ البريد</a>
+                <a class="contact-btn" href="https://github.com/DeemaEssam" target="_blank">♡ جيت هب</a>
+                <a class="contact-btn" href="https://linkedin.com/in/deema-h-52446922a/" target="_blank">★ لينكدإن</a>
+                <a class="contact-btn" href="https://deemaessam.github.io" target="_blank">⌂ البورتفوليو</a>
+            </div>
+
+            <div class="scroll-hint" style="margin-top:28px;">
+                <span>▼ مرري للأسفل ▼</span>
+            </div>
+
+        </div>
+    </section>
+        <!-- TICKER -->
+        <div class="popup-strip">
+            <span class="ticker-text">✿ وظفني &nbsp;·&nbsp; وظفني &nbsp;·&nbsp; وظفني &nbsp;·&nbsp;
+                وظفني &nbsp;·&nbsp; وظفني &nbsp;·&nbsp; وظفني &nbsp;·&nbsp; وظفني وظفني &nbsp;·&nbsp;
+                وظفني &nbsp;·&nbsp; وظفني &nbsp;·&nbsp; ✿ وظفني &nbsp;·&nbsp; وظفني
+                &nbsp;·&nbsp; وظفني &nbsp;·&nbsp; وظفني</span>
+        </div>
+
+        <!-- ABOUT -->
+        <!-- <section id="about">
+            <div class="section-title">♡ ABOUT.TXT</div>
+            <div class="pixel-window">
+                <div class="pixel-window-titlebar">
+                    <span class="pixel-window-title">♡ - Notepad — About Deema</span>
+                    <div class="pixel-window-btns"><span>_</span><span>□</span><span>✕</span></div>
+                </div>
+                <div class="pixel-window-body">
+                    <p class="bio-text">مرحباً! أنا <strong>ديمة عصام حميضة</strong>، محللة بيانات سعودية وخريجة
+                        حديثة في علوم الحاسب بتخصص الذكاء الاصطناعي من <strong>جامعة عفت</strong>
+                        (2021–2025). ♡</p>
+                    <div class="highlight-box">"أحوّل البيانات الخام إلى رؤى واضحة وقابلة للتنفيذ — أجمع بين
+                        البرمجة والتحليل الإحصائي وتصور البيانات مع شغف حقيقي بالأثر
+                        الاجتماعي."</div>
+                    <p class="bio-text">يمتد عملي ليشمل خطوط أنابيب البيانات المتكاملة وأنظمة تعلّم الآلة ولوحات
+                        معلومات تفاعلية للذكاء التجاري — وأحب توظيف هذه المهارات لمساعدة الجمعيات غير الربحية في
+                        السعودية على اتخاذ قرارات أفضل لمجتمعاتها.</p>
+                    <p class="bio-text">أنا <strong>ثنائية اللغة (عربي وإنجليزي)</strong>، وأعمل بنشاط على بناء
+                        بورتفوليوهي بعد التخرج، ومتحمسة دائماً للتحديات الجديدة في علوم البيانات والذكاء الاصطناعي.</p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="section-title">♡ المهارات.EXE</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-cat-title">📊 تحليل البيانات</div>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Matplotlib</span>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-title">🤖 تعلّم الآلة</div>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">التصنيف</span>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-title">📈 التصور البياني</div>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">لوحات إكسل</span>
+                    <span class="skill-tag">رسوم بيانية تفاعلية</span>
+                    <span class="skill-tag">تقارير مؤشرات الأداء</span>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-title">🗄️ قواعد البيانات</div>
+                    <span class="skill-tag">Oracle</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">استعلامات SQL</span>
+                    <span class="skill-tag">تصميم قواعد البيانات</span>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-title">🌐 تطوير الويب</div>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-title">💻 البرمجة</div>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">MATLAB</span>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="section-title">♡ مجلد المشاريع</div>
+                    <!-- PROJECTS ------------------------------------------------------------------------------------>
+                            <div class="project-card" data-id="Tourism-project">
+                                <div class="project-card-header">
+                                    <span class="project-card-title">نظام توصية سياحي بالذكاء الاصطناعي</span>
+                                    <span class="project-year">2024</span>
+                                </div>
+                                <div class="project-card-body">
+                                    <span class="project-type">★ مشروع التخرج</span>
+                                    <center>
+                                        <img width="750" height="350"
+                                            src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/tourism_page.png"
+                                            alt="صورة المشروع">
+                                    </center>
+                                    <p class="project-desc">نظام توصية سياحي عبر الويب يعتمد على الذكاء الاصطناعي، يقترح وجهات مخصصة بناءً على شخصية المستخدم والكلمات المفتاحية
+                                    والميزانية باستخدام تقنيات تعلّم الآلة.</p>
+                                    <div class="project-techs">
+                                        <span class="tech-pill">Python</span><span class="tech-pill">NLP</span><span class="tech-pill">Power
+                                            BI</span><span class="tech-pill">Flask</span><span class="tech-pill">SQL</span>
+                                    </div>
+                                    <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                                        جيت هب</a>
+                                </div>
+                            </div>
+
+                            <br>
+                            <!-- PROJECTS ------------------------------------------------------------------------------------>
+
+            <div class="projects-grid">
+
+<div class="project-card" data-id="ataa-kpi-dashboard">
+    <div class="project-card-header">
+        <span class="project-card-title">تحليلات المستفيدين ولوحة مؤشرات الأداء</span>
+        <span class="project-year">2026</span>
+    </div>
+    <div class="project-card-body">
+        <span class="project-type">♿ تطوع</span>
+        <center>
+            <img width="200" height="115" src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/AtaaPdashboard.jpeg">
+        </center>
+        <p class="project-desc">
+            طوّرت منصة تحليلات بيانات متكاملة لجمعية عطاء، تشمل معالجة أولية آلية للبيانات،
+            وخطوط أنابيب ETL، وإدارة قاعدة بيانات MySQL، وأنظمة رفع ومعالجة الملفات، ولوحات مؤشرات أداء
+            تفاعلية في الوقت الفعلي لدعم خدمات المستفيدين واتخاذ القرار المؤسسي.
+        </p>
+        <div class="project-techs">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Flask</span>
+            <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">Pandas</span>
+            <span class="tech-pill">لوحة معلومات</span>
+            <span class="tech-pill">تحليل بيانات</span>
+        </div>
+        <a class="project-link" href="YOUR_GITHUB_LINK_HERE" target="_blank">♡ عرض على جيت هب</a>
+    </div>
+</div>
+
+                <div class="project-card" data-id="Yusur">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل بيانات جمعية يسر التطوعي</span>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">💝 تطوع GO</span>
+                        <center><img width="200" height="115" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/تحليل%20بيانات%20مستفيدين%20مركز%20الحياة%20المطمئنة%202025م.jpg?raw=true" alt="مشروع 4"></center>
+                        <p class="project-desc">تحليلات متقدمة ولوحات Power BI لجمعية يسر،
+                            دعماً لقرارات استراتيجية للبرامج الخيرية السعودية.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span><span
+                                class="tech-pill">Excel</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="tourism-dataset">
+                    <div class="project-card-header">
+                        <span class="project-card-title">مجموعة بيانات سياحية</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">مجموعة بيانات عالية الجودة</span>
+                        <center><img width="200" height="115"
+                            src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/tourism.png?raw=true"
+                            >
+                        </center>
+                        <p class="project-desc">بنيت مجموعة بيانات عالية الجودة عبر استخراج وتنظيف مراجعات TripAdvisor
+                        لوجهات سياحية سعودية،
+                        شاملة التقييمات وتفاصيل المواقع.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">استخراج بيانات الويب</span><span class="tech-pill">Python</span><span class="tech-pill">Power BI</span><span
+                                class="tech-pill">Excel</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="ai-chatvoice">
+                    <div class="project-card-header">
+                        <span class="project-card-title">روبوت محادثة بالذكاء الاصطناعي</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">روبوت محادثة</span>
+                        <center>
+                        <img width="200" height="115"
+                            src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/AiChatVoice.png">
+                        </center>
+                        <p class="project-desc">تطبيق روبوت محادثة يدمج التعرف على الصوت وتحويل النص إلى كلام مع واجهة ويب.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span> <span class="tech-pill">Node.js</span><span
+                                class="tech-pill">Python</span><span class="tech-pill">Flask</span><span class="tech-pill">MySql</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="customer-sales-analysis">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل العملاء والمبيعات</span>
+                        <span class="project-year">2026</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">📊 ذكاء الأعمال</span>
+                        <center>
+                            <img width="200" height="115"
+                                src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/Customer%20%26%20Sales%20Analysis%20for%20an%20Online%20Store.png">
+                        </center>
+                        <p class="project-desc">أحدث مشروع بعد التخرج يُظهر استمرار التطور الفعلي
+                            والنمو في قدرات تحليل البيانات.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="thyroid-disease">
+                    <div class="project-card-header">
+                        <span class="project-card-title">كشف أمراض الغدة الدرقية</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">🏥 تعلم آلة صحي</span>
+                        <center><img width="200" height="115"
+                                src="https://deemaessam.github.io/pics/thyroid.png">
+                        </center>
+                        <p class="project-desc">نظام تصنيف بتعلّم الآلة للكشف عن أمراض الغدة الدرقية من البيانات
+                            السريرية، يحسّن دقة التشخيص المبكر لأنماط الأعراض الدقيقة.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Scikit-learn</span><span
+                                class="tech-pill">التصنيف</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam/ThyroidDisease" target="_blank">♡
+                            عرض على جيت هب</a>
+                    </div>
+                </div>
+<!-- 
+                <div class="project-card" data-id="real-estate-riyadh">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليلات العقارات في الرياض</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">🏠 تحليلات السوق</span>
+                        <center>
+                            <img width="200" height="115"
+                             src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/Riyadh_Realestate.png?raw=trueg">
+                        </center>
+                        <p class="project-desc">منصة شاملة لرؤى سوق العقارات في الرياض مع تحليل الاتجاهات
+                            ولوحات ذكاء أعمال للمشترين والبائعين.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam/Data-Analysis_Real-Estate-in-Riyadh"
+                            target="_blank">♡ عرض على جيت هب</a>
+                    </div>
+                </div> -->
+
+                <div class="project-card" data-id="Khayrkom">
+                    <div class="project-card-header">
+                        <span class="project-card-title">خيركم — تحليل تعليم القرآن</span>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">💝 تطوع GO</span>
+                        <center>
+                            <img width="200" height="115"
+                                src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/%D8%AE%D9%8A%D8%B1%D9%83%D9%85.png?raw=true">
+                        </center>
+                        <p class="project-desc">مشروع تحليلات تطوعي لتقييم برامج تعليم القرآن ومؤشرات
+                            أداء الطلاب لجمعية خيركم.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span>
+                        </div>
+                        <a class="project-link"
+                            href="https://github.com/DeemaEssam/Quran-Education-Data-Analysis_Khayrkom-Association"
+                            target="_blank">♡ عرض على جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="research-tracker">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل بيانات جمعية يسر التطوعي</span>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">متتبع الأبحاث</span>
+                        <center><img width="200" height="115"
+                                src="https://deemaessam.github.io/pics/presentation.gif"
+                                alt="مشروع 4"></center>
+                        <p class="project-desc">تطبيق ويب سهل الاستخدام يبسّط البحث عن الأبحاث الأكاديمية، ويتيح
+                        استكشاف
+                        نتائج Google Scholar وتصدير النتائج إلى إكسل.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Flask</span><span
+                                class="tech-pill">HTML</span><span class="tech-pill">MySql</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam/ResearchTracker" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="sales-data-analysis">
+                    <div class="project-card-header">
+                        <span class="project-card-title">لوحة بيانات المبيعات</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">📊 ذكاء الأعمال</span>
+                        <center>
+                            <img width="200" height="115"
+                                src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/sales.png?raw=true">
+                        </center>
+                        <p class="project-desc">لوحة Power BI شاملة لأداء المبيعات وأنماط
+                            سلوك العملاء وتحليل اتجاهات المنتجات.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam/Sales-Data-Analysis"
+                            target="_blank">♡ عرض على جيت هب</a>
+                            <a class="project-link" href="" target="_blank">♡ عرض حي ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="sakhaa-performance">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل وسائل التواصل الاجتماعي</span>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">💝 تطوع GO</span>
+                        <center>
+                            <img width="200" height="115"
+                                src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/Sakhaa_2.jpeg">
+                        </center>
+                        <p class="project-desc">مشروع تحليل الأداء السنوي لجمعية سخاء يشمل تنظيف البيانات وتحديد
+                            مؤشرات الأداء،
+                            و
+                            بناء لوحة تفاعلية لدعم التقييم الاستراتيجي.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Power BI</span>
+                        </div>
+                        <a class="project-link"
+                            href="https://github.com/DeemaEssam/Data-Analysis-of-Sakha-Association-Dashboard-Using-Excel"
+                            target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="menu-website">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل بيانات جمعية يسر التطوعي</span>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">متتبع الأبحاث</span>
+                        <center><img width="200" height="115" src="https://deemaessam.github.io/pics/pizza.gif" alt="مشروع 4">
+                        </center>
+                        <p class="project-desc">موقع قائمة مطعم يتيح للمستخدمين تصفح القائمة وإرسال الاقتراحات
+                        والتقييمات، و
+                        عرض
+                        المعلومات الأساسية عن المطعم.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">PHP</span><span class="tech-pill">MySql</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam/Pizza-Restaurant-System" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="imdb-eda">
+                    <div class="project-card-header">
+                        <span class="project-card-title">تحليل استكشافي لأفلام IMDb</span>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">🎬 تحليل استكشافي</span>
+                        <center>
+                            <img width="200" height="115" 
+                            src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/movies.png?raw=true">
+                        </center>
+                        <p class="project-desc">تحليل بيانات استكشافي لأكثر من 10,000 فيلم من IMDb يكشف أنماطاً في
+                            الأنواع والتقييمات والميزانيات وتفضيلات الجمهور.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span
+                                class="tech-pill">Matplotlib</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/DeemaEssam" target="_blank">♡ عرض على
+                            جيت هب</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="numbers-game">
+                    <div class="project-card-header">
+                        <span class="project-card-title">لعبة تعلّم الأرقام الألمانية</span>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">🎮 لعبة تعليمية</span>
+                        <center>
+                            <img width="200" height="115" src="https://deemaessam.github.io/pics/game.gif">
+                        </center>
+                        <p class="project-desc">تطبيق لغوي تفاعلي على شكل لعبة يعلّم الأرقام الألمانية — منشور
+                            مباشرة على Netlify!</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span>
+                        </div>
+                        <a class="project-link" href="https://gger.netlify.app" target="_blank">♡ عرض حي ↗</a>
+                    </div>
+                </div>
+
+
+                <div class="project-card" data-id="blood-donation">
+                    <div class="project-card-header">
+                        <span class="project-card-title">نظام التبرع بالدم</span>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type">نظام التبرع بالدم</span>
+                        <center><img width="200" height="115" src="https://deemaessam.github.io/pics/mainform1.jpeg" alt="مشروع 4">
+                        </center>
+                        <p class="project-desc">نظام قاعدة بيانات للتبرع بالدم قائم على SQL يتيح للمستخدمين التسجيل وتسجيل الدخول وتخزين بيانات المتبرعين بأمان من أجل
+                        إدارة فعالة لعمليات التبرع بالدم.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">SQL</span>
+                        </div>
+                        <!-- <a class="project-link" href="https://github.com/DeemaEssam/ResearchTracker" target="_blank">♡ View on
+                            GitHub</a> -->
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="Numerical-Methods-Equation">
+                    <div class="project-card-header">
+                        <span class="project-card-title">حل المعادلات بالطرق العددية</span>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type"></span>
+                        <center><img width="200" height="115" src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/matlab.png" alt="مشروع 4">
+                        </center>
+                        <p class="project-desc">تطبيق ومقارنة ثلاث طرق عددية لحل المعادلات في MATLAB: طريقة
+                        أويلر، وطريقة تايلور، وطريقة رانج-كوتا.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">MATLAB</span>
+                        </div>
+                        <!-- <a class="project-link" href="https://github.com/DeemaEssam/ResearchTracker" target="_blank">♡ View on
+                                            GitHub</a> -->
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="book-club">
+                    <div class="project-card-header">
+                        <span class="project-card-title">نادي الكتاب</span>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-type"></span>
+                        <center><img width="200" height="115"
+                                src="https://deemaessam.github.io/pics/book.png"
+                                alt="مشروع 4">
+                        </center>
+                        <p class="project-desc">برنامج بلغة ++C يدير نظام نادي كتاب يشمل الكتب والأعضاء. يمكن للأعضاء
+                        تصفح الكتب
+                        المتاحة
+                        واستعارتها عبر النظام.</p>
+                        <div class="project-techs">
+                            <span class="tech-pill">C++</span>
+                        </div>
+                        <!-- <a class="project-link" href="https://github.com/DeemaEssam/ResearchTracker" target="_blank">♡ View on
+                                                                            GitHub</a> -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CERTS -->
+        <section id="certs">
+            <div class="section-title">♡  الشهادات<img src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/Deema/ach.png" height="35"
+                width="35"></div>
+            <div class="certs-list">
+
+                <div class="cert-row">
+                    <span class="cert-icon">⭐</span>
+                    <div class="cert-info">
+                        <div class="cert-name">تحليل البيانات والتصور باستخدام Power BI</div>
+                        <div class="cert-meta">مايكروسوفت · أغسطس 2025</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">⭐</span>
+                    <div class="cert-info">
+                        <div class="cert-name">إعداد البيانات للتحليل باستخدام إكسل</div>
+                        <div class="cert-meta">مايكروسوفت · أغسطس 2025</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">⭐</span>
+                    <div class="cert-info">
+                        <div class="cert-name">التصميم الإبداعي باستخدام Power BI</div>
+                        <div class="cert-meta">مايكروسوفت · أغسطس 2025</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">💜</span>
+                    <div class="cert-info">
+                        <div class="cert-name">الذكاء الاصطناعي التوليدي: مقدمة وتطبيقات</div>
+                        <div class="cert-meta">IBM · فبراير 2024</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">💜</span>
+                    <div class="cert-info">
+                        <div class="cert-name">الرياضيات لتعلّم الآلة وعلوم البيانات</div>
+                        <div class="cert-meta">DeepLearning.AI · أكتوبر 2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">💜</span>
+                    <div class="cert-info">
+                        <div class="cert-name">برنامج الذكاء الاصطناعي</div>
+                        <div class="cert-meta">كاوست · نوفمبر 2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">🌸</span>
+                    <div class="cert-info">
+                        <div class="cert-name">إدارة المشاريع الرشيقة (Agile)</div>
+                        <div class="cert-meta">جوجل · سبتمبر 2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">🌸</span>
+                    <div class="cert-info">
+                        <div class="cert-name">برمجة جافا: المصفوفات والقوائم والبيانات المهيكلة</div>
+                        <div class="cert-meta">جامعة ديوك · أكتوبر 2023</div>
+                    </div>
+                </div>
+
+                <div class="cert-row">
+                    <span class="cert-icon">🔧</span>
+                    <div class="cert-info">
+                        <div class="cert-name">الإلكترونيات وأنظمة الطاقة وإنترنت الأشياء · التصميم الميكانيكي · الروبوتات والذكاء الاصطناعي ·
+                            تطوير الويب ومعالجة اللغة الطبيعية</div>
+                        <div class="cert-meta">سمارت ميثودز · أغسطس 2024</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NGO -->
+        <section id="ngo">
+            <div class="section-title">♡ الأثر الاجتماعي</div>
+            <div class="pixel-window" style="margin-bottom:20px;">
+                <div class="pixel-window-titlebar">
+                    <span class="pixel-window-title">♡ رسالة لك!</span>
+                    <div class="pixel-window-btns"><span>_</span><span>□</span><span>✕</span></div>
+                </div>
+                <div class="pixel-window-body">
+                    <p class="bio-text">
+                        <!-- Beyond technical skills, I volunteer my data expertise to support
+                        non-profit organisations across Saudi Arabia -->
+
+                        بالإضافة إلى المهارات التقنية، أدعم بنشاط الجمعيات غير الربحية في أنحاء السعودية من خلال تحليل البيانات،
+                        والخدمة المجتمعية في الحرم المكي، والعمل التصميمي للجمعيات الخيرية، ومبادرات تطوعية متنوعة،
+                        بمساهمة تفوق <strong>700</strong> ساعة تطوعية.
+
+                         <!-- — a rare quality that sets her apart as a fresh
+                        graduate. -->
+                    </p>
+                </div>
+            </div>
+            <div class="ngo-grid">
+                <div class="ngo-card">
+                    <span class="ngo-emoji">♿</span>
+                    <div class="ngo-name">جمعية عطاء</div>
+                    <div class="ngo-desc">
+                        طوّرت خطوط أنابيب آلية لمعالجة البيانات، وأدارت قواعد بيانات المستفيدين، وبنيت لوحات مؤشرات أداء
+                        تفاعلية بتحليلات آنية لدعم اتخاذ القرار الاستراتيجي. <br> (مايو 2026 – حتى الآن)
+                    </div>
+
+<!-- <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7472203307134976000" height="105" width="54"
+    frameborder="0" allowfullscreen="" title="Embedded post"></iframe> -->
+                </div>
+
+                <div class="ngo-card">
+                    <span class="ngo-emoji">🌺</span>
+                    <div class="ngo-name">جمعية يسر</div>
+                    <div class="ngo-desc">تحليلات متقدمة ولوحات Power BI تفاعلية لدعم اتخاذ القرار
+                        الاستراتيجي للبرامج الخيرية. (2025)</div>
+                </div>
+                <div class="ngo-card">
+                    <span class="ngo-emoji">📖</span>
+                    <div class="ngo-name">جمعية خيركم</div>
+                    <div class="ngo-desc">تقييم برامج تعليم القرآن ومؤشرات أداء الطلاب للمساعدة في
+                        تحسين العروض التعليمية. (ديسمبر 2025)</div>
+                </div>
+                <div class="ngo-card">
+                    <span class="ngo-emoji">💝 </span>
+                    <div class="ngo-name">جمعية سخاء</div>
+                    <div class="ngo-desc">لوحة مؤشرات أداء سنوية وتحليل أداء باستخدام إكسل لدعم
+                        التقييم الاستراتيجي للجمعية. (سبتمبر 2025)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="section-title">♡ رسالة التواصل</div>
+            <div style="text-align:center; margin-bottom:24px;">
+                <div class="notepad">
+                    <div class="notepad-bar">
+                        <span>♥ - المفكرة</span>
+                        <span>_ □ ✕</span>
+                    </div>
+                    <div class="notepad-body">
+                        أنتِ موهوبة حقاً ومثابرة.<br>
+                        لنتواصل ونبني شيئاً<br>
+                        رائعاً معاً، اتفقنا؟ ♡
+                    </div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                <a class="contact-btn" href="mailto:deemaessam@gmail.com">✉ deemaessam@gmail.com</a>
+                <a class="contact-btn" href="https://github.com/DeemaEssam" target="_blank">♡ github.com/DeemaEssam</a>
+                <a class="contact-btn" href="https://linkedin.com/in/deema-h-52446922a/" target="_blank">★ لينكدإن</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-title">✿ ديمة عصام حميضة · محللة بيانات · متخصصة ذكاء اصطناعي ✿</div>
+        <div class="footer-links">
+            <a class="footer-link" href="mailto:deemaessam@gmail.com">البريد</a>
+            <a class="footer-link" href="https://github.com/DeemaEssam" target="_blank">جيت هب</a>
+            <a class="footer-link" href="https://linkedin.com/in/deema-h-52446922a/" target="_blank">لينكدإن</a>
+            <a class="footer-link" href="https://deemaessam.github.io" target="_blank">البورتفوليو</a>
+        </div>
+        <div class="footer-copy">♡ صُنع بحب · السعودية · 2026 ♡</div>
+    </footer>
+
+    <script>
+        // Generate floating hearts
+        const heartsContainer = document.getElementById('hearts');
+        const symbols = ['♡', '✿', '★', '·', '✦', '♥'];
+        for (let i = 0; i < 20; i++) {
+            const el = document.createElement('span');
+            el.className = 'heart-float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (8 + Math.random() * 12) + 's';
+            el.style.animationDelay = (Math.random() * 10) + 's';
+            el.style.fontSize = (10 + Math.random() * 14) + 'px';
+            el.style.color = ['#FF69B4', '#FFB3D1', '#C9A8E8', '#D63384'][Math.floor(Math.random() * 4)];
+            heartsContainer.appendChild(el);
+        }
+
+
+        
+        document.querySelectorAll(".project-card").forEach(card => {
+            card.addEventListener("click", () => {
+                const projectId = card.dataset.id;
+                window.location.href = `project-ar.html?id=${projectId}`;
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
