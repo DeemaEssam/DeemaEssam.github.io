@@ -8,8 +8,9 @@ if (!project) {
 } else {
     document.getElementById("title").textContent = project.title;
     document.getElementById("image").src = project.image;
-    document.getElementById("description").textContent =
-        project.fullDescription;
+    // document.getElementById("description").textContent =
+    //     project.fullDescription;
+    document.getElementById("description").innerHTML = project.fullDescription;
     document.getElementById("date").textContent = project.date;
     document.getElementById("github").href = project.github;
 }
