@@ -33,6 +33,48 @@ const projects = [
         github: ""
     },
 
+        {
+        id: "ataa-kpi-dashboard",
+        title: "Beneficiary Data Management & KPI Analytics Platform",
+        category: "web",
+        tools: ["Python", "Flask", "MySQL", "Pandas", "HTML", "CSS", "JavaScript"],
+        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/AtaaPdashboard.jpeg",
+        shortDescription:
+            "Full-stack platform for beneficiary data management, analytics, and real-time KPI monitoring.",
+        fullDescription:
+            `
+        As part of my volunteer work as a Reporting and KPI Analyst at Ataa Association ♿,
+
+        I designed and developed a complete data management and analytics platform to support the association's beneficiary services and reporting processes.
+
+        The project covered the entire data lifecycle, from data collection and processing to storage, analysis, and visualization.
+
+        Key contributions included:
+
+        🌸 Performing end-to-end data preprocessing, including cleaning datasets, handling missing values, validating records, and standardizing data formats to ensure data quality and consistency.
+
+        🌸 Building automated ETL pipelines using Python (Pandas) to extract, transform, and load beneficiary data efficiently.
+
+        🌸 Developing a full-stack web application using Flask that allows users to upload CSV and Excel files, automatically process data, and store it in a structured format.
+        🌐 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">Live Dashboard Preview</a>
+
+        🌸 Designing and implementing a MySQL database system to manage beneficiary records and support efficient querying and reporting.
+
+         Creating interactive dashboards to visualize key performance indicators (KPIs), beneficiary statistics, demographic distributions, and operational metrics.
+
+        🌸 Implementing real-time synchronization between the database and dashboard to ensure that new data and updates are instantly reflected in reports and visualizations.
+
+        🌸 Integrating frontend and backend components to provide a seamless workflow for data upload, processing, storage, and analytics.
+
+        🌸 Supporting data-driven decision-making by providing accurate performance insights, automated reporting capabilities, and centralized access to organizational data.
+
+        This platform significantly improved reporting efficiency, reduced manual processing efforts, and enabled stakeholders to monitor organizational performance through real-time analytics and KPI tracking.
+        `,
+        date: "May 2026 - Present",
+        github: "YOUR_GITHUB_LINK"
+    },
+
+
     // customer-sales-analysis
     {
         id: "customer-sales-analysis",
