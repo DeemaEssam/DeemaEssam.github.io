@@ -1,0 +1,17 @@
+const params = new URLSearchParams(window.location.search);
+const projectId = params.get("id");
+
+const project = projects.find(p => p.id === projectId);
+
+if (!project) {
+    document.body.innerHTML = "<h2>Project not found</h2>";
+} else {
+    document.getElementById("title").textContent = project.title;
+    document.getElementById("image").src = project.image;
+    // document.getElementById("description").textContent = project.fullDescription;
+    document.getElementById("description").innerHTML = project.fullDescription;
+    document.getElementById("date").textContent = project.date;
+    document.getElementById("github").href = project.github;
+    document.getElementById("category").href = project.category;
+    document.getElementById("tools").href = project.tools;
+}
