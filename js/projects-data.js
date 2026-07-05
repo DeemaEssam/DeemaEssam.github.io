@@ -51,22 +51,22 @@ const projects = [
 
         Key contributions included:
 
-        🌸 Performing end-to-end data preprocessing, including cleaning datasets, handling missing values, validating records, and standardizing data formats to ensure data quality and consistency.
+        🔺 Performing end-to-end data preprocessing, including cleaning datasets, handling missing values, validating records, and standardizing data formats to ensure data quality and consistency.
 
-        🌸 Building automated ETL pipelines using Python (Pandas) to extract, transform, and load beneficiary data efficiently.
+        🔺 Building automated ETL pipelines using Python (Pandas) to extract, transform, and load beneficiary data efficiently.
 
-        🌸 Developing a full-stack web application using Flask that allows users to upload CSV and Excel files, automatically process data, and store it in a structured format.
-        🌐 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">Live Dashboard Preview</a>
+        🔺 Developing a full-stack web application using Flask that allows users to upload CSV and Excel files, automatically process data, and store it in a structured format.
+        🔹 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">Live Dashboard Preview</a>
 
-        🌸 Designing and implementing a MySQL database system to manage beneficiary records and support efficient querying and reporting.
+        🔺 Designing and implementing a MySQL database system to manage beneficiary records and support efficient querying and reporting.
 
          Creating interactive dashboards to visualize key performance indicators (KPIs), beneficiary statistics, demographic distributions, and operational metrics.
 
-        🌸 Implementing real-time synchronization between the database and dashboard to ensure that new data and updates are instantly reflected in reports and visualizations.
+        🔺 Implementing real-time synchronization between the database and dashboard to ensure that new data and updates are instantly reflected in reports and visualizations.
 
-        🌸 Integrating frontend and backend components to provide a seamless workflow for data upload, processing, storage, and analytics.
+        🔺 Integrating frontend and backend components to provide a seamless workflow for data upload, processing, storage, and analytics.
 
-        🌸 Supporting data-driven decision-making by providing accurate performance insights, automated reporting capabilities, and centralized access to organizational data.
+        🔺 Supporting data-driven decision-making by providing accurate performance insights, automated reporting capabilities, and centralized access to organizational data.
 
         This platform significantly improved reporting efficiency, reduced manual processing efforts, and enabled stakeholders to monitor organizational performance through real-time analytics and KPI tracking.
         `,
