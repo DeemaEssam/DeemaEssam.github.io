@@ -38,7 +38,7 @@ const projects = [
     title: "E-Learning Platform",
     category: "web",
     tools: ["Python", "Flask", "MySQL", "HTML", "CSS", "Bootstrap", "JavaScript"],
-    image: "YOUR_IMAGE_LINK",
+    image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/education%20platform.png",
     shortDescription:
         "An e-learning platform for managing courses, educational content, and quizzes with integrated user roles and access control.",
     fullDescription:
@@ -71,7 +71,7 @@ const projects = [
 
         The project resulted in an integrated platform combining educational content management, assessments, user management, and database operations into a scalable web application.
         `,
-        date: "2026",
+        date: "Jul 2026",
         github: "YOUR_GITHUB_LINK"
     },
 
