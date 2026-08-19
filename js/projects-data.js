@@ -33,7 +33,49 @@ const projects = [
         github: ""
     },
 
-        {
+    {
+    id: "education-platform",
+    title: "E-Learning Platform",
+    category: "web",
+    tools: ["Python", "Flask", "MySQL", "HTML", "CSS", "Bootstrap", "JavaScript"],
+    image: "YOUR_IMAGE_LINK",
+    shortDescription:
+        "An e-learning platform for managing courses, educational content, and quizzes with integrated user roles and access control.",
+    fullDescription:
+        `
+        A full-stack e-learning platform developed to manage educational courses, learning content, and assessments through a centralized system for teachers and students.
+
+        The project focuses on providing a structured environment for managing educational content while integrating the frontend, backend, and database into a unified workflow.
+
+        Key contributions included:
+
+        🔺 Developing a web application using Python and Flask to connect the user interface, backend services, and database.
+
+        🔺 Designing and managing a MySQL database to store users, courses, sections, content, exams, questions, and choices.
+
+        🔺 Developing a course management system that allows courses and sections to be created and organized with their associated learning content.
+
+        🔺 Implementing functionality for adding, editing, and deleting educational content, including video and learning materials.
+
+        🔺 Building a quiz management system for creating exams, questions, and answer choices within educational courses.
+
+        🔺 Implementing user authentication and role-based access control to manage the pages and features available to different users.
+
+        🔺 Integrating content management operations with the MySQL database to ensure structured data storage and updates.
+
+        🔺 Developing the user interface using HTML, CSS, Bootstrap, and JavaScript to provide a clear and responsive experience.
+
+        🔺 Applying security practices including password hashing, session management, form protection, and validation of uploaded files and user input.
+
+        🔺 Implementing activity and operation logging to improve system monitoring and security.
+
+        The project resulted in an integrated platform combining educational content management, assessments, user management, and database operations into a scalable web application.
+        `,
+        date: "2026",
+        github: "YOUR_GITHUB_LINK"
+    },
+
+    {
         id: "ataa-kpi-dashboard",
         title: "Beneficiary Data Management & KPI Analytics Platform",
         category: "web",
