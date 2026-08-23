@@ -353,6 +353,7 @@ const projects = [
             "لعبة تعليمية لتعلم الأرقام باللغة الألمانية.",
         fullDescription:
             "لعبة تعليمية تم تطويرها لمساعدة المتعلمين على ممارسة الأرقام كجزء من دورة تعلم اللغة الألمانية.",
+            🔹 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">معاينة لوحة المعلومات</a>
         date: "Apr 19, 2023",
         github: ""
     },
