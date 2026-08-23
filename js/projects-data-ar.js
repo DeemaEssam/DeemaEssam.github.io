@@ -13,7 +13,7 @@ const projects = [
             `
             نظام توصية سياحي عبر الويب يقدم اقتراحات وجهات مخصصة باستخدام الذكاء الاصطناعي، مصممة وفق تفضيلات المستخدم مثل شخصية السفر، الموضوعات المفضلة، الكلمات المفتاحية، والميزانية.
         
-            🔹 <a href="https://deemaessam.github.io/project-ar.html?id=tourism-dataset" target="_blank" style="color:#4CAF50;font-weight:bold;">تفاصيل بناء وتنظيف الداتاسيت</a>
+            🌐 <a href="https://deemaessam.github.io/project-ar.html?id=tourism-dataset" target="_blank" style="color:#4CAF50;font-weight:bold;">تفاصيل بناء وتنظيف الداتاسيت</a>
         
             🔹 الميزات الرئيسية:
             🔺 إدارة المستخدم: التسجيل وتسجيل الدخول وتتبع الجلسة لتجربة مخصصة.
@@ -103,7 +103,7 @@ const projects = [
     
         🔺 تطوير تطبيق ويب متكامل باستخدام Flask يتيح للمستخدمين رفع ملفات CSV وExcel، ومعالجتها تلقائيًا، ثم تخزينها داخل قاعدة البيانات بصورة منظمة.
     
-        🔹 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">معاينة لوحة المعلومات</a>
+        🌐 <a href="https://deemaessam.github.io/projects/Ataa/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">معاينة لوحة المعلومات</a>
     
         🔺 تصميم وتنفيذ قاعدة بيانات MySQL لإدارة بيانات المستفيدين، مع دعم عمليات الاستعلام وإعداد التقارير بكفاءة.
     
@@ -357,7 +357,7 @@ const projects = [
         fullDescription:
             `لعبة تعليمية تم تطويرها لمساعدة المتعلمين على ممارسة الأرقام كجزء من دورة تعلم اللغة الألمانية.
     
-    🔹 <a href="https://gger.netlify.app/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">جرب اللعبة</a>
+    🌐 <a href="https://gger.netlify.app/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">جرب اللعبة</a>
     `,
         date: "Apr 19, 2023",
         github: ""
