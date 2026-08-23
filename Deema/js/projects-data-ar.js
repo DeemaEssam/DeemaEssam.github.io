@@ -343,7 +343,7 @@ const projects = [
         fullDescription:
             `لعبة تعليمية تم تطويرها لمساعدة المتعلمين على ممارسة الأرقام كجزء من دورة تعلم اللغة الألمانية.
     
-    ★ <a href="https://gger.netlify.app/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">جرب اللعبة</a>
+    🌐 <a href="https://gger.netlify.app/index.html" target="_blank" style="color:#4CAF50;font-weight:bold;">جرب اللعبة</a>
     `,
         date: "Apr 19, 2023",
         github: "https://github.com/DeemaEssam/German-Numbers-Learning-Game"
