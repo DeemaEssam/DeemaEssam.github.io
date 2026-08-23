@@ -35,7 +35,7 @@ const projects = [
 
     
     {
-        id: "e-learning-platform",
+        id: "education-platform",
         title: "منصة التعليم الإلكتروني",
         category: "web",
         tools: ["Python", "Flask", "MySQL", "HTML", "CSS", "Bootstrap", "JavaScript"],
