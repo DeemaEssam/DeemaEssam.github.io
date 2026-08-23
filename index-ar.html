@@ -67,6 +67,23 @@
                     /* يجي تحت السايدبار */
                 }
             }
+
+            /*pink mode*/
+            .mode-switch-btn {
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #ffb6c1; /* بينك يرمز للمود الثاني */
+              color: #fff;
+              border-radius: 30px;
+              text-decoration: none;
+              font-weight: bold;
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            
+            .mode-switch-btn:hover {
+              transform: scale(1.05);
+              box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5);
+            }
         </style>
     </head>
 
@@ -74,11 +91,12 @@
         <!-- يسار -->
         <div class="sidebar">
             <center>
-                <a style="" class="tag" href="https://deemaessam.github.io/Deema/Deema-ar.html">🌸</a>
+                <a href="https://deemaessam.github.io/Deema/Deema-ar.html" class="tag mode-switch-btn">
+                  🌸 
+                </a>
                 <br>
                 <a style="width: 145px;" class="tag" href="">عربي</a>
                 <a style="width: 145px;" class="tag" href="https://deemaessam.github.io">English</a>
-                <!-- <a style="width: 145px;" class="tag" href="https://deemaessam.github.io/Deema/Deema-ar.html">English</a> -->
             </center>
 
             <center>
