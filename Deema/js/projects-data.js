@@ -13,7 +13,7 @@ const projects = [
             `
             A web-based travel recommendation system that provides personalized destination suggestions using AI, tailored to user preferences such as travel persona, favorite themes, keywords, and budget.
             
-            🌐 <a href="https://deemaessam.github.io/project-ar.html?id=tourism-dataset" target="_blank" style="color:#4CAF50;font-weight:bold;">Dataset Building & Cleaning Details</a>
+            🌐 <a href="https://deemaessam.github.io/Deema/project.html?id=tourism-dataset" target="_blank" style="color:#4CAF50;font-weight:bold;">Dataset Building & Cleaning Details</a>
             
             🌸Key Features:
             ★User Management: Registration, login, and session tracking for a personalized experience.
