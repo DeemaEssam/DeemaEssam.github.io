@@ -38,43 +38,50 @@ const projects = [
     },
 
     {
-    id: "education-platform",
-    title: "E-Learning Platform",
-    category: "web",
-    tools: ["Python", "Flask", "MySQL", "HTML", "CSS", "Bootstrap", "JavaScript"],
-    image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/education%20platform.png",
-    shortDescription:
-        "An e-learning platform for managing courses, educational content, and quizzes with integrated user roles and access control.",
-    fullDescription:
-        `
-        A full-stack e-learning platform developed to manage educational courses, learning content, and assessments through a centralized system for teachers and students.
-
-        The project focuses on providing a structured environment for managing educational content while integrating the frontend, backend, and database into a unified workflow.
-
-        Key contributions included:
-
-        🔺 Developing a web application using Python and Flask to connect the user interface, backend services, and database.
-
-        🔺 Designing and managing a MySQL database to store users, courses, sections, content, exams, questions, and choices.
-
-        🔺 Developing a course management system that allows courses and sections to be created and organized with their associated learning content.
-
-        🔺 Implementing functionality for adding, editing, and deleting educational content, including video and learning materials.
-
-        🔺 Building a quiz management system for creating exams, questions, and answer choices within educational courses.
-
-        🔺 Implementing user authentication and role-based access control to manage the pages and features available to different users.
-
-        🔺 Integrating content management operations with the MySQL database to ensure structured data storage and updates.
-
-        🔺 Developing the user interface using HTML, CSS, Bootstrap, and JavaScript to provide a clear and responsive experience.
-
-        🔺 Applying security practices including password hashing, session management, form protection, and validation of uploaded files and user input.
-
-        🔺 Implementing activity and operation logging to improve system monitoring and security.
-
-        The project resulted in an integrated platform combining educational content management, assessments, user management, and database operations into a scalable web application.
-        `,
+        id: "education-platform",
+        title: "E-Learning Platform",
+        category: "web",
+        tools: ["Python", "Flask", "MySQL", "HTML", "CSS", "Bootstrap", "JavaScript"],
+        image: "https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/education%20platform.png",
+    
+        shortDescription:
+            "A freelance project developed for a teacher to build a customized e-learning platform for managing courses, educational content, and exams, with a role-based access control system.",
+    
+        fullDescription:
+            `
+            A freelance project developed for a teacher who requested a customized e-learning platform to manage courses, educational content, and exams.
+    
+            The platform was developed from scratch based on the client's requirements, including the design and management of the database, backend and frontend development, user authentication, role-based access control, and content management.
+    
+            Key contributions:
+    
+            🔺 Analyzed the client's requirements and translated them into a complete web-based system tailored to their needs.
+    
+            🔺 Developed a web application using Python and Flask to connect the user interface with the backend and database.
+    
+            🔺 Designed and managed a MySQL database for storing and managing users, courses, sections, educational content, exams, questions, and answer choices.
+    
+            🔺 Developed a course management system that allows creating courses, adding sections, and organizing educational content within each course.
+    
+            🔺 Implemented functionality for adding, editing, and deleting educational content, including video content and learning materials.
+    
+            🔺 Built an exam management system that allows creating exams and managing questions and answer choices within courses.
+    
+            🔺 Implemented user authentication and role-based access control to manage the features and pages available to different types of users.
+    
+            🔺 Connected content management operations directly to the database to ensure structured data storage and updates.
+    
+            🔺 Developed a responsive user interface using HTML, CSS, Bootstrap, and JavaScript.
+    
+            🔺 Applied security practices including password hashing, session management, form protection, and input and file validation.
+    
+            🔺 Added activity logging to record important system operations for improved monitoring and security.
+    
+            🔺 Tested the system functionality and ensured proper integration between the frontend, backend, and database before delivering the project to the client.
+    
+            The platform was delivered to the client as a complete system for managing courses, educational content, exams, and users through a single scalable platform.
+            `,
+    
         date: "Jul 2026",
         github: "YOUR_GITHUB_LINK"
     },
