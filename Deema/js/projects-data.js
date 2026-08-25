@@ -130,7 +130,7 @@ const projects = [
 
     // customer-sales-analysis
     {
-        id: "https://github.com/DeemaEssam/Customer-Sales-Analysis-for-an-Online-Store",
+        id: "customer-sales-analysis",
         title: "Customer & Sales Analysis for an Online Store",
         category: "powerbi python",
         tools: ["Python", "Power BI"],
