@@ -339,7 +339,7 @@ const projects = [
         title: "موقع قائمة الطعام",
         category: "web",
         tools: ["HTML", "CSS", "JavaScript", "PHP"],
-        image: "https://deemaessam.github.io/pics/pizza.gif",
+        image: "https://deemaessam.github.io/pics/pizza.png",
         shortDescription:
             "موقع قائمة طعام لمطعم مع ميزات التقييم.",
         fullDescription:
