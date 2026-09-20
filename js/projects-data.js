@@ -331,7 +331,7 @@ const projects = [
         title: "Menu Website",
         category: "web",
         tools: ["HTML", "CSS", "JavaScript", "PHP"],
-        image: "https://deemaessam.github.io/pics/pizza.gif",
+        image: "https://deemaessam.github.io/pics/pizza.png",
         shortDescription:
             "Restaurant menu website with evaluation features.",
         fullDescription:
