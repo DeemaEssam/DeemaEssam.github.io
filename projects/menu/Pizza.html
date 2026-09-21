@@ -1,4 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>thin CRUST PIZZA</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6715d401a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --cream: #FBF9F6;
+      --sand: #F3EDE4;
+      --line: #E6DDD0;
+      --olive: #4B5F37;
+      --olive-dark: #3C4C2B;
+      --orange: #C9702F;
+      --ink: #23231F;
+      --muted: #66655D;
+      --charcoal: #2B2B29;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --script: "Caveat", "Segoe Script", cursive;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--olive);
+      outline-offset: 3px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ---------- Navbar ---------- */
+    .site-nav {
+      background: rgba(251, 249, 246, .95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+      padding: .7rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-thin {
+      font-family: var(--serif);
+      font-size: .7rem;
+      letter-spacing: .32em;
+      color: var(--olive);
+      padding-left: .32em;
+    }
+
+    .brand-main {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      letter-spacing: .18em;
+      padding-left: .18em;
+    }
+
+    .site-nav .nav-link {
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+    }
+
+    .site-nav .nav-link.active {
+      border-bottom-color: var(--olive);
+      color: var(--olive);
+    }
+
+    .site-nav .nav-link:hover,
+    .site-nav .nav-link:focus-visible {
+      color: var(--olive);
+      border-bottom-color: var(--olive);
+    }
+
+    .btn-olive {
+      background: var(--olive);
+      color: #fff;
+      border: 1px solid var(--olive);
+      border-radius: 6px;
+      padding: .65rem 1.4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+
+    .btn-olive:hover {
+      background: var(--olive-dark);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid #cfc6b8;
+      border-radius: 6px;
+      padding: .65rem 1.4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--olive);
+      color: var(--olive);
+    }
+
+    /* ---------- Hero carousel ---------- */
+    .hero-carousel {
+      overflow: hidden;
+    }
+
+    .slide {
+      padding: 8.5rem 0 5.5rem;
+    }
+
+    .slide .script {
+      font-family: var(--script);
+      font-size: 1.6rem;
+      color: var(--orange);
+      margin: 0 0 .25rem;
+    }
+
+    .slide h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.12;
+      margin: 0 0 1.25rem;
+    }
+
+    .slide h1 span {
+      color: var(--olive);
+    }
+
+    .slide .intro {
+      max-width: 32rem;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .plate-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .plate {
+      width: min(100%, 420px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 7%;
+      background: radial-gradient(circle at 35% 30%, #fff, #ECE6DD);
+      box-shadow: 0 30px 60px -20px rgba(60, 50, 30, .35);
+    }
+
+    .plate img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      box-shadow: inset 0 0 0 6px rgba(255, 255, 255, .6);
+    }
+
+    .leaf-art {
+      position: absolute;
+      left: 2%;
+      bottom: -8%;
+      width: 110px;
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .hero-carousel .carousel-indicators {
+      left: 0;
+      right: 0;
+      bottom: 1.75rem;
+      margin: 0 auto !important;
+      padding: 0 .75rem;
+      justify-content: flex-start;
+    }
+
+    .hero-carousel .carousel-indicators [data-bs-target] {
+      width: 10px;
+      height: 10px;
+      margin: 0 6px 0 0;
+      border: 0;
+      border-radius: 50%;
+      background: #cfc6b8;
+      opacity: 1;
+      text-indent: 0;
+      transition: width .25s, background .25s;
+    }
+
+    .hero-carousel .carousel-indicators [data-bs-target].active {
+      width: 28px;
+      border-radius: 6px;
+      background: var(--olive);
+    }
+
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+      display: none;
+      top: 50%;
+      bottom: auto;
+      width: 44px;
+      height: 44px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #cfc6b8;
+      opacity: 1;
+    }
+
+    .hero-carousel .carousel-control-prev {
+      left: 1.25rem;
+    }
+
+    .hero-carousel .carousel-control-next {
+      right: 1.25rem;
+    }
+
+    .hero-carousel .carousel-control-prev:hover,
+    .hero-carousel .carousel-control-next:hover {
+      border-color: var(--olive);
+    }
+
+    .hero-carousel .carousel-control-prev-icon,
+    .hero-carousel .carousel-control-next-icon {
+      width: 1rem;
+      height: 1rem;
+      filter: invert(1);
+    }
+
+    @media (min-width: 1200px) {
+
+      .hero-carousel .carousel-control-prev,
+      .hero-carousel .carousel-control-next {
+        display: flex;
+      }
+    }
+
+    /* ---------- Quick links strip ---------- */
+    .features {
+      background: var(--olive);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 1.6rem 0;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: .25rem 1.5rem;
+      border-left: 1px solid rgba(255, 255, 255, .2);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .feature:first-child {
+      border-left: 0;
+    }
+
+    .feature i {
+      font-size: 1.6rem;
+      opacity: .9;
+      margin-top: .15rem;
+      width: 1.8rem;
+      text-align: center;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: .15rem;
+    }
+
+    .feature span {
+      display: block;
+      font-size: .78rem;
+      opacity: .8;
+      line-height: 1.45;
+    }
+
+    .feature:hover strong {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .feature:focus-visible {
+      outline-color: #fff;
+      border-radius: 8px;
+    }
+
+    /* ---------- About ---------- */
+    .about {
+      padding: 5rem 0 1rem;
+      scroll-margin-top: 70px;
+    }
+
+    .about .script {
+      font-family: var(--script);
+      font-size: 1.6rem;
+      color: var(--orange);
+      margin: 0 0 .1rem;
+    }
+
+    .about h2 {
+      font-size: 2.1rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .rule {
+      width: 44px;
+      height: 2px;
+      background: var(--olive);
+      margin: .9rem 0 1.4rem;
+    }
+
+    .about p {
+      color: var(--muted);
+      max-width: 30rem;
+      margin-bottom: .8rem;
+    }
+
+    .about p strong {
+      color: var(--ink);
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin: 1.6rem 0 1.1rem;
+      font-weight: 500;
+    }
+
+    .location i {
+      color: var(--orange);
+    }
+
+    .hours {
+      background: var(--sand);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2rem;
+    }
+
+    .hours h3 {
+      font-size: 1.4rem;
+      margin: 0 0 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .hours h3 i {
+      color: var(--olive);
+      font-size: 1.1rem;
+    }
+
+    .hours dl {
+      margin: 0;
+    }
+
+    .hours .row-day {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .6rem 0;
+      border-bottom: 1px dashed #d8cebf;
+    }
+
+    .hours .row-day:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .hours dt {
+      font-weight: 500;
+    }
+
+    .hours dd {
+      margin: 0;
+      font-variant-numeric: tabular-nums;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .hours .closed dt {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .hours .closed dd {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      margin-top: 5rem;
+      background: var(--charcoal);
+      color: #d8d6cf;
+    }
+
+    .footer-main {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .site-footer .brand {
+      color: #fff;
+      align-items: flex-start;
+    }
+
+    .site-footer .brand-thin {
+      color: #a9bd92;
+    }
+
+    .site-footer .tagline {
+      font-size: .85rem;
+      max-width: 20rem;
+      margin: 1rem 0 0;
+      color: #b9b7af;
+    }
+
+    .site-footer h4 {
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .site-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-footer li {
+      margin-bottom: .45rem;
+    }
+
+    .site-footer a {
+      color: #b9b7af;
+      font-size: .88rem;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: #fff;
+    }
+
+    .site-footer .brand:hover {
+      color: #fff;
+    }
+
+    .footer-bar {
+      background: var(--olive);
+      color: #e9efe1;
+      text-align: center;
+      font-size: .78rem;
+      padding: .6rem 0;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 991.98px) {
+      .slide {
+        padding: 7rem 0 5rem;
+      }
+
+      .plate-wrap {
+        margin-top: 3rem;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1.25rem;
+      }
+
+      .feature:nth-child(3) {
+        border-left: 0;
+      }
+
+      .hours {
+        margin-top: 2.5rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        border-left: 0;
+      }
+
+      .hours {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top site-nav">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="thin CRUST PIZZA">
+        <span class="brand-thin">THIN</span>
+        <span class="brand-main">PIZZA</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#About">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        </ul>
+        <a class="btn btn-olive" href="logout.php">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero carousel -->
+  <div id="myCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="7000">
+    <div class="carousel-indicators container">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <div class="slide">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <p class="script">Welcome to thin CRUST PIZZA</p>
+                <h1>Delicious pizza,<br><span>made with love.</span></h1>
+                <p class="intro">Delicious pizza prepared with love for everyone.</p>
+                <button type="button" class="btn btn-olive" onclick="showMenu();">See the menu</button>
+              </div>
+              <div class="col-lg-6">
+                <div class="plate-wrap">
+                  <div class="plate">
+                    <img
+                      src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/marPizza.jpg"
+                      alt="Margherita pizza">
+                  </div>
+                  <svg class="leaf-art" viewBox="0 0 120 220" fill="none" stroke="#4B5F37" stroke-width="1.2"
+                    stroke-linecap="round" aria-hidden="true">
+                    <path d="M60 215 C58 160 62 100 78 20" />
+                    <path d="M60 170 C30 165 18 140 22 118 C45 122 58 145 60 170Z" />
+                    <path d="M62 140 C90 132 104 108 100 86 C76 92 64 115 62 140Z" />
+                    <path d="M64 100 C40 92 30 70 34 52 C54 58 64 78 64 100Z" />
+                    <path d="M70 66 C92 58 100 40 96 26 C80 32 72 46 70 66Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="slide">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <p class="script">Join us</p>
+                <h1>Register now<br><span>and tell us more.</span></h1>
+                <p class="intro">Register on our website to share your suggestions and opinions with us.</p>
+                <button type="button" class="btn btn-olive" onclick="showReg();">Register</button>
+              </div>
+              <div class="col-lg-6">
+                <div class="plate-wrap">
+                  <div class="plate">
+                    <img loading="lazy"
+                      src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Chicken.jpg"
+                      alt="Chicken pizza">
+                  </div>
+                  <svg class="leaf-art" viewBox="0 0 120 220" fill="none" stroke="#4B5F37" stroke-width="1.2"
+                    stroke-linecap="round" aria-hidden="true">
+                    <path d="M60 215 C58 160 62 100 78 20" />
+                    <path d="M60 170 C30 165 18 140 22 118 C45 122 58 145 60 170Z" />
+                    <path d="M62 140 C90 132 104 108 100 86 C76 92 64 115 62 140Z" />
+                    <path d="M64 100 C40 92 30 70 34 52 C54 58 64 78 64 100Z" />
+                    <path d="M70 66 C92 58 100 40 96 26 C80 32 72 46 70 66Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="slide">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <p class="script">Your voice</p>
+                <h1>See people's<br><span>messages.</span></h1>
+                <p class="intro">To ensure great service, we warmly welcome your suggestions and recommendations.</p>
+                <button type="button" class="btn btn-olive" onclick="showTable();">Messages</button>
+              </div>
+              <div class="col-lg-6">
+                <div class="plate-wrap">
+                  <div class="plate">
+                    <img loading="lazy"
+                      src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Formaggio.jpg"
+                      alt="Formaggio pizza">
+                  </div>
+                  <svg class="leaf-art" viewBox="0 0 120 220" fill="none" stroke="#4B5F37" stroke-width="1.2"
+                    stroke-linecap="round" aria-hidden="true">
+                    <path d="M60 215 C58 160 62 100 78 20" />
+                    <path d="M60 170 C30 165 18 140 22 118 C45 122 58 145 60 170Z" />
+                    <path d="M62 140 C90 132 104 108 100 86 C76 92 64 115 62 140Z" />
+                    <path d="M64 100 C40 92 30 70 34 52 C54 58 64 78 64 100Z" />
+                    <path d="M70 66 C92 58 100 40 96 26 C80 32 72 46 70 66Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Quick links -->
+  <div class="container">
+    <div class="features">
+      <a class="feature" href="menu.html">
+        <i class="fas fa-utensils"></i>
+        <div><strong>See the menu</strong><span>Dishes, ingredients and prices.</span></div>
+      </a>
+      <a class="feature" href="registerForm.php">
+        <i class="fas fa-user-plus"></i>
+        <div><strong>Register</strong><span>Share your suggestions with us.</span></div>
+      </a>
+      <a class="feature" href="table.php">
+        <i class="fas fa-comments"></i>
+        <div><strong>Messages</strong><span>See what people are saying.</span></div>
+      </a>
+      <a class="feature" href="https://goo.gl/maps/F2PwNr4oTPanoVQd7">
+        <i class="fas fa-map-marker-alt"></i>
+        <div><strong>Find us</strong><span>Jeddah, Saudi Arabia.</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- About -->
+  <main class="container">
+    <section class="about" id="About">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <p class="script">About</p>
+          <h2>Our story in Jeddah</h2>
+          <div class="rule"></div>
+          <p>The restaurant was founded in Jeddah city by Ms. Nada Khalefa. Our first branch opened in 2019.</p>
+          <p><strong>The chef?</strong> Ms. Nada herself.</p>
+          <p>We are proud of our interiors.</p>
+
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kingdom Saudi Arabia, Jeddah</span>
+          </div>
+          <a class="btn btn-ghost" href="https://goo.gl/maps/F2PwNr4oTPanoVQd7">View location</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hours">
+            <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+            <dl>
+              <div class="row-day closed">
+                <dt>Monday</dt>
+                <dd>Closed</dd>
+              </div>
+              <div class="row-day closed">
+                <dt>Tuesday</dt>
+                <dd>Closed</dd>
+              </div>
+              <div class="row-day">
+                <dt>Wednesday</dt>
+                <dd>10:00 &ndash; 24:00</dd>
+              </div>
+              <div class="row-day">
+                <dt>Thursday</dt>
+                <dd>10:00 &ndash; 24:00</dd>
+              </div>
+              <div class="row-day">
+                <dt>Friday</dt>
+                <dd>10:00 &ndash; 12:00</dd>
+              </div>
+              <div class="row-day">
+                <dt>Saturday</dt>
+                <dd>10:00 &ndash; 23:00</dd>
+              </div>
+              <div class="row-day closed">
+                <dt>Sunday</dt>
+                <dd>Closed</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <a class="brand" href="#top" aria-label="thin CRUST PIZZA">
+            <span class="brand-thin">THIN</span>
+            <span class="brand-main">PIZZA</span>
+          </a>
+          <p class="tagline">Delicious pizza prepared with love for everyone.</p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="registerForm.php">Register</a></li>
+            <li><a href="table.php">Messages</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Visit</h4>
+          <ul>
+            <li><a href="#About">About</a></li>
+            <li><a href="https://goo.gl/maps/F2PwNr4oTPanoVQd7">Location</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <i class="fas fa-pizza-slice"></i> &copy; 2022 thin PIZZA
+    </div>
+  </footer>
+
+  <script>
+    function showMenu() {
+      window.location.href = 'menu.html';
+      return false;
+    }
+
+    function showTable() {
+      window.location.href = 'table.php';
+      return false;
+    }
+
+    function showContact() {
+      window.location.href = 'https://deemaessam.github.io/projects/menu/message.html';
+      return false;
+    }
+
+    function showReg() {
+      window.location.href = 'registerForm.php';
+      return false;
+    }
+
+    function showLogin() {
+      window.location.href = 'loginForm';
+      return false;
+    }
+  </script>
+</body>
+
+</html>
+<!-- 
 <html>
     <head>
         <title>thin CRUST PIZZA</title>
@@ -162,4 +1012,4 @@
           return false;
       }
     </script>
-</html>
+</html> -->
