@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--calibri -->
-
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="Style/projects.css">
-    <title>ملف الأعمال - ديما حميدة</title>
+
+    <title>ملف الأعمال - اسم الشخص</title>
+
     <style>
         .rtl {
             direction: rtl;
             text-align: right;
         }
 
-        /* السايدبار ثابتة على اليسار في الشاشات الكبيرة */
         .sidebar {
             position: fixed;
             top: 0;
@@ -37,43 +35,33 @@
 
         .section {
             margin-bottom: 50px;
-            /*background: #bdb9b969;*/
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* المحتوى بجانب السايدبار */
         .main-content {
             margin-left: 320px;
-
             padding: 20px;
         }
 
-        /* للجوال */
         @media (max-width: 768px) {
             .sidebar {
                 position: relative;
-                /* ما تكون ثابتة */
                 width: 100%;
-                /* تغطي عرض الصفحة */
                 height: auto;
-                /* تتعدل حسب المحتوى */
                 box-shadow: none;
             }
 
             .main-content {
                 margin-left: 0;
-                /* يجي تحت السايدبار */
             }
         }
 
-        /*pink mode*/
         .mode-switch-btn {
             display: inline-block;
             padding: 10px 20px;
             background-color: #ffb6c1;
-            /* بينك يرمز للمود الثاني */
             color: #fff;
             border-radius: 30px;
             text-decoration: none;
@@ -88,381 +76,821 @@
     </style>
 </head>
 
+
 <body style="font-family: 'Cairo', Calibri, sans-serif;">
-    <!-- يسار -->
+
+    <!-- السايدبار -->
     <div class="sidebar">
+
         <center>
             <br>
-            <a style="width: 145px;" class="tag" href="">عربي</a>
-            <a style="width: 145px;" class="tag" href="https://deemaessam.github.io">English</a>
+
+            <a style="width: 145px;" class="tag" href="">
+                عربي
+            </a>
+
+            <a style="width: 145px;" class="tag" href="">
+                English
+            </a>
         </center>
 
         <center>
-            <h2>الإسم كامل</h2>
+            <h2>اسم الشخص الكامل</h2>
+
+            <p style="color: #777;">
+                محاسب
+            </p>
         </center>
-        <p style=" text-align: justify;">
-            (الاسم الكامل) متخصص في مجال (التخصص)، يمتلك خبرة في (أبرز مجالات الخبرة)، مع مهارات في (أبرز المهارات). لديه خبرة في
-            تنفيذ المشاريع وتطوير الحلول، ويحرص على تقديم أعمال منظمة وفعّالة تجمع بين المعرفة والخبرة العملية.
+
+
+        <p style="text-align: justify;">
+            محاسب متخصص في مجال المحاسبة وإعداد التقارير المالية،
+            يمتلك معرفة في مسك الدفاتر وإعداد القيود اليومية ومتابعة
+            الحسابات المدينة والدائنة، مع اهتمام بالدقة والتنظيم
+            والالتزام بالإجراءات المحاسبية.
         </p>
 
+
         <p>
-            <!-- ايميلي -->
-            <a style="font-family: 'Times New Roman', serif;" href="mailto:Deemaessam@gmail.com"
+
+            <a style="font-family: 'Times New Roman', serif;"
+                href="mailto:Name@gmail.com"
                 class="text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
-                    <path
-                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
-                </svg>
+
+                <i class="fa fa-envelope me-2"></i>
+
                 Name@gmail.com
+
             </a>
+
         </p>
 
+
         <p>
-            <!-- قيتهب -->
-            <a style="font-family: 'Times New Roman', serif;" href="https://github.com/DeemaEssam" target="_blank"
+
+            <a style="font-family: 'Times New Roman', serif;"
+                href="https://github.com/"
+                target="_blank"
                 class="text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-github me-2" viewBox="0 0 16 16">
-                    <path
-                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                </svg>
+
+                <i class="fa-brands fa-github me-2"></i>
+
                 github.com/Name
+
             </a>
+
         </p>
+
+
         <p>
-            <!-- لنكدان -->
-            <a style="font-family: 'Times New Roman', serif;" href="https://www.linkedin.com/in/deema-h-52446922a/"
-                target="_blank" class="text-dark text-decoration-none">
-                <i class="fa fa-linkedin-square"></i>
+
+            <a style="font-family: 'Times New Roman', serif;"
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="text-dark text-decoration-none">
+
+                <i class="fa-brands fa-linkedin me-2"></i>
+
                 LinkedIn
+
             </a>
+
         </p>
+
+
         <p>
-            <a href="" target="_blank" class="text-dark text-decoration-none">
+
+            <a href=""
+                class="text-dark text-decoration-none">
 
                 📍 المملكة العربية السعودية
+
             </a>
+
         </p>
 
-        <!-- <button>Download Resume</button> -->
-        <!-- <a href="https://www.dropbox.com/scl/fi/1bm7tbcb3gowjkh9ke47m/Deema-Hamidah_.pdf?rlkey=teqqfpdfllm8bkrk5rgkx3si5&st=mzhhsfy5&dl=0"
-                class="btn btn-primary w-100 mt-3" download>My Resume</a>
-            <a href="https://www.dropbox.com/scl/fi/ue6nqxhztxltrpermt1k4/_.pdf?rlkey=y1y4n6k7hhnsbt81jk8jkjeou&st=0srvil1h&dl=0"
-                class="btn btn-primary w-100 mt-3" download>السيرة الذاتية</a> -->
     </div>
 
+
     <!-- Footer Navbar -->
+
     <nav class="navbar fixed-bottom navbar-light bg-light border-top shadow-sm">
+
         <div class="container d-flex justify-content-around">
-            <a class="nav-link text-dark" href="#education">🎓 التعليم</a>
-            <a class="nav-link text-dark" href="#certs">📜 الشهادات</a>
-            <a class="nav-link text-dark" href="#projects">📂 المشاريع</a>
-            <a class="nav-link text-dark" href="#awards">🏆 الجوائز</a>
-            <a class="nav-link text-dark" href="#publications">📖 المنشورات</a>
-            <a class="nav-link text-dark" href="#experience">💻 الخبرات</a>
+
+            <a class="nav-link text-dark" href="#education">
+                🎓 التعليم
+            </a>
+
+            <a class="nav-link text-dark" href="#certs">
+                📜 الشهادات
+            </a>
+
+            <a class="nav-link text-dark" href="#projects">
+                📂 المشاريع
+            </a>
+
+            <a class="nav-link text-dark" href="#awards">
+                🏆 الجوائز
+            </a>
+
+            <a class="nav-link text-dark" href="#publications">
+                📖 المنشورات
+            </a>
+
+            <a class="nav-link text-dark" href="#experience">
+                💼 الخبرات
+            </a>
+
         </div>
+
     </nav>
 
 
-    <!-- يمين -->
+    <!-- المحتوى الرئيسي -->
+
     <div class="main-content">
-        <!-- Education -->
+
+
+        <!-- التعليم -->
+
         <div class="section p-3 shadow rounded bg-light">
-            <h2 id="education">🎓 التعليم</h2>
-            <!-- <img src="https://seeklogo.com/images/E/effat-university-bundle-logo-ADA2750722-seeklogo.com.png" width="30px" style="border-radius: 50%;">  -->
+
+            <h2 id="education">
+                🎓 التعليم
+            </h2>
+
             <div class="education-section">
-                <div class="degree">بكالوريوس <strong> علوم الحاسب </strong> 
-                    <strong></strong>
+
+                <div class="degree">
+                    بكالوريوس
+                    <strong>المحاسبة</strong>
                 </div>
-                <div class="university">اسم الجامعة</div>
-                <div class="year">2020 - 2025</div>
+
+                <div class="university">
+                    اسم الجامعة
+                </div>
+
+                <div class="year">
+                    2020 - 2024
+                </div>
+
                 <br>
+
             </div>
-            <!-- Skills -->
+
+
+            <!-- المهارات -->
+
+            <h4>
+                المهارات
+            </h4>
+
             <p>
-                <span class="tag">المحاسبة المالية</span>
-                <span class="tag">مسك الدفاتر</span>
-                <span class="tag">إعداد القيود اليومية</span>
-                <span class="tag">الحسابات المدينة والدائنة</span>
-                <span class="tag">إعداد الفواتير</span>
-                <span class="tag">متابعة المدفوعات</span>
-                <span class="tag">التسويات البنكية</span>
-                <span class="tag">إعداد التقارير المالية</span>
-                <span class="tag">إعداد الميزانية</span>
-                <span class="tag">تحليل البيانات المالية</span>
-                <span class="tag">إدارة المصروفات</span>
-                <span class="tag">إدارة الإيرادات</span>
-                <span class="tag">حسابات العملاء والموردين</span>
-                <span class="tag">إعداد الميزان العام</span>
-                <span class="tag">التدقيق والمراجعة</span>
-                <span class="tag">ضريبة القيمة المضافة (VAT)</span>
-                <span class="tag">Microsoft Excel</span>
-                <span class="tag">الأنظمة المحاسبية</span>
-                <span class="tag">إعداد التقارير</span>
-                <span class="tag">التحليل المالي</span>
+
+                <span class="tag">
+                    المحاسبة المالية
+                </span>
+
+                <span class="tag">
+                    مسك الدفاتر
+                </span>
+
+                <span class="tag">
+                    إعداد القيود اليومية
+                </span>
+
+                <span class="tag">
+                    الحسابات المدينة والدائنة
+                </span>
+
+                <span class="tag">
+                    إعداد الفواتير
+                </span>
+
+                <span class="tag">
+                    متابعة المدفوعات
+                </span>
+
+                <span class="tag">
+                    التسويات البنكية
+                </span>
+
+                <span class="tag">
+                    إعداد التقارير المالية
+                </span>
+
+                <span class="tag">
+                    إعداد الميزانية
+                </span>
+
+                <span class="tag">
+                    التحليل المالي
+                </span>
+
+                <span class="tag">
+                    إدارة المصروفات
+                </span>
+
+                <span class="tag">
+                    إدارة الإيرادات
+                </span>
+
+                <span class="tag">
+                    حسابات العملاء والموردين
+                </span>
+
+                <span class="tag">
+                    إعداد الميزان العام
+                </span>
+
+                <span class="tag">
+                    التدقيق والمراجعة
+                </span>
+
+                <span class="tag">
+                    ضريبة القيمة المضافة (VAT)
+                </span>
+
+                <span class="tag">
+                    Microsoft Excel
+                </span>
+
+                <span class="tag">
+                    الأنظمة المحاسبية
+                </span>
+
+                <span class="tag">
+                    إعداد التقارير
+                </span>
+
+                <span class="tag">
+                    إدارة الحسابات
+                </span>
+
             </p>
+
         </div>
 
-        <!-- مشاريع -->
-        <div class="section p-3 shadow rounded bg-light">
-            <h4 id="projects">📂 المشاريع</h4>
-            <section class="container" style="background-color:#e8e1e500">
-                <!-- projects مشروع التخرج  -->
 
+
+        <!-- المشاريع -->
+
+        <div class="section p-3 shadow rounded bg-light">
+
+            <h4 id="projects">
+                📂 المشاريع
+            </h4>
+
+            <section class="container"
+                style="background-color:#e8e1e500">
 
                 <br><br>
 
-                <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:0 10px;">
-                    <!-- projects ازارير  -->
-                    <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:30px;">
-                        <button onclick="filterProjects('all')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">كل المشاريع</button>
-                        <button onclick="filterProjects('html')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">تطوير المواقع</button>
-                        <button onclick="filterProjects('html')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">HTML</button>
-                        <button onclick="filterProjects('python')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">PYTHON</button>
-                        <button onclick="filterProjects('powerbi')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">POWER BI</button>
-                        <button onclick="filterProjects('sql')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">SQL</button>
-                        <button onclick="filterProjects('flask')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">FLASK</button>
-                        <button onclick="filterProjects('c++')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">C++</button>
-                        <button onclick="filterProjects('matlab')" class="filter-btn"
-                            style="font-family: 'Times New Roman', serif;">MATLAB</button>
-                    </div>
 
-                    <!-- كاردز المشاريع -->
-                    <div class="projects-container">
-                        <!-- Project 1 -->
-                        <div class="project-card" data-category="html web python flask mysql" data-id="invoice-management">
+                <!-- أزرار المشاريع -->
 
-                            <img src="https://cdn.dribbble.com/users/5093625/screenshots/13940559/invoice_management.png"
-                                alt="Invoice Management System">
+                <div style="display:flex;
+                            flex-wrap:wrap;
+                            gap:12px;
+                            justify-content:center;
+                            margin-bottom:30px;">
 
-                            <h4 style="font-family: 'Times New Roman', serif;">
-                                Python / Flask / MySQL / Web Development
-                            </h4>
+                    <button onclick="filterProjects('all')"
+                        class="filter-btn">
 
-                            <p>
-                                نظام يساعد على تنظيم الفواتير ومتابعة المدفوعات وإعداد
-                                التقارير بطريقة سهلة ومنظمة.
-                            </p>
+                        جميع المشاريع
 
-                            <div class="date">
-                                2026 ·
-                                <a target="_blank" href="">التفاصيل</a> |
-                                <a style="font-family: 'Times New Roman', serif;" href="YOUR_GITHUB_LINK">
-                                    GITHUB
-                                </a>
-                            </div>
-                        </div>
+                    </button>
 
-                        <!-- Project 2 -->
-                        <div class="project-card" data-category="powerbi python" data-id="data-analysis-dashboard">
 
-                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/data-analysis-monitoring-illustration-download-in-svg-png-gif-file-formats--analytics-logo-visualization-interactive-report-business-activities-pack-illustrations-5605381.png"
-                                alt="Data Analysis Dashboard">
+                    <button onclick="filterProjects('financial')"
+                        class="filter-btn">
 
-                            <h4>
-                                Python / Power BI
-                            </h4>
+                        المحاسبة المالية
 
-                            <p>
-                                لوحة تفاعلية لعرض البيانات وتحليلها، مع مؤشرات وتقارير
-                                تساعد على فهم النتائج واتخاذ القرارات.
-                            </p>
+                    </button>
 
-                            <div class="date">
-                                2026 ·
-                                <a target="_blank" href="">التفاصيل</a> |
-                                <a href="">GITHUB</a>
-                            </div>
-                        </div>
 
-                        <!-- Project 3 -->
-                        <div class="project-card" data-category="html web python flask mysql" data-id="customer-management">
+                    <button onclick="filterProjects('invoices')"
+                        class="filter-btn">
 
-                            <img src="https://cdn.dribbble.com/userupload/41505216/file/original-8a22401ede411b863b0eb3e02ea553c5.png?format=webp&resize=1200x900&vertical=center"
-                                alt="Customer Management System">
+                        الفواتير
 
-                            <h4 style="font-family: 'Times New Roman', serif;">
-                                Python / Flask / MySQL / Web Development
-                            </h4>
+                    </button>
 
-                            <p>
-                                منصة تساعد على تنظيم بيانات العملاء ومتابعة الطلبات
-                                والتعاملات في مكان واحد.
-                            </p>
 
-                            <div class="date">
-                                2026 ·
-                                <a target="_blank" href="">التفاصيل</a> |
-                                <a style="font-family: 'Times New Roman', serif;" href="YOUR_GITHUB_LINK">
-                                    GITHUB
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <button onclick="filterProjects('expenses')"
+                        class="filter-btn">
 
-                    <br>
+                        المصروفات
+
+                    </button>
+
+
+                    <button onclick="filterProjects('reports')"
+                        class="filter-btn">
+
+                        التقارير المالية
+
+                    </button>
+
                 </div>
+
+
+                <!-- كروت المشاريع -->
+
+                <div class="projects-container">
+
+
+                    <!-- المشروع الأول -->
+
+                    <div class="project-card"
+                        data-category="financial invoices"
+                        data-id="invoice-management">
+
+                        <img src="YOUR_INVOICE_IMAGE_URL"
+                            alt="نظام إدارة الفواتير">
+
+
+                        <h4 style="font-family: 'Times New Roman', serif;">
+
+                            نظام إدارة الفواتير
+
+                        </h4>
+
+
+                        <p>
+
+                            نظام يساعد على تنظيم الفواتير ومتابعة
+                            المدفوعات والمبالغ المستحقة، مع حفظ
+                            بيانات الفواتير بطريقة سهلة ومنظمة.
+
+                        </p>
+
+
+                        <div class="date">
+
+                            2024 ·
+
+                            <a target="_blank"
+                                href="">
+                                التفاصيل
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- المشروع الثاني -->
+
+                    <div class="project-card"
+                        data-category="financial expenses reports"
+                        data-id="financial-analysis">
+
+                        <img src="YOUR_FINANCIAL_IMAGE_URL"
+                            alt="التحليل المالي">
+
+
+                        <h4>
+
+                            التحليل المالي للمبيعات والمصروفات
+
+                        </h4>
+
+
+                        <p>
+
+                            مشروع لتحليل الإيرادات والمبيعات والمصروفات،
+                            ومقارنة الأداء المالي بهدف إعداد تقارير
+                            واضحة تساعد في متابعة النتائج المالية.
+
+                        </p>
+
+
+                        <div class="date">
+
+                            2024 ·
+
+                            <a target="_blank"
+                                href="">
+                                التفاصيل
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- المشروع الثالث -->
+
+                    <div class="project-card"
+                        data-category="financial reports"
+                        data-id="financial-reports">
+
+                        <img src="YOUR_REPORT_IMAGE_URL"
+                            alt="التقارير المالية">
+
+
+                        <h4 style="font-family: 'Times New Roman', serif;">
+
+                            إعداد التقارير المالية
+
+                        </h4>
+
+
+                        <p>
+
+                            مشروع لإعداد وتنظيم التقارير المالية
+                            وعرض الإيرادات والمصروفات والأصول
+                            والالتزامات بصورة واضحة ومنظمة.
+
+                        </p>
+
+
+                        <div class="date">
+
+                            2024 ·
+
+                            <a target="_blank"
+                                href="">
+                                التفاصيل
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <br>
+
             </section>
+
         </div>
 
 
-        <!-- Certifications شهادات  -->
+
+        <!-- الشهادات -->
+
         <div class="section p-3 shadow rounded bg-light">
-            <h2 id="certs">📜 الشهادات والإنجازات</h2>
+
+            <h2 id="certs">
+                📜 الشهادات والدورات
+            </h2>
+
             <br>
 
+
             <div class="row">
-                <!-- Certificate 1 -->
+
+
+                <!-- شهادة 1 -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+
+                        <img src="YOUR_CERTIFICATE_IMAGE_URL"
+                            alt="Accounting">
+
                         <div class="cert-info">
-                            <h6>تحليل البيانات وإعداد التقارير</h6>
-                            <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                            <p><small>صُدِر في أغسطس 2025</small></p>
+
+                            <h6>
+                                أساسيات المحاسبة المالية
+                            </h6>
+
+                            <p>
+                                اسم الجهة التدريبية
+                            </p>
+
+                            <p>
+                                <small>
+                                    صُدرت في 2024
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
 
-                <!-- Certificate 2 -->
+
+
+                <!-- شهادة 2 -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+
+                        <img src="YOUR_CERTIFICATE_IMAGE_URL"
+                            alt="Excel">
+
                         <div class="cert-info">
-                            <h6>تحليل البيانات باستخدام Excel</h6>
-                            <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                            <p><small>صُدِر في أغسطس 2025</small></p>
+
+                            <h6>
+                                المحاسبة باستخدام Microsoft Excel
+                            </h6>
+
+                            <p>
+                                اسم الجهة التدريبية
+                            </p>
+
+                            <p>
+                                <small>
+                                    صُدرت في 2024
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
 
-                <!-- Certificate 3 -->
+
+
+                <!-- شهادة 3 -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Microsoft">
+
+                        <img src="YOUR_CERTIFICATE_IMAGE_URL"
+                            alt="Financial Analysis">
+
                         <div class="cert-info">
-                            <h6>تصميم لوحات المعلومات باستخدام Power BI</h6>
-                            <p style="font-family: 'Times New Roman', serif;">Microsoft</p>
-                            <p><small>صُدِر في أغسطس 2025</small></p>
+
+                            <h6>
+                                التحليل المالي وإعداد التقارير
+                            </h6>
+
+                            <p>
+                                اسم الجهة التدريبية
+                            </p>
+
+                            <p>
+                                <small>
+                                    صُدرت في 2024
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- awards -->
-        <div class="section p-3 shadow rounded bg-light">
-            <h4 id="awards">🏆 الجوائز</h4>
-            <ul>
-                <li>جائزة أفضل مهندس 2024 – شركة الأساليب الذكية</li>
-                <li>جائزة أفضل فريق 2024 – شركة الأساليب الذكية</li>
-            </ul>
-        </div>
 
-        <!-- publications -->
+
+        <!-- الجوائز -->
+
         <div class="section p-3 shadow rounded bg-light">
-            <h4 id="publications">📖 المنشورات</h4>
+
+            <h4 id="awards">
+                🏆 الجوائز
+            </h4>
+
             <ul>
+
                 <li>
-                    ورقة بحثية منشورة:
-
-                    “توصيات وجهات سياحية بناءً على شخصية المسافر لتعزيز السياحة في المملكة العربية السعودية.”
-                    في
-                    <b style="font-family: 'Times New Roman', serif;">IEEE</b>
-                    <p class="meta">
-                        <a href="https://lnkd.in/eVXQCvqw">
-                            قراءة
-                        </a>
-                    </p>
+                    جائزة التميز الأكاديمي في تخصص المحاسبة
                 </li>
+
+                <li>
+                    جائزة أفضل مشروع محاسبي
+                </li>
+
             </ul>
+
         </div>
+
+
+
+        <!-- المنشورات -->
 
         <div class="section p-3 shadow rounded bg-light">
-            <h2 id="experience">💻 الخبرات</h2>
+
+            <h4 id="publications">
+                📖 المنشورات
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    بحث بعنوان:
+
+                    <strong>
+                        دور التحليل المالي في دعم اتخاذ القرارات المالية
+                    </strong>
+
+                    <p class="meta">
+
+                        دراسة حول أهمية التقارير والمؤشرات المالية
+                        في تقييم الأداء المالي للمنشآت.
+
+                    </p>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- الخبرات -->
+
+        <div class="section p-3 shadow rounded bg-light">
+
+            <h2 id="experience">
+                💼 الخبرات
+            </h2>
+
             <br>
 
+
             <div class="row">
-                <!-- Experience 4 -->
+
+
+                <!-- الخبرة الأولى -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="YOUR_IMAGE_URL" alt="Sakha Association">
+
+                        <img src="YOUR_COMPANY_IMAGE_URL"
+                            alt="شركة محاسبية">
+
                         <div class="cert-info">
-                            <h6>متطوعة - محللة بيانات</h6>
-                            <p>جمعية سخاء</p>
-                            <p><small>مارس 2026 - حتى الآن</small></p>
+
+                            <h6>
+                                متدرب - محاسبة
+                            </h6>
+
+                            <p>
+                                اسم الشركة
+                            </p>
+
+                            <p>
+                                <small>
+                                    يناير 2024 - مارس 2024
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
 
-                <!-- Experience 5 -->
+
+
+                <!-- الخبرة الثانية -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="YOUR_IMAGE_URL" alt="Ataa Association">
+
+                        <img src="YOUR_COMPANY_IMAGE_URL"
+                            alt="شركة">
+
                         <div class="cert-info">
-                            <h6>متطوعة - محللة تقارير ومؤشرات أداء</h6>
-                            <p>جمعية عطاء</p>
-                            <p><small>مايو 2026 - يوليو 2026</small></p>
+
+                            <h6>
+                                مساعد محاسب
+                            </h6>
+
+                            <p>
+                                اسم الشركة
+                            </p>
+
+                            <p>
+                                <small>
+                                    أبريل 2024 - أغسطس 2024
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
 
-                <!-- Experience 6 -->
+
+
+                <!-- الخبرة الثالثة -->
+
                 <div class="col-md-6 mb-3">
+
                     <div class="cert-card">
-                        <img src="YOUR_IMAGE_URL" alt="Ataa Association">
+
+                        <img src="YOUR_COMPANY_IMAGE_URL"
+                            alt="شركة">
+
                         <div class="cert-info">
-                            <h6>متطوعة - مطورة ويب</h6>
-                            <p>جمعية عطاء - برنامج يُسر</p>
-                            <p><small>يونيو 2026 - حتى الآن</small></p>
+
+                            <h6>
+                                محاسب متدرب
+                            </h6>
+
+                            <p>
+                                اسم الشركة
+                            </p>
+
+                            <p>
+                                <small>
+                                    سبتمبر 2024 - حتى الآن
+                                </small>
+                            </p>
+
                         </div>
+
                     </div>
+
                     <hr>
+
                 </div>
+
+
             </div>
+
         </div>
+
     </div>
 
-    <!-- <div id="projects-container"></div> -->
+
+
+    <script>
+
+        function filterProjects(category) {
+
+            const cards =
+                document.querySelectorAll('.project-card');
+
+
+            cards.forEach(card => {
+
+                if (category === 'all') {
+
+                    card.style.display = 'flex';
+
+                } else {
+
+                    const categories =
+                        card.dataset.category.split(' ');
+
+                    card.style.display =
+                        categories.includes(category)
+                            ? 'flex'
+                            : 'none';
+
+                }
+
+            });
+
+        }
+
+
+        document
+            .querySelectorAll(".project-card")
+            .forEach(card => {
+
+                card.addEventListener("click", () => {
+
+                    const projectId =
+                        card.dataset.id;
+
+                    window.location.href =
+                        `project-ar.html?id=${projectId}`;
+
+                });
+
+            });
+
+    </script>
+
+
 </body>
-
-<script>
-    function filterProjects(category) {
-        const cards = document.querySelectorAll('.project-card');
-
-        cards.forEach(card => {
-            if (category === 'all') {
-                card.style.display = 'flex';
-            } else {
-                const categories = card.dataset.category.split(' ');
-                card.style.display = categories.includes(category) ? 'flex' : 'none';
-            }
-        });
-    }
-
-    document.querySelectorAll(".project-card").forEach(card => {
-        card.addEventListener("click", () => {
-            const projectId = card.dataset.id;
-            window.location.href = `project-ar.html?id=${projectId}`;
-        });
-    });
-
-
-</script>
-
 
 </html>
