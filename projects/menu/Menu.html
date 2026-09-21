@@ -1,372 +1,773 @@
-f<html>
-  <head>
-    <title>Menu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
-    <link rel="stylesheet" href="Style/Menu.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/6715d401a1.js" crossorigin="anonymous"></script>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"">
-      <div class="container-fluid">
-        <i class='fas fa-pizza-slice' style='font-size:24px;color:white'></i>
-        <input type="button" value="Home" class="btn btn-dark navbar-btn" onclick="home();"> </input>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6715d401a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --cream: #FBF9F6;
+      --sand: #F3EDE4;
+      --line: #E6DDD0;
+      --olive: #4B5F37;
+      --olive-dark: #3C4C2B;
+      --orange: #C9702F;
+      --ink: #23231F;
+      --muted: #66655D;
+      --charcoal: #2B2B29;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --script: "Caveat", "Segoe Script", cursive;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--olive);
+      outline-offset: 3px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ---------- Navbar ---------- */
+    .site-nav {
+      background: rgba(251, 249, 246, .95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+      padding: .7rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-thin {
+      font-family: var(--serif);
+      font-size: .7rem;
+      letter-spacing: .32em;
+      color: var(--olive);
+      padding-left: .32em;
+    }
+
+    .brand-main {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      letter-spacing: .18em;
+      padding-left: .18em;
+    }
+
+    .brand i {
+      display: none;
+    }
+
+    .site-nav .nav-link {
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+    }
+
+    .site-nav .nav-link:hover,
+    .site-nav .nav-link:focus-visible {
+      color: var(--olive);
+      border-bottom-color: var(--olive);
+    }
+
+    .btn-olive {
+      background: var(--olive);
+      color: #fff;
+      border: 1px solid var(--olive);
+      border-radius: 6px;
+      padding: .65rem 1.4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+
+    .btn-olive:hover {
+      background: var(--olive-dark);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid #cfc6b8;
+      border-radius: 6px;
+      padding: .65rem 1.4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--olive);
+      color: var(--olive);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 8.5rem 0 3.5rem;
+      overflow: hidden;
+    }
+
+    .hero .script {
+      font-family: var(--script);
+      font-size: 1.6rem;
+      color: var(--orange);
+      margin: 0 0 .25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.12;
+      margin: 0 0 1.25rem;
+    }
+
+    .hero h1 span {
+      color: var(--olive);
+    }
+
+    .hero .intro {
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .plate-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .plate {
+      width: min(100%, 440px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 7%;
+      background: radial-gradient(circle at 35% 30%, #fff, #ECE6DD);
+      box-shadow: 0 30px 60px -20px rgba(60, 50, 30, .35);
+    }
+
+    .plate img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      box-shadow: inset 0 0 0 6px rgba(255, 255, 255, .6);
+    }
+
+    .leaf-art {
+      position: absolute;
+      left: 2%;
+      bottom: -8%;
+      width: 110px;
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    /* ---------- Feature strip ---------- */
+    .features {
+      background: var(--olive);
+      color: #fff;
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 1.6rem 0;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: .25rem 1.5rem;
+      border-left: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    .feature:first-child {
+      border-left: 0;
+    }
+
+    .feature i {
+      font-size: 1.6rem;
+      opacity: .9;
+      margin-top: .15rem;
+    }
+
+    .feature h3 {
+      font-family: var(--sans);
+      font-size: .9rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 .15rem;
+    }
+
+    .feature p {
+      font-size: .78rem;
+      margin: 0;
+      opacity: .8;
+      line-height: 1.45;
+    }
+
+    /* ---------- Menu sections ---------- */
+    .menu-section {
+      padding: 4.5rem 0 1rem;
+      scroll-margin-top: 70px;
+    }
+
+    .section-head {
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .section-head .rule {
+      width: 44px;
+      height: 2px;
+      background: var(--olive);
+      margin-top: .7rem;
+    }
+
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.25rem 1.5rem;
+    }
+
+    .dish-img {
+      aspect-ratio: 4 / 3;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--sand);
+      margin-bottom: .9rem;
+    }
+
+    .dish-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .dish h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 .25rem;
+    }
+
+    .dish p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin: 0 0 .6rem;
+      min-height: 2.6em;
+    }
+
+    .price {
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Drinks panel ---------- */
+    .panel {
+      background: var(--sand);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .drink {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .drink-img {
+      flex: 0 0 120px;
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .drink-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .drink h3 {
+      font-size: 1.35rem;
+      margin: 0 0 .4rem;
+    }
+
+    .drink ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 .5rem;
+    }
+
+    .drink li {
+      color: var(--muted);
+      font-size: .9rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .drink li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .62em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--olive);
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      margin-top: 5rem;
+      background: var(--charcoal);
+      color: #d8d6cf;
+    }
+
+    .footer-main {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .site-footer .brand {
+      color: #fff;
+      align-items: flex-start;
+    }
+
+    .site-footer .brand-thin {
+      color: #a9bd92;
+    }
+
+    .site-footer .tagline {
+      font-size: .85rem;
+      max-width: 20rem;
+      margin: 1rem 0 0;
+      color: #b9b7af;
+    }
+
+    .site-footer h4 {
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .site-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-footer li {
+      margin-bottom: .45rem;
+    }
+
+    .site-footer a {
+      color: #b9b7af;
+      font-size: .88rem;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: #fff;
+    }
+
+    .footer-bar {
+      background: var(--olive);
+      color: #e9efe1;
+      text-align: center;
+      font-size: .78rem;
+      padding: .6rem 0;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 991.98px) {
+      .hero {
+        padding-top: 7rem;
+      }
+
+      .plate-wrap {
+        margin-top: 3rem;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1.25rem;
+      }
+
+      .feature:nth-child(3) {
+        border-left: 0;
+      }
+
+      .dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        border-left: 0;
+      }
+
+      .dish-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .drink-img {
+        flex-basis: 96px;
+      }
+
+      .panel {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top site-nav">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="thin PIZZA">
+        <i class="fas fa-pizza-slice"></i>
+        <span class="brand-thin">THIN</span>
+        <span class="brand-main">PIZZA</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#mains">Main dishes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#drinks">Drinks</a>
-            </li>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link" href="#mains">Main Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#drinks">Drinks</a></li>
+        </ul>
+        <button type="button" class="btn btn-olive" onclick="home();">Home</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <p class="script">Welcome to our menu</p>
+          <h1>Meals made with love,<br><span>for all ages.</span></h1>
+          <p class="intro">
+            Our meals are made with love to nurture all ages. Each dish has all its ingredients listed below, therefore
+            we are not responsible for any medical conditions that occur. We hope you enjoy our meals.
+          </p>
+          <div class="hero-actions">
+            <a href="#mains" class="btn btn-olive">Main Courses</a>
+            <a href="#drinks" class="btn-ghost btn">Drinks</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="plate-wrap">
+            <div class="plate">
+              <img
+                src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/marPizza.jpg"
+                alt="Margherita pizza">
+            </div>
+            <svg class="leaf-art" viewBox="0 0 120 220" fill="none" stroke="#4B5F37" stroke-width="1.2"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M60 215 C58 160 62 100 78 20" />
+              <path d="M60 170 C30 165 18 140 22 118 C45 122 58 145 60 170Z" />
+              <path d="M62 140 C90 132 104 108 100 86 C76 92 64 115 62 140Z" />
+              <path d="M64 100 C40 92 30 70 34 52 C54 58 64 78 64 100Z" />
+              <path d="M70 66 C92 58 100 40 96 26 C80 32 72 46 70 66Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Feature strip -->
+  <div class="container">
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-leaf"></i>
+        <div>
+          <h3>Fresh ingredients</h3>
+          <p>Fresh tomatoes, mozzarella and basil.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <i class="fas fa-heart"></i>
+        <div>
+          <h3>Made with love</h3>
+          <p>Every meal is made to nurture.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <div>
+          <h3>All ages</h3>
+          <p>Dishes for everyone at the table.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <i class="fas fa-clipboard-list"></i>
+        <div>
+          <h3>Ingredients listed</h3>
+          <p>Check every dish before you order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Main Courses -->
+    <section class="menu-section" id="mains">
+      <div class="section-head">
+        <h2>Main Courses</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="dish-grid">
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/marPizza.jpg"
+              alt="Margherita">
+          </div>
+          <h3>Margherita</h3>
+          <p>Fresh tomatoes, fresh mozzarella, fresh basil</p>
+          <span class="price">15 SR</span>
+        </article>
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Formaggio.jpg"
+              alt="Formaggio">
+          </div>
+          <h3>Formaggio</h3>
+          <p>Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
+          <span class="price">23 SR</span>
+        </article>
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Chicken.jpg"
+              alt="Chicken pieces">
+          </div>
+          <h3>Chicken pieces</h3>
+          <p>Fresh tomatoes, mozzarella, chicken pieces, onions</p>
+          <span class="price">16 SR</span>
+        </article>
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Pineapple.jpg"
+              alt="Pineapple 'o'clock">
+          </div>
+          <h3>Pineapple 'o'clock</h3>
+          <p>Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil</p>
+          <span class="price">15 SR</span>
+        </article>
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/sea.jpg"
+              alt="SeaFood">
+          </div>
+          <h3>SeaFood</h3>
+          <p>Fish (salmon, tuna, anchovy), shellfish, clams, scallops</p>
+          <span class="price">45 SR</span>
+        </article>
+
+        <article class="dish">
+          <div class="dish-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/pork.jpg"
+              alt="Pork Deluxe">
+          </div>
+          <h3>Pork Deluxe</h3>
+          <p>Pork, onions, BBQ sauce, green &amp; red capsicum, Italian sausage</p>
+          <span class="price">25 SR</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Drinks -->
+    <section class="menu-section" id="drinks">
+      <div class="section-head">
+        <h2>Drinks</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="panel">
+        <div class="drink">
+          <div class="drink-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/fresh.jpg"
+              alt="Fresh juice">
+          </div>
+          <div>
+            <h3>Fresh juice</h3>
+            <ul>
+              <li>Apple juice</li>
+              <li>Orange juice</li>
+              <li>Mango juice</li>
+            </ul>
+            <span class="price">5 SR</span>
+          </div>
+        </div>
+
+        <div class="drink">
+          <div class="drink-img">
+            <img loading="lazy"
+              src="https://raw.githubusercontent.com/DeemaEssam/DeemaEssam.github.io/refs/heads/main/pics/MenuPics/Soft.jpg"
+              alt="Soft drinks">
+          </div>
+          <div>
+            <h3>Soft Drinks</h3>
+            <ul>
+              <li>Pepsi</li>
+              <li>SevenUp</li>
+              <li>Shani</li>
+            </ul>
+            <span class="price">5 SR</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <a class="brand" href="#top" aria-label="thin PIZZA">
+            <span class="brand-thin">THIN</span>
+            <span class="brand-main">PIZZA</span>
+          </a>
+          <p class="tagline">Meals made with love to nurture all ages.</p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#mains">Main Courses</a></li>
+            <li><a href="#drinks">Drinks</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="Pizza.html">Home</a></li>
           </ul>
         </div>
       </div>
-    </nav>
-
-    <br>
-
-    <div class="w3-container w3-padding-32 w3-light-grey"><br>
-      <div class="w3-container w3-padding-64 w3-dark-grey w3-grayscale-min w3-xlarge">
-        <div class="container">
-          <header>
-              <div class="row justify-content-center">
-                <div class="text-center">
-                    <i><strong>
-                        Our meals are made with love to nurture all ages. Each dish has all it's ingredients listed below therefore we are not responsible for any medical conditions occurred. <br />We hope you enjoy our meals.
-                    </i></strong>
-                </div>
-              </div>
-          </header>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <div class="container">
-              <div class="col">
-                <h2 id="mains">Main dishes</h2>
-                <hr class="cointainer w3-black">
-                <!-- Content -->
-                <div class="tab-content" id="menuContent">
-                  <div class="tab-pane fade show active" id="mains" role="tabpanel" aria-labelledby="mainsTab">
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/marPizza.jpg?raw=true">
-                              </div>
-                            </div>
-                            <div class="col-7">
-                              <!-- Heading -->
-                              <h2 class="mb-2">Margherita</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                  Fresh tomatoes, fresh mozzarella, fresh basil
-                              </p><br>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                15 SR
-                              </div>
-
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/Formaggio.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">Formaggio</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                  Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)
-                              </p>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                23 SR
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/Chicken.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">Chicken pieces </h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                  Fresh tomatoes, mozzarella, chicken pieces, onions
-                              </p><br>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                16 SR
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/Pineapple.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">Pineapple 'o'clock</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                  Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil
-                              </p>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                15 SR
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                        <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/sea.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">SeaFood</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                  fish ( salmon, tuna, anchovy), shellfish, clams, scallops
-                              </p>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                45 SR
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/pork.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">Pork Deluxe</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                Pork,onions,bbq sauce,green&red capsicum ,italian sausage
-                              </p>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                25 SR
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--------drinks---------->
-        <div class="row">
-          <div class="col-12">
-            <div class="container">
-              <div class="col"><br><br>
-                <h2 id="drinks">Drinks</h2>
-                <hr class="cointainer w3-black">
-                <!-- Content -->
-                <div class="tab-content" id="menuContent">
-                  <div class="tab-pane fade show active" id="mains" role="tabpanel" aria-labelledby="mainsTab">
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/fresh.jpg?raw=true">
-                              </div>
-                            </div>
-                            <div class="col-7">
-                              <!-- Heading -->
-                              <h2 class="mb-2">Fresh juice</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                <ul>
-                                  <!-- to unorder -->
-                                  <li>Apple juice</li>
-                                  <li>Orange juice</li>
-                                  <li>Mango juice</li>
-                              </ul>
-                              </p><br>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                5 SR
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="py-3 border-bottom">
-                          <div class="row">
-                            <div class="col-3 align-self-center">
-
-                              <!-- Image -->
-                              <div class="ratio ratio-1x1">
-                                <img class="object-fit-cover" src="https://github.com/DeemaEssam/DeemaEssam.github.io/blob/main/pics/MenuPics/Soft.jpg?raw=true">
-                              </div>
-
-                            </div>
-                            <div class="col-7">
-
-                              <!-- Heading -->
-                              <h2 class="mb-2">Soft Drinks</h2>
-
-                              <!-- Text -->
-                              <p class="mb-0">
-                                <ul>
-                                  <!-- to unorder -->
-                                  <li>Pepsi</li>
-                                  <li>SevenUp</li>
-                                  <li>Shani</li>
-                              </ul>
-                              </p><br>
-
-                            </div>
-                            <div class="col-2">
-
-                              <!-- Price -->
-                              <div class="fs-4 font-serif text-center text-black">
-                                5 SR
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-muted fas fa-pizza-slice"> 2022 thin PIZZA</span>
-        </div>
-      </footer>
+    <div class="footer-bar">
+      <i class="fas fa-pizza-slice"></i> &copy; 2022 thin PIZZA
     </div>
+  </footer>
 
-  </body>
   <script>
-    function home()
-    {
-      window.location.href = '/projects/menu/Pizza.html';
+    function home() {
+      window.location.href = 'Pizza.html';
       return false;
     }
   </script>
+</body>
+
 </html>
